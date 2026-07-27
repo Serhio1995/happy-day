@@ -20,7 +20,7 @@ h1,h2,h3,h4{text-wrap:balance}
 /* Editorial balloon footer */
 .site-footer{position:relative;isolation:isolate;overflow:hidden;margin-top:0;background:linear-gradient(145deg,#1f3975 0%,#263f7b 50%,#392d69 100%);color:#fff}
 .site-footer:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 15% 30%,rgba(239,112,157,.14),transparent 25%),radial-gradient(circle at 86% 80%,rgba(244,160,190,.11),transparent 25%);pointer-events:none}
-.site-footer:after{content:"";position:absolute;top:-39px;left:-2%;width:104%;height:72px;border-radius:0 0 50% 50%;background:#fff;pointer-events:none}
+.site-footer:after{content:"";position:absolute;top:-39px;left:-2%;width:104%;height:72px;border-radius:0 0 50% 50%;background:linear-gradient(90deg,#fff5f8 0%,#ffe8f0 48%,#fff4f8 100%);box-shadow:0 2px 0 rgba(241,124,164,.16);pointer-events:none}
 .footer-cta{position:relative;z-index:2;margin-top:38px;padding:48px 0 36px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;border-bottom:1px solid rgba(255,255,255,.14)}
 .footer-cta>div{max-width:690px}.footer-cta span{display:block;margin-bottom:7px;color:#ff9fbd;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.footer-cta h2{margin:0;font-size:clamp(30px,4vw,52px);line-height:1.08;letter-spacing:-.045em}.footer-cta .hd-btn{flex:0 0 auto;margin-bottom:7px}
 .site-footer .footer-top{position:relative;z-index:2;padding:48px 0 54px;display:grid;grid-template-columns:1.35fr .7fr 1fr 1.25fr;gap:58px;align-items:start}
