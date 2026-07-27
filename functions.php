@@ -10,6 +10,18 @@ function hd_setup(){
 }
 add_action('after_setup_theme','hd_setup');
 
+/* Keep the rental offering visually separate from balloon decoration services
+   without requiring a second WordPress menu level for a single link. */
+function hd_primary_menu_item_classes($classes,$item,$args,$depth){
+  if(($args->theme_location??'')!=='primary'||$depth!==1) return $classes;
+  $path=(string)wp_parse_url((string)$item->url,PHP_URL_PATH);
+  $is_backdrop=str_ends_with(untrailingslashit($path),'/backdrop-rental')
+    ||sanitize_title(wp_strip_all_tags((string)$item->title))==='backdrop-rental';
+  if($is_backdrop) $classes[]='hd-rental-menu-item';
+  return $classes;
+}
+add_filter('nav_menu_css_class','hd_primary_menu_item_classes',10,4);
+
 /* XAMPP installs this site in a directory containing a space. WordPress writes
    an absolute encoded substitution into .htaccess in that case, which Apache
    treats as a literal path and returns its own 404 page. Keep the generated
@@ -193,6 +205,88 @@ function hd_service_page_template($template){
   return file_exists($data_file)&&file_exists($service_template)?$service_template:$template;
 }
 add_filter('template_include','hd_service_page_template',30);
+
+/* Give the shared Instagram feed relevant editorial context on every service
+ * page instead of repeating one generic heading site-wide. */
+function hd_instagram_section_copy(){
+  $default=[
+    'title'=>'See What We’ve Been Celebrating',
+    'text'=>'Real balloon setups, recent events and new ideas from Happy Day Toronto.',
+  ];
+  if(!is_page()) return $default;
+  $slug=(string)get_post_field('post_name',get_queried_object_id());
+  $service_copy=[
+    'balloons-for-birthdays'=>[
+      'title'=>'Birthday Ideas Made to Be Remembered',
+      'text'=>'See colourful birthday backdrops, number displays and playful balloon details created for celebrations of every age.',
+    ],
+    'wedding-balloons'=>[
+      'title'=>'Wedding Details Worth Saving',
+      'text'=>'Explore elegant balloon installations designed for ceremonies, receptions, entrances and picture-perfect wedding moments.',
+    ],
+    'corporate-event-balloons'=>[
+      'title'=>'Polished Events, Real Brand Moments',
+      'text'=>'See branded balloon decor, professional backdrops and statement installations created for business events and launches.',
+    ],
+    'anniversary-balloons'=>[
+      'title'=>'Another Year, Beautifully Celebrated',
+      'text'=>'Discover romantic anniversary setups shaped with meaningful colours, refined details and photo-ready focal points.',
+    ],
+    'baby-shower-balloons'=>[
+      'title'=>'Sweet Welcomes We’ve Loved Creating',
+      'text'=>'Browse soft palettes, charming backdrops and thoughtful balloon details made for joyful baby shower celebrations.',
+    ],
+    'bridal-shower-balloons'=>[
+      'title'=>'Beautiful Moments Before “I Do”',
+      'text'=>'See elegant bridal shower balloon decor created for brunches, gift tables, photo areas and time with the bride-to-be.',
+    ],
+    'baptism-balloons'=>[
+      'title'=>'Meaningful Days, Thoughtfully Styled',
+      'text'=>'Explore gentle balloon palettes and graceful decor created for baptisms, christenings and treasured family gatherings.',
+    ],
+    'christmas-balloons'=>[
+      'title'=>'Holiday Setups Full of Cheer',
+      'text'=>'See festive arches, seasonal backdrops and Christmas balloon details created for warm gatherings and holiday events.',
+    ],
+    'valentines-day-balloons'=>[
+      'title'=>'Romantic Details, Made for the Moment',
+      'text'=>'Browse Valentine’s Day balloon installations styled for proposals, dinners, storefronts and heartfelt surprises.',
+    ],
+    'bar-mitzvah-balloons'=>[
+      'title'=>'Milestone Celebrations with Personality',
+      'text'=>'See custom Bar Mitzvah balloon decor designed around meaningful themes, family traditions and memorable party moments.',
+    ],
+    'backdrop-rental'=>[
+      'title'=>'Photo-Ready Backdrops in Real Spaces',
+      'text'=>'Explore backdrop installations styled for birthdays, showers, weddings, corporate events and standout photo moments.',
+    ],
+    'balloon-arch-garland'=>[
+      'title'=>'Arches & Garlands in Every Style',
+      'text'=>'See organic garlands, entrance arches and balloon features tailored to different palettes, venues and celebrations.',
+    ],
+    'balloon-ceiling-decor'=>[
+      'title'=>'Look Up—the Celebration Is Everywhere',
+      'text'=>'Discover ceiling balloon installations that bring colour, movement and a more immersive atmosphere to indoor events.',
+    ],
+    'graduation-balloons'=>[
+      'title'=>'Big Achievements, Bold Celebrations',
+      'text'=>'Browse graduation backdrops, school-colour displays and custom balloon details made to honour every graduate.',
+    ],
+    'engagement-balloons'=>[
+      'title'=>'The “Yes” Moments We Love',
+      'text'=>'See romantic engagement setups created for proposals, intimate gatherings and the first photos of a new chapter.',
+    ],
+    'halloween-balloons'=>[
+      'title'=>'Spooky Setups with Serious Style',
+      'text'=>'Explore playful Halloween arches, dramatic palettes and themed balloon installations made for memorable seasonal events.',
+    ],
+    'balloon-and-flower-decoration'=>[
+      'title'=>'Where Balloons Meet Florals',
+      'text'=>'See soft floral accents and custom balloon arrangements combined for elegant, layered and naturally beautiful event decor.',
+    ],
+  ];
+  return $service_copy[$slug]??$default;
+}
 
 function hd_woocommerce_setup(){
   remove_action('woocommerce_before_main_content','woocommerce_output_content_wrapper',10);

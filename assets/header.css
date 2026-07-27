@@ -28,7 +28,7 @@
 @media(min-width:901px){
   .site-header .site-nav .menu-item-has-children:after{content:"";position:absolute;z-index:121;left:50%;top:calc(100% + 2px);width:58px;height:49px;opacity:0;visibility:hidden;transform:translateX(-50%) scale(.7);transform-origin:top center;clip-path:polygon(48% 0,100% 100%,12% 100%);background:linear-gradient(145deg,#203a76 0%,#293e78 68%,#3d376f 100%);filter:drop-shadow(5px 5px 0 rgba(241,124,164,.14));transition:opacity .18s ease,visibility .18s ease,transform .22s cubic-bezier(.2,.75,.25,1)}
   .site-header .site-nav .menu-item-has-children:hover:after,.site-header .site-nav .menu-item-has-children:focus-within:after{opacity:1;visibility:visible;transform:translateX(-50%) scale(1)}
-  .site-header .site-nav .sub-menu{top:calc(100% + 36px);grid-template-columns:repeat(3,minmax(0,1fr));width:min(800px,calc(100vw - 44px));padding:17px 20px 21px;column-gap:24px;row-gap:0;border:1px solid rgba(255,255,255,.1);border-radius:13px 34px 13px 34px;background:linear-gradient(135deg,#203a76 0%,#293e78 58%,#4b326b 100%);box-shadow:12px 14px 0 rgba(241,124,164,.18),0 28px 58px rgba(17,29,66,.28)}
+  .site-header .site-nav .sub-menu{top:calc(100% + 36px);grid-template-columns:repeat(4,minmax(0,1fr));width:min(960px,calc(100vw - 44px));padding:17px 20px 21px;column-gap:21px;row-gap:0;border:1px solid rgba(255,255,255,.1);border-radius:13px 34px 13px 34px;background:linear-gradient(135deg,#203a76 0%,#293e78 58%,#4b326b 100%);box-shadow:12px 14px 0 rgba(241,124,164,.18),0 28px 58px rgba(17,29,66,.28)}
   .site-header .site-nav .sub-menu:before{position:static;display:block;grid-column:1/-1;width:auto;height:auto;margin:0 0 11px;padding:3px 0 17px;border:0;border-bottom:1px solid rgba(255,255,255,.14);border-radius:0;background:transparent;transform:none;content:"Make It a Moment";color:#ffabc6;font-family:inherit;font-size:32px;font-weight:900;line-height:1;letter-spacing:-.05em;text-transform:none;text-shadow:0 7px 22px rgba(14,23,58,.34)}
   .site-header .site-nav .sub-menu li{width:100%!important;min-width:0;border-bottom:1px solid rgba(255,255,255,.075)}
   .site-header .site-nav .sub-menu li:nth-last-child(-n+3){border-bottom:0}
@@ -37,6 +37,13 @@
   .site-header .site-nav .sub-menu a:after{content:"\f061";position:absolute;left:auto;right:3px;top:50%;bottom:auto;display:grid;place-items:center;width:24px;height:24px;border:1px solid rgba(255,171,198,.22);border-radius:50%;background:rgba(255,255,255,.055);color:#ff9fbd;font-family:"Font Awesome 7 Free";font-size:8px;font-weight:900;opacity:0;transform:translate(-4px,-50%);transition:opacity .2s ease,transform .2s ease,background .2s ease}
   .site-header .site-nav .sub-menu a:hover{color:#ffabc6;background:transparent;transform:translateX(4px)}
   .site-header .site-nav .sub-menu a:hover:after{opacity:1;transform:translate(0,-50%);background:rgba(239,124,165,.14)}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item{position:relative;order:5;grid-column:1/-1;display:grid;grid-template-columns:135px minmax(250px,330px);justify-content:start;align-items:center;gap:16px;margin-top:16px;padding:9px 13px 9px 18px;border:1px solid rgba(255,255,255,.12);border-radius:11px 25px 11px 11px;background:rgba(255,255,255,.065);box-shadow:inset 3px 0 0 rgba(241,124,164,.9)}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item:before{content:"Rentals";color:#ffabc6;font-size:11px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item>a{width:100%;min-height:43px;padding:9px 34px 9px 0;border:0;border-radius:0;background:transparent;color:#f5f7ff}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item>a:before{display:none}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item>a:after{position:absolute;right:3px;opacity:0;transform:translate(-4px,-50%)}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item>a:hover{background:transparent;transform:translateX(4px)}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item>a:hover:after{opacity:1;transform:translate(0,-50%)}
 }
 
 /* WordPress menu state must not look like a hover state. */
@@ -89,6 +96,9 @@
   .site-header .site-nav .sub-menu a:after{content:"\f061";position:static;display:grid;place-items:center;width:27px;height:27px;border:1px solid rgba(37,61,120,.09);border-radius:50%;background:rgba(255,255,255,.72);color:#d95886;font-family:"Font Awesome 7 Free";font-size:8px;font-weight:900;opacity:.72;transform:none;transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease}
   .site-header .site-nav .sub-menu a:hover{padding:6px 5px;background:rgba(255,255,255,.72);color:#263d78;transform:translateX(3px)}
   .site-header .site-nav .sub-menu a:hover:after{border-color:#f17ca4;background:#f17ca4;color:#fff;transform:translateX(2px)}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item{order:5;display:grid;grid-template-columns:82px minmax(0,1fr);align-items:center;gap:9px;margin:11px 0 3px;padding:9px 9px 9px 12px;border:1px solid rgba(241,124,164,.18);border-radius:12px 22px 12px 12px;background:rgba(241,124,164,.07);box-shadow:inset 3px 0 0 #f17ca4}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item:before{content:"Rentals";color:#d64f7f;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item>a{min-height:44px;color:#59657e}
 }
 @media(min-width:520px) and (max-width:900px){.site-header .site-nav .sub-menu{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px}.site-header .site-nav .services-open>.sub-menu{max-height:620px!important}}
 @media(max-width:420px){.mobile-menu-top>span{display:none}.site-header .site-nav>ul>li>a{font-size:21px}.site-header .site-nav>ul{padding-left:18px;padding-right:18px}.mobile-menu-bottom{width:calc(100% - 36px)}}

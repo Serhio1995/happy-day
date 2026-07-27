@@ -1,11 +1,12 @@
 </main>
+<?php $instagram_copy=hd_instagram_section_copy(); ?>
 <section class="hd-instagram-section" aria-labelledby="hd-instagram-title">
   <div class="hd-wrap">
     <header class="hd-instagram-head">
       <div>
         <span class="eyebrow">Fresh from Instagram</span>
-        <h2 id="hd-instagram-title">See What We’ve Been Celebrating</h2>
-        <p>Real balloon setups, recent events and new ideas from Happy Day Toronto.</p>
+        <h2 id="hd-instagram-title"><?php echo esc_html($instagram_copy['title']); ?></h2>
+        <p><?php echo esc_html($instagram_copy['text']); ?></p>
       </div>
       <a class="hd-instagram-link" href="https://www.instagram.com/happydaytoronto/" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
