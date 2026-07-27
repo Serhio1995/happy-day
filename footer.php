@@ -1,5 +1,5 @@
 </main>
-<?php if(!hd_is_service_page()) get_template_part('template-parts/instagram-section'); ?>
+<?php if(!hd_is_service_page()&&!is_front_page()) get_template_part('template-parts/instagram-section'); ?>
 <footer class="site-footer">
   <div class="footer-balloons footer-balloons-left" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="footer-balloons footer-balloons-right" aria-hidden="true"><i></i><i></i><i></i></div>
