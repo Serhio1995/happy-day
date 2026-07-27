@@ -197,12 +197,16 @@ add_action('wp_head','hd_preload_hero_image',1);
 
 /* Service pages are file-driven. Keep their layout even if an editor plugin
  * resets the saved Page Template field while updating SEO metadata. */
-function hd_service_page_template($template){
-  if(!is_page()) return $template;
+function hd_is_service_page(){
+  if(!is_page()) return false;
   $slug=(string) get_post_field('post_name',get_queried_object_id());
   $data_file=get_template_directory().'/inc/services/'.$slug.'.php';
+  return is_file($data_file);
+}
+function hd_service_page_template($template){
+  if(!hd_is_service_page()) return $template;
   $service_template=get_template_directory().'/page-service.php';
-  return file_exists($data_file)&&file_exists($service_template)?$service_template:$template;
+  return file_exists($service_template)?$service_template:$template;
 }
 add_filter('template_include','hd_service_page_template',30);
 
