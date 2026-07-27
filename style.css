@@ -170,11 +170,13 @@ h1,h2,h3,h4{text-wrap:balance}
 @media(max-width:600px){.hd-gta-photo{outline-width:7px;box-shadow:10px 14px 0 rgba(241,124,164,.12),0 20px 45px rgba(37,61,120,.15)}}
 
 /* Decorative backdrop for the Toronto & GTA section */
-.hd-home section:has(.hd-gta-photo){position:relative;isolation:isolate;border-top:1px solid rgba(37,61,120,.07);background:radial-gradient(ellipse at 8% 22%,rgba(118,77,139,.075) 0 115px,transparent 117px),radial-gradient(circle at 94% 78%,rgba(241,124,164,.1) 0 145px,transparent 147px),linear-gradient(135deg,#f2f5fb 0%,#f8f6fb 52%,#fff2f6 100%)}
+.gta-section-wave{position:relative;z-index:2;height:58px;margin-top:-58px;overflow:hidden;line-height:0;pointer-events:none}.gta-section-wave svg{display:block;width:100%;height:100%}.gta-section-wave path{fill:#f2f5fb}
+.hd-home section:has(.hd-gta-photo){position:relative;isolation:isolate;background:radial-gradient(ellipse at 8% 22%,rgba(118,77,139,.075) 0 115px,transparent 117px),radial-gradient(circle at 94% 78%,rgba(241,124,164,.1) 0 145px,transparent 147px),linear-gradient(135deg,#f2f5fb 0%,#f8f6fb 52%,#fff2f6 100%)}
 .hd-home section:has(.hd-gta-photo):before{content:"";position:absolute;z-index:-1;right:-65px;top:55px;width:210px;height:210px;border:25px solid rgba(241,124,164,.065);border-radius:50%;box-shadow:0 0 0 22px rgba(37,61,120,.025),0 0 0 50px rgba(241,124,164,.018)}
 .hd-home section:has(.hd-gta-photo):after{content:"";position:absolute;z-index:-1;left:5%;bottom:45px;width:9px;height:9px;border-radius:50%;background:rgba(241,124,164,.28);box-shadow:24px -18px 0 rgba(37,61,120,.16),48px 5px 0 rgba(241,124,164,.18),72px -24px 0 rgba(118,77,139,.13),96px 2px 0 rgba(241,124,164,.14)}
 .hd-home section:has(.hd-gta-photo)>.hd-wrap{position:relative;z-index:1}
 @media(max-width:600px){.hd-home section:has(.hd-gta-photo):before{right:-75px;top:30px;width:155px;height:155px;border-width:18px}.hd-home section:has(.hd-gta-photo):after{display:none}}
+@media(max-width:600px){.gta-section-wave{height:38px;margin-top:-38px}}
 .why-section .list-intro{margin:25px 0 8px;color:var(--navy)}.why-section .check-grid{margin-top:14px}.why-section .check-grid li{line-height:1.45}
 
 /* Why choose us — image-free feature mosaic */
