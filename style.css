@@ -479,3 +479,94 @@ Text Domain: happy-day
   .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-image{height:auto;aspect-ratio:16/9}
   .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-body{padding:25px}
 }
+
+/* Instagram feed — a dedicated social-proof section before the footer. */
+.hd-instagram-section{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:78px 0 90px!important;
+  background:
+    radial-gradient(circle at 4% 18%,rgba(241,124,164,.12) 0 105px,transparent 107px),
+    radial-gradient(circle at 96% 54%,rgba(37,61,120,.075) 0 145px,transparent 147px),
+    linear-gradient(180deg,#fff8fb 0%,#fff 72%,#fff 100%);
+}
+.hd-instagram-section:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  right:7%;
+  top:45px;
+  width:92px;
+  height:92px;
+  border:17px solid rgba(241,124,164,.07);
+  border-radius:50%;
+}
+.hd-instagram-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:42px;
+  margin-bottom:34px;
+}
+.hd-instagram-head h2{
+  max-width:690px;
+  margin:0 0 11px;
+  color:var(--navy);
+  font-size:clamp(37px,4.7vw,58px);
+  line-height:1.04;
+  letter-spacing:-.045em;
+}
+.hd-instagram-head p{
+  max-width:620px;
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+.hd-instagram-link{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  flex:0 0 auto;
+  min-height:52px;
+  padding:9px 11px 9px 17px;
+  border:1px solid rgba(241,124,164,.22);
+  border-radius:14px 28px 14px 14px;
+  background:#fff;
+  color:var(--navy);
+  box-shadow:6px 7px 0 rgba(241,124,164,.12),0 14px 32px rgba(37,61,120,.09);
+  font-size:13px;
+  font-weight:850;
+  transition:transform .2s ease,box-shadow .2s ease,color .2s ease;
+}
+.hd-instagram-link .fa-instagram{
+  color:#e75e90;
+  font-size:20px;
+}
+.hd-instagram-link .fa-arrow-right{
+  display:grid;
+  place-items:center;
+  width:32px;
+  height:32px;
+  border-radius:10px 18px 10px 10px;
+  background:#fff0f5;
+  color:#d94f80;
+  font-size:9px;
+}
+.hd-instagram-link:hover{
+  color:#d34d7d;
+  transform:translateY(-3px);
+  box-shadow:8px 10px 0 rgba(241,124,164,.16),0 19px 38px rgba(37,61,120,.11);
+}
+.hd-instagram-feed{
+  min-height:385px;
+  padding:0;
+  background:transparent;
+}
+@media(max-width:700px){
+  .hd-instagram-section{padding:58px 0 70px!important}
+  .hd-instagram-head{display:grid;gap:23px;margin-bottom:27px}
+  .hd-instagram-head h2{font-size:38px}
+  .hd-instagram-link{width:max-content;max-width:100%}
+  .hd-instagram-feed{min-height:330px;padding:0}
+}
