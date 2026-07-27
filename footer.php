@@ -46,7 +46,6 @@
         <li><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
         <li><a href="<?php echo esc_url(hd_local_url('about')); ?>">About</a></li>
         <li><a href="<?php echo esc_url(hd_local_url('blog')); ?>">Blog</a></li>
-        <?php if(function_exists('wc_get_page_permalink')): ?><li><a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>">Shop</a></li><?php endif; ?>
         <li><a href="<?php echo esc_url(home_url('/#services')); ?>">All Services</a></li>
         <li><a href="<?php echo esc_url(hd_local_url('contact')); ?>">Contact</a></li>
       </ul>
