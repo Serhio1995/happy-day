@@ -16,7 +16,8 @@ return [
     'sections' => [
         [
             'title' => 'Beautiful Baby Shower Balloon Decor',
-            'image' => 117,
+            'image_asset' => 'assets/images/beautiful-baby-shower-balloon-decor.jpg',
+            'image_alt' => 'Beautiful custom baby shower balloon decor',
             'paragraphs' => [
                 'A baby shower is one of the sweetest celebrations before the baby arrives, and the decor should feel warm, joyful, and personal. Our baby shower balloon decor can be styled for soft neutral themes, pastel colours, baby girl showers, baby boy showers, gender-neutral events, luxury setups, or playful family celebrations.',
                 'We can create a simple balloon garland for a dessert table or a larger setup with a backdrop, arch, floral details, signage, and photo area. Each design is planned around the event space, guest flow, theme, and the type of photos you want to create.',
@@ -26,7 +27,8 @@ return [
         [
             'title' => 'Baby Shower Balloon Arch',
             'class' => 'service-age-section',
-            'image' => 114,
+            'image_asset' => 'assets/images/baby-shower-balloon-arch.jpg',
+            'image_alt' => 'Baby shower balloon arch for a decorated celebration',
             'paragraphs' => [
                 'A baby shower balloon arch is one of the most popular decor choices because it creates a clear focal point for the event. It can be placed at the entrance, around a backdrop, behind the dessert table, near the gift area, or in a main photo zone.',
                 'Balloon arches can be soft and minimal or fuller and more dramatic depending on the space. Popular colours include white, cream, beige, blush, pink, blue, sage, gold, silver, lavender, peach, and pastel combinations.',
@@ -66,7 +68,8 @@ return [
         [
             'title' => 'Balloons for Baby Shower Themes',
             'class' => 'service-themes-section',
-            'image' => 115,
+            'image_asset' => 'assets/images/balloons-for-baby-shower-themes.jpg',
+            'image_alt' => 'Themed balloon decoration for a baby shower',
             'paragraphs' => [
                 'Balloons for baby shower events can be customized to match almost any theme. Some clients want a soft and elegant look, while others prefer a cute themed setup with props, signs, characters, or playful colours.',
                 'Popular themes include teddy bear, baby in bloom, moon and stars, Oh Baby, little princess, little gentleman, safari, jungle, boho neutral, pink, blue, sage and beige, or white, gold and cream.',
@@ -85,7 +88,8 @@ return [
         [
             'title' => 'Baby Shower Balloons for Girls and Boys',
             'class' => 'service-backdrops-section',
-            'image' => 116,
+            'image_asset' => 'assets/images/baby-shower-balloons-for-girls-and-boys.jpg',
+            'image_alt' => 'Baby shower balloons styled for girls and boys',
             'paragraphs' => [
                 'Happy Day Toronto creates beautiful baby shower balloon decorations for both baby girl and baby boy celebrations.',
                 'For baby girl showers, popular colour combinations include blush, pink, white, lavender, peach, gold, and other soft pastel tones. These palettes work beautifully with princess, floral, butterfly, teddy bear, cloud, and elegant modern themes.',
