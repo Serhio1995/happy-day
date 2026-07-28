@@ -13,7 +13,7 @@ return [
 'A birthday setup should feel fun, personal, and easy to enjoy. Our birthday balloon decorations can be designed as a simple feature wall, a full party backdrop, a balloon arch at the entrance, a garland around the dessert table, or a complete themed setup for photos and guests.',
 'We help create balloon decoration for birthday party spaces of different sizes, including homes, condos, restaurants, party rooms, banquet halls, community centres, schools, and outdoor celebrations. Whether you want something bright and playful or soft and elegant, we can create a design that fits your event.',
 'If you are planning a larger event, you can also combine birthday balloons with '.$link('services/backdrop-rental','backdrop rental').', '.$link('services/balloon-arch-garland','balloon arch and garland setups').', '.$link('services/balloon-ceiling-decor','balloon ceiling decor').', or '.$link('services/balloon-and-flower-decoration','balloon and flower decoration').'.'
-],'image'=>25],
+],'image_asset'=>'assets/images/birthday-balloons-that-set-the-scene.jpg','image_alt'=>'Birthday balloon decoration designed to set the scene for a celebration'],
 ['title'=>'Birthday Balloon Decoration for Every Age','class'=>'service-age-section','image'=>26,'paragraphs'=>[
 'Every birthday has a different mood. A first birthday may need soft colours, cute details, and a photo-ready cake table. A teen birthday may need bold colours, a trendy backdrop, or a themed balloon wall. An adult birthday may call for a more polished look with metallic balloons, elegant garlands, or a stylish backdrop.',
 'For milestone birthdays, we can include number balloons, custom colours, photo backdrops, balloon garlands, cake table decor, and entrance displays.'
@@ -32,7 +32,7 @@ return [
 'This is a good option for surprise birthdays, intimate celebrations, kids’ parties at home, or smaller gatherings where you still want the space to feel decorated and special.',
 'For room setups, we can create balloon garlands, helium-style displays, number balloons, cake table decor, ceiling balloons, or simple colour-themed arrangements.'
 ]],
-['title'=>'Birthday Backdrops, Arches & Garlands','class'=>'service-backdrops-section','image'=>28,'paragraphs'=>[
+['title'=>'Birthday Backdrops, Arches & Garlands','class'=>'service-backdrops-section','image_asset'=>'assets/images/birthday-backdrops-arches-garlands.jpg','image_alt'=>'Birthday balloon backdrop with arches and garlands','image_width'=>1000,'image_height'=>1778,'paragraphs'=>[
 'Balloon backdrops, arches, and garlands are the most popular choices for birthday parties because they create a strong visual focal point. They work well behind dessert tables, gift tables, photo areas, entrances, stages, and seating areas.',
 'A balloon garland can frame a backdrop or table. A balloon arch can welcome guests at the entrance. A birthday backdrop can create the main photo moment for the celebration. These options can also be combined with signage, flowers, props, or themed decor.',
 'For more specific decor styles, visit our '.$link('services/balloon-arch-garland','balloon arch and garland').' page or explore our '.$link('services/backdrop-rental','backdrop rental').' options.'
