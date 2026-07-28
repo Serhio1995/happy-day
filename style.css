@@ -582,3 +582,35 @@ h1,h2,h3,h4{text-wrap:balance}
   .hd-instagram-link{width:max-content;max-width:100%}
   .hd-instagram-feed{min-height:330px;padding:0}
 }
+
+/* Keep the portrait video inside the intended editorial frame on every host/browser. */
+.why-section .why-photo{
+  position:relative;
+  height:650px;
+  min-height:650px;
+  max-height:650px;
+}
+.why-section .why-photo>video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  object-fit:cover;
+  object-position:center;
+}
+@media(max-width:900px){
+  .why-section .why-photo{
+    height:520px;
+    min-height:520px;
+    max-height:520px;
+  }
+}
+@media(max-width:600px){
+  .why-section .why-photo{
+    height:420px;
+    min-height:420px;
+    max-height:420px;
+  }
+}
