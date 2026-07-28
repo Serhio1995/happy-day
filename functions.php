@@ -258,7 +258,7 @@ function hd_instagram_section_copy(){
     ],
     'bar-mitzvah-balloons'=>[
       'title'=>'Milestone Celebrations with Personality',
-      'text'=>'See custom Bar Mitzvah balloon decor designed around meaningful themes, family traditions and memorable party moments.',
+      'text'=>'See custom Bar and Bat Mitzvah balloon decor designed around the celebrant, meaningful family traditions, and memorable party moments.',
     ],
     'backdrop-rental'=>[
       'title'=>'Photo-Ready Backdrops in Real Spaces',
