@@ -19,7 +19,7 @@ return [
 'Grand opening balloon decor helps make a new location feel noticeable, welcoming, and celebration-ready. Whether you are opening a store, salon, office, clinic, showroom, restaurant, studio, or retail space, balloons can help draw attention to the entrance and create a strong first impression.',
 'We can also create balloon decor for business opening events and store opening balloon decor that works for both indoor and outdoor spaces, depending on the location and setup requirements.'
 ],'lead'=>'Popular options include:','list'=>['Balloon entrance arches','Entrance balloon garlands','Branded colour displays','Photo backdrops','Ribbon-cutting setups','Signage-area balloon decor']],
-['title'=>'Opening Ceremony Balloon Decoration','class'=>'service-themes-section','image'=>107,'paragraphs'=>[
+['title'=>'Opening Ceremony Balloon Decoration','class'=>'service-themes-section','image_asset'=>'assets/images/opening-ceremony-balloon-decoration.jpeg','image_alt'=>'Opening ceremony balloon decoration for a corporate event','paragraphs'=>[
 'Opening ceremonies often need decor that looks clean in photos and helps define the main event area. Opening ceremony balloon decoration can be used around the entrance, stage, podium, ribbon-cutting area, backdrop, or guest welcome zone.',
 'For corporate and business openings, we usually recommend a structured setup with clear placement, brand colours, and enough visual impact for photos without making the space feel cluttered.',
 'If you need a stronger visual background, a backdrop with balloon garlands can help create a polished space for speeches, announcements, ribbon cutting, and team photos.'
