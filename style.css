@@ -352,6 +352,7 @@ h1,h2,h3,h4{text-wrap:balance}
 .hd-hero:before,.service-hero:after{content:"";position:absolute;z-index:3;display:block;left:-8%;bottom:-86px;width:116%;height:132px;border-radius:50%;background:#fff;box-shadow:0 -3px 0 rgba(241,124,164,.58),0 -9px 0 rgba(37,61,120,.22),0 -15px 28px rgba(24,43,92,.14);pointer-events:none;transform:rotate(-.35deg)}
 .hd-home .hd-hero:before{bottom:-28px;height:62px;background:linear-gradient(180deg,#fff 0%,#fff 62%,rgba(255,255,255,.82) 82%,rgba(255,255,255,0) 100%)}
 .hd-home #about{padding-top:0}
+.hd-home #about>.hd-wrap{position:relative;z-index:4}
 .service-hero-content{padding-bottom:56px}
 @media(max-width:700px){.hd-hero:before,.service-hero:after{left:-14%;bottom:-61px;width:128%;height:88px;box-shadow:0 -2px 0 rgba(241,124,164,.52),0 -7px 0 rgba(37,61,120,.2),0 -11px 20px rgba(24,43,92,.12);transform:rotate(-.5deg)}.hd-home .hd-hero:before{bottom:-22px;height:48px}.hd-home #about{padding-top:0}.service-hero-content{padding-bottom:38px}}
 .hd-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
