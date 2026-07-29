@@ -115,6 +115,35 @@ function hd_assets(){
     $gallery_css=get_template_directory().'/assets/gallery.css';
     $gallery_js=get_template_directory().'/assets/gallery.js';
     wp_enqueue_style('happy-day-gallery',get_template_directory_uri().'/assets/gallery.css',['happy-day-header'],(string)filemtime($gallery_css));
+    /*
+     * Keep the carousel control usable when a production CSS optimizer builds
+     * an incomplete critical-CSS set. This small inline fallback is attached
+     * to the gallery stylesheet so the control never falls back to the native
+     * browser button.
+     */
+    wp_add_inline_style('happy-day-gallery','
+      .hd-gallery-filter-row{position:relative}
+      .hd-gallery-filter-next{
+        position:absolute!important;z-index:5!important;right:-45px!important;top:12px!important;
+        display:grid!important;width:36px!important;height:34px!important;min-width:36px!important;
+        margin:0!important;padding:0!important;place-items:center!important;
+        border:1px solid #ff9fbe!important;border-radius:11px!important;
+        background:linear-gradient(135deg,#ef5b91,#f47eaa)!important;color:#df4a80!important;
+        box-shadow:0 4px 0 #d63f76,0 9px 17px rgba(218,66,122,.2)!important;
+        cursor:pointer!important;appearance:none!important;-webkit-appearance:none!important;
+        transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease!important
+      }
+      .hd-gallery-filter-next i{
+        display:grid!important;width:21px!important;height:21px!important;place-items:center!important;
+        border-radius:7px!important;background:#fff!important;color:#df4a80!important;
+        box-shadow:0 2px 7px rgba(87,42,83,.1)!important;font-size:9px!important
+      }
+      .hd-gallery-filter-next:hover{transform:translateY(2px);box-shadow:0 3px 0 #d63f76,0 8px 17px rgba(218,66,122,.2)!important}
+      .hd-gallery-filter-next:hover i{transform:translateX(2px)}
+      .hd-gallery-filter-next:focus-visible{outline:3px solid rgba(239,112,157,.3)!important;outline-offset:3px}
+      .hd-gallery-filter-next[hidden]{display:none!important}
+      @media(max-width:1280px){.hd-gallery-filter-row{padding-right:50px}.hd-gallery-filter-next{right:4px!important}}
+    ');
     wp_enqueue_script('happy-day-gallery',get_template_directory_uri().'/assets/gallery.js',[],(string)filemtime($gallery_js),true);
     wp_script_add_data('happy-day-gallery','strategy','defer');
   }
