@@ -108,10 +108,13 @@ get_header();
             </button>
           <?php endforeach; ?>
         </div>
-        <p class="hd-gallery-result-count" aria-live="polite"><strong><?php echo esc_html(count($gallery_items)); ?></strong> completed setups</p>
+        <p class="hd-gallery-result-count" aria-live="polite">
+          Showing <strong class="hd-gallery-visible-count"><?php echo esc_html(count($gallery_items)); ?></strong>
+          of <strong class="hd-gallery-total-count"><?php echo esc_html(count($gallery_items)); ?></strong> completed setups
+        </p>
       </div>
 
-      <div class="hd-gallery-grid">
+      <div class="hd-gallery-grid" id="hd-gallery-grid" data-initial-count="9" data-load-count="6">
         <?php foreach ($gallery_items as $index=>$item):
           $full=wp_get_attachment_image_url($item['id'],'full');
           if(!$full) continue;
@@ -141,6 +144,14 @@ get_header();
       <div class="hd-gallery-empty" hidden>
         <h3>No projects in this category yet.</h3>
         <p>Choose another filter to browse more of our work.</p>
+      </div>
+
+      <div class="hd-gallery-more-wrap" hidden>
+        <button class="hd-gallery-more" type="button" aria-controls="hd-gallery-grid" aria-expanded="false">
+          <span>Show more work</span>
+          <small><b class="hd-gallery-more-count">0</b> more</small>
+          <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </section>

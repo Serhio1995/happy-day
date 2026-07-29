@@ -13,20 +13,42 @@ function hd_setup(){
 }
 add_action('after_setup_theme','hd_setup');
 
-/* Keep the rental offering visually separate from balloon decoration services
-   without requiring a second WordPress menu level for a single link. */
-function hd_primary_menu_item_classes($classes,$item,$args,$depth){
-  if(($args->theme_location??'')!=='primary'||$depth!==1) return $classes;
-  $path=(string)wp_parse_url((string)$item->url,PHP_URL_PATH);
-  $is_backdrop=str_ends_with(untrailingslashit($path),'/backdrop-rental')
-    ||sanitize_title(wp_strip_all_tags((string)$item->title))==='backdrop-rental';
-  $is_number_rental=str_ends_with(untrailingslashit($path),'/number-rental')
-    ||sanitize_title(wp_strip_all_tags((string)$item->title))==='marquee-number-rental';
-  if($is_backdrop||$is_number_rental) $classes[]='hd-rental-menu-item';
-  if($is_backdrop) $classes[]='hd-rental-menu-start';
-  return $classes;
+/* Keep rental services in one visual group. Determine the first rental item
+   from the finished WordPress menu instead of tying the label to one page.
+   This also keeps custom menu labels and reordered items working correctly. */
+function hd_primary_menu_rental_group($items,$args){
+  if(($args->theme_location??'')!=='primary') return $items;
+
+  $rental_items=[];
+  foreach($items as $item){
+    $item->classes=array_values(array_diff(
+      (array)$item->classes,
+      ['hd-rental-menu-item','hd-rental-menu-start']
+    ));
+
+    $path=trim((string)wp_parse_url((string)$item->url,PHP_URL_PATH),'/');
+    $path_slug=sanitize_title((string)basename($path));
+    $title_slug=sanitize_title(wp_strip_all_tags((string)$item->title));
+    $object_slug='';
+    if(($item->object??'')==='page'&&!empty($item->object_id)){
+      $object_slug=(string)get_post_field('post_name',(int)$item->object_id);
+    }
+
+    $rental_slugs=['backdrop-rental','number-rental','marquee-number-rental'];
+    $is_rental=(bool)array_intersect(
+      $rental_slugs,
+      [$path_slug,$title_slug,sanitize_title($object_slug)]
+    );
+    if(!$is_rental) continue;
+
+    $item->classes[]='hd-rental-menu-item';
+    $rental_items[]=$item;
+  }
+
+  if($rental_items) $rental_items[0]->classes[]='hd-rental-menu-start';
+  return $items;
 }
-add_filter('nav_menu_css_class','hd_primary_menu_item_classes',10,4);
+add_filter('wp_nav_menu_objects','hd_primary_menu_rental_group',10,2);
 
 /* XAMPP installs this site in a directory containing a space. WordPress writes
    an absolute encoded substitution into .htaccess in that case, which Apache

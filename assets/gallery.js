@@ -4,14 +4,23 @@
 
   const filters = [...page.querySelectorAll('.hd-gallery-filter')];
   const cards = [...page.querySelectorAll('.hd-gallery-card')];
-  const count = page.querySelector('.hd-gallery-result-count strong');
+  const grid = page.querySelector('.hd-gallery-grid');
+  const visibleCount = page.querySelector('.hd-gallery-visible-count');
+  const totalCount = page.querySelector('.hd-gallery-total-count');
   const empty = page.querySelector('.hd-gallery-empty');
+  const moreWrap = page.querySelector('.hd-gallery-more-wrap');
+  const moreButton = page.querySelector('.hd-gallery-more');
+  const moreCount = page.querySelector('.hd-gallery-more-count');
   const dialog = page.querySelector('.hd-gallery-lightbox');
   const dialogImage = dialog?.querySelector('img');
   const dialogTitle = dialog?.querySelector('figcaption strong');
   const dialogEvent = dialog?.querySelector('figcaption small');
   let visibleButtons = [];
   let activeIndex = 0;
+  let activeFilter = 'all';
+  const initialCount = Math.max(1, Number.parseInt(grid?.dataset.initialCount || '9', 10));
+  const loadCount = Math.max(1, Number.parseInt(grid?.dataset.loadCount || '6', 10));
+  let allVisibleLimit = initialCount;
 
   const refreshVisibleButtons = () => {
     visibleButtons = cards
@@ -20,27 +29,53 @@
       .filter(Boolean);
   };
 
+  const applyGalleryState = () => {
+    const matchingCards = cards.filter(card => (
+      activeFilter === 'all'
+      || (card.dataset.categories || '').split(' ').includes(activeFilter)
+    ));
+    const shownCards = activeFilter === 'all'
+      ? matchingCards.slice(0, allVisibleLimit)
+      : matchingCards;
+    const shownSet = new Set(shownCards);
+
+    cards.forEach(card => {
+      card.hidden = !shownSet.has(card);
+    });
+
+    const remaining = Math.max(0, matchingCards.length - shownCards.length);
+    if (visibleCount) visibleCount.textContent = String(shownCards.length);
+    if (totalCount) totalCount.textContent = String(matchingCards.length);
+    if (empty) empty.hidden = matchingCards.length !== 0;
+    if (moreWrap) moreWrap.hidden = activeFilter !== 'all' || remaining === 0;
+    if (moreCount) moreCount.textContent = String(remaining);
+    if (moreButton) {
+      moreButton.setAttribute('aria-expanded', remaining === 0 ? 'true' : 'false');
+    }
+    refreshVisibleButtons();
+  };
+
   filters.forEach(button => {
     button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
+      activeFilter = button.dataset.filter || 'all';
+      if (activeFilter === 'all') allVisibleLimit = initialCount;
+
       filters.forEach(item => {
         const selected = item === button;
         item.classList.toggle('is-active', selected);
         item.setAttribute('aria-pressed', selected ? 'true' : 'false');
       });
 
-      let shown = 0;
-      cards.forEach(card => {
-        const matches = filter === 'all' || (card.dataset.categories || '').split(' ').includes(filter);
-        card.hidden = !matches;
-        if (matches) shown += 1;
-      });
-
-      if (count) count.textContent = String(shown);
-      if (empty) empty.hidden = shown !== 0;
-      refreshVisibleButtons();
+      applyGalleryState();
     });
   });
+
+  moreButton?.addEventListener('click', () => {
+    allVisibleLimit += loadCount;
+    applyGalleryState();
+  });
+
+  applyGalleryState();
 
   if (!dialog || !dialogImage || !dialogTitle || !dialogEvent) return;
 
@@ -81,6 +116,4 @@
     if (event.key === 'ArrowLeft') renderDialog(activeIndex - 1);
     if (event.key === 'ArrowRight') renderDialog(activeIndex + 1);
   });
-
-  refreshVisibleButtons();
 })();
