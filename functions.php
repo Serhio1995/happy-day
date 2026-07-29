@@ -1,5 +1,8 @@
 <?php
 if (!defined('ABSPATH')) exit;
+
+require_once get_template_directory().'/inc/gallery.php';
+
 function hd_setup(){
   add_theme_support('title-tag'); add_theme_support('post-thumbnails'); add_theme_support('custom-logo'); add_theme_support('align-wide');
   add_theme_support('woocommerce');
@@ -17,7 +20,10 @@ function hd_primary_menu_item_classes($classes,$item,$args,$depth){
   $path=(string)wp_parse_url((string)$item->url,PHP_URL_PATH);
   $is_backdrop=str_ends_with(untrailingslashit($path),'/backdrop-rental')
     ||sanitize_title(wp_strip_all_tags((string)$item->title))==='backdrop-rental';
-  if($is_backdrop) $classes[]='hd-rental-menu-item';
+  $is_number_rental=str_ends_with(untrailingslashit($path),'/number-rental')
+    ||sanitize_title(wp_strip_all_tags((string)$item->title))==='marquee-number-rental';
+  if($is_backdrop||$is_number_rental) $classes[]='hd-rental-menu-item';
+  if($is_backdrop) $classes[]='hd-rental-menu-start';
   return $classes;
 }
 add_filter('nav_menu_css_class','hd_primary_menu_item_classes',10,4);
@@ -82,6 +88,13 @@ function hd_assets(){
   if(is_page_template('page-legal.php')){
     $legal_css=get_template_directory().'/assets/legal.css';
     wp_enqueue_style('happy-day-legal',get_template_directory_uri().'/assets/legal.css',['happy-day-header'],(string) filemtime($legal_css));
+  }
+  if(is_page_template('page-gallery.php')){
+    $gallery_css=get_template_directory().'/assets/gallery.css';
+    $gallery_js=get_template_directory().'/assets/gallery.js';
+    wp_enqueue_style('happy-day-gallery',get_template_directory_uri().'/assets/gallery.css',['happy-day-header'],(string)filemtime($gallery_css));
+    wp_enqueue_script('happy-day-gallery',get_template_directory_uri().'/assets/gallery.js',[],(string)filemtime($gallery_js),true);
+    wp_script_add_data('happy-day-gallery','strategy','defer');
   }
   if(is_page_template('page-service.php')){
     wp_enqueue_style('leaflet',get_template_directory_uri().'/assets/vendor/leaflet/leaflet.css',[],'1.9.4');
@@ -186,10 +199,21 @@ function hd_current_hero_image_id(){
   $data=require $data_file;
   return (int)($data['hero_image']??0);
 }
+function hd_current_hero_image_url(){
+  if(is_front_page()) return hd_hero_image_url(16);
+  if(!is_page()) return '';
+  $slug=(string) get_post_field('post_name',get_queried_object_id());
+  $data_file=get_template_directory().'/inc/services/'.$slug.'.php';
+  if(!is_file($data_file)) return '';
+  $data=require $data_file;
+  if(!empty($data['hero_asset'])) return get_template_directory_uri().'/'.ltrim($data['hero_asset'],'/');
+  return hd_hero_image_url((int)($data['hero_image']??0));
+}
 function hd_preload_hero_image(){
-  $url=hd_hero_image_url(hd_current_hero_image_id());
+  $url=hd_current_hero_image_url();
   if(!$url) return;
-  $type=str_ends_with(strtolower((string)wp_parse_url($url,PHP_URL_PATH)),'.webp')?'image/webp':'image/jpeg';
+  $extension=strtolower((string)pathinfo((string)wp_parse_url($url,PHP_URL_PATH),PATHINFO_EXTENSION));
+  $type=$extension==='webp'?'image/webp':($extension==='png'?'image/png':'image/jpeg');
   printf("<link rel=\"preload\" as=\"image\" href=\"%s\" type=\"%s\" fetchpriority=\"high\">\n",esc_url($url),esc_attr($type));
   echo "<link rel=\"preconnect\" href=\"https://cdn.trustindex.io\" crossorigin>\n";
 }
@@ -214,11 +238,19 @@ add_filter('template_include','hd_service_page_template',30);
  * page instead of repeating one generic heading site-wide. */
 function hd_instagram_section_copy(){
   $default=[
+    'eyebrow'=>'Fresh from Instagram',
     'title'=>'See What We’ve Been Celebrating',
     'text'=>'Real balloon setups, recent events and new ideas from Happy Day Toronto.',
   ];
   if(!is_page()) return $default;
   $slug=(string)get_post_field('post_name',get_queried_object_id());
+  if($slug==='gallery'){
+    return [
+      'eyebrow'=>'Follow us on Instagram',
+      'title'=>'Discover More of Our Work',
+      'text'=>'Want to see more? Follow @happydaytoronto on Instagram for more of our real balloon decor, behind-the-scenes setup moments, and recent celebrations across Toronto and the GTA.',
+    ];
+  }
   $service_copy=[
     'balloons-for-birthdays'=>[
       'title'=>'Birthday Ideas Made to Be Remembered',

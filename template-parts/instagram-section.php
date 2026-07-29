@@ -6,7 +6,7 @@ $instagram_copy=hd_instagram_section_copy();
   <div class="hd-wrap">
     <header class="hd-instagram-head">
       <div>
-        <span class="eyebrow">Fresh from Instagram</span>
+        <span class="eyebrow"><?php echo esc_html($instagram_copy['eyebrow'] ?? 'Fresh from Instagram'); ?></span>
         <h2 id="hd-instagram-title"><?php echo esc_html($instagram_copy['title']); ?></h2>
         <p><?php echo esc_html($instagram_copy['text']); ?></p>
       </div>

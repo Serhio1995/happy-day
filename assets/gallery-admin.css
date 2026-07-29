@@ -1,0 +1,30 @@
+.hd-gallery-album-editor{padding:4px 0 8px}
+.hd-gallery-album-toolbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 16px;margin-bottom:14px;background:#f7f8fc;border:1px solid #dfe3ee;border-radius:10px}
+.hd-gallery-album-toolbar p{margin:4px 0 0;color:#646970}
+.hd-gallery-album-toolbar .button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:0 16px;line-height:1}
+.hd-gallery-album-toolbar .button .dashicons{display:block;flex:0 0 16px;width:16px;height:16px;margin:0;font-size:16px;line-height:16px;vertical-align:middle}
+.hd-gallery-image-list{display:grid;gap:10px}
+.hd-gallery-image-row{display:grid;grid-template-columns:28px 86px minmax(180px,1fr) minmax(180px,1fr) 36px;align-items:center;gap:12px;padding:10px;background:#fff;border:1px solid #dcdcde;border-radius:10px;box-shadow:0 2px 7px rgba(31,48,86,.04)}
+.hd-gallery-image-row:hover{border-color:#a7aaad}
+.hd-gallery-drag{cursor:grab;color:#787c82}
+.hd-gallery-drag:active{cursor:grabbing}
+.hd-gallery-image-row>img{display:block;width:86px;height:68px;object-fit:cover;border-radius:7px;background:#f0f0f1}
+.hd-gallery-image-row label{display:grid;gap:5px}
+.hd-gallery-image-row label span{font-size:12px;font-weight:600;color:#50575e}
+.hd-gallery-image-row input[type=text]{width:100%}
+.hd-gallery-remove-image{display:grid;place-items:center;width:34px;height:34px;border-radius:50%!important}
+.hd-gallery-remove-image:hover{background:#fcf0f1}
+.hd-gallery-sort-placeholder{height:88px;border:2px dashed #8c8f94;border-radius:10px;background:#f6f7f7}
+.hd-gallery-empty{display:grid;justify-items:center;padding:42px 20px;text-align:center;color:#646970;border:2px dashed #c3c4c7;border-radius:10px;background:#fafafa}
+.hd-gallery-empty.is-hidden{display:none}
+.hd-gallery-empty .dashicons{width:38px;height:38px;font-size:38px;margin-bottom:8px;color:#8c8f94}
+.hd-gallery-empty p{margin:4px 0 0}
+.hd-gallery-admin-thumbs{display:flex}
+.hd-gallery-admin-thumbs img{width:46px;height:46px;object-fit:cover;border:2px solid #fff;border-radius:7px;margin-left:-8px;box-shadow:0 0 0 1px #dcdcde}
+.hd-gallery-admin-thumbs img:first-child{margin-left:0}
+@media(max-width:900px){
+  .hd-gallery-image-row{grid-template-columns:24px 70px 1fr 34px}
+  .hd-gallery-image-row>img{width:70px;height:60px}
+  .hd-gallery-image-row label:nth-of-type(2){grid-column:3}
+  .hd-gallery-remove-image{grid-column:4;grid-row:1}
+}
