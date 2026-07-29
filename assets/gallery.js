@@ -47,14 +47,24 @@
     const hasOverflow = filterScroller.scrollWidth > filterScroller.clientWidth + 2;
     const atEnd = filterScroller.scrollLeft + filterScroller.clientWidth >= filterScroller.scrollWidth - 3;
     filterNext.hidden = !hasOverflow;
-    filterNext.disabled = atEnd;
+    filterNext.disabled = false;
     filterNext.setAttribute('aria-hidden', hasOverflow ? 'false' : 'true');
+    filterNext.setAttribute(
+      'aria-label',
+      atEnd ? 'Back to the first gallery filters' : 'Show more gallery filters',
+    );
   };
 
   filterNext?.addEventListener('click', () => {
     if (!filterScroller) return;
-    filterScroller.scrollBy({
-      left: Math.max(260, filterScroller.clientWidth * 0.72),
+    const maxScroll = Math.max(0, filterScroller.scrollWidth - filterScroller.clientWidth);
+    const atEnd = filterScroller.scrollLeft >= maxScroll - 3;
+    const nextPosition = atEnd
+      ? 0
+      : Math.min(maxScroll, filterScroller.scrollLeft + Math.min(280, filterScroller.clientWidth * 0.42));
+
+    filterScroller.scrollTo({
+      left: nextPosition,
       behavior: 'smooth',
     });
   });
