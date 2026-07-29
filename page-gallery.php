@@ -99,14 +99,19 @@ get_header();
       </header>
 
       <div class="hd-gallery-filter-shell">
-        <div class="hd-gallery-filters" role="group" aria-label="Filter gallery by event type">
-          <?php foreach ($filters as $key=>$label):
-            $count=$key==='all'?count($gallery_items):count(array_filter($gallery_items,static fn($item)=>in_array($key,$item['categories'],true)));
-          ?>
-            <button class="hd-gallery-filter<?php echo $key==='all'?' is-active':''; ?>" type="button" data-filter="<?php echo esc_attr($key); ?>" aria-pressed="<?php echo $key==='all'?'true':'false'; ?>">
-              <span><?php echo esc_html($label); ?></span><small><?php echo esc_html((string)$count); ?></small>
-            </button>
-          <?php endforeach; ?>
+        <div class="hd-gallery-filter-row">
+          <div class="hd-gallery-filters" role="group" aria-label="Filter gallery by event type">
+            <?php foreach ($filters as $key=>$label):
+              $count=$key==='all'?count($gallery_items):count(array_filter($gallery_items,static fn($item)=>in_array($key,$item['categories'],true)));
+            ?>
+              <button class="hd-gallery-filter<?php echo $key==='all'?' is-active':''; ?>" type="button" data-filter="<?php echo esc_attr($key); ?>" aria-pressed="<?php echo $key==='all'?'true':'false'; ?>">
+                <span><?php echo esc_html($label); ?></span><small><?php echo esc_html((string)$count); ?></small>
+              </button>
+            <?php endforeach; ?>
+          </div>
+          <button class="hd-gallery-filter-next" type="button" aria-label="Show more gallery filters">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
         </div>
         <p class="hd-gallery-result-count" aria-live="polite">
           Showing <strong class="hd-gallery-visible-count"><?php echo esc_html(count($gallery_items)); ?></strong>

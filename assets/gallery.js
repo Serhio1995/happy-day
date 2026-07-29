@@ -3,6 +3,8 @@
   if (!page) return;
 
   const filters = [...page.querySelectorAll('.hd-gallery-filter')];
+  const filterScroller = page.querySelector('.hd-gallery-filters');
+  const filterNext = page.querySelector('.hd-gallery-filter-next');
   const cards = [...page.querySelectorAll('.hd-gallery-card')];
   const grid = page.querySelector('.hd-gallery-grid');
   const visibleCount = page.querySelector('.hd-gallery-visible-count');
@@ -21,16 +23,53 @@
   const initialCount = Math.max(1, Number.parseInt(grid?.dataset.initialCount || '9', 10));
   const loadCount = Math.max(1, Number.parseInt(grid?.dataset.loadCount || '6', 10));
   let allVisibleLimit = initialCount;
+  let activeCardOrder = [...cards];
+
+  const setCardOrder = order => {
+    if (!grid) return;
+    const fragment = document.createDocumentFragment();
+    order.forEach(card => fragment.appendChild(card));
+    grid.appendChild(fragment);
+    activeCardOrder = order;
+  };
+
+  const randomizeAllCards = () => {
+    const randomized = [...cards];
+    for (let index = randomized.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [randomized[index], randomized[randomIndex]] = [randomized[randomIndex], randomized[index]];
+    }
+    setCardOrder(randomized);
+  };
+
+  const updateFilterNext = () => {
+    if (!filterScroller || !filterNext) return;
+    const hasOverflow = filterScroller.scrollWidth > filterScroller.clientWidth + 2;
+    const atEnd = filterScroller.scrollLeft + filterScroller.clientWidth >= filterScroller.scrollWidth - 3;
+    filterNext.hidden = !hasOverflow;
+    filterNext.disabled = atEnd;
+    filterNext.setAttribute('aria-hidden', hasOverflow ? 'false' : 'true');
+  };
+
+  filterNext?.addEventListener('click', () => {
+    if (!filterScroller) return;
+    filterScroller.scrollBy({
+      left: Math.max(260, filterScroller.clientWidth * 0.72),
+      behavior: 'smooth',
+    });
+  });
+  filterScroller?.addEventListener('scroll', updateFilterNext, { passive: true });
+  window.addEventListener('resize', updateFilterNext);
 
   const refreshVisibleButtons = () => {
-    visibleButtons = cards
+    visibleButtons = activeCardOrder
       .filter(card => !card.hidden)
       .map(card => card.querySelector('.hd-gallery-open'))
       .filter(Boolean);
   };
 
   const applyGalleryState = () => {
-    const matchingCards = cards.filter(card => (
+    const matchingCards = activeCardOrder.filter(card => (
       activeFilter === 'all'
       || (card.dataset.categories || '').split(' ').includes(activeFilter)
     ));
@@ -58,7 +97,12 @@
   filters.forEach(button => {
     button.addEventListener('click', () => {
       activeFilter = button.dataset.filter || 'all';
-      if (activeFilter === 'all') allVisibleLimit = initialCount;
+      if (activeFilter === 'all') {
+        allVisibleLimit = initialCount;
+        randomizeAllCards();
+      } else {
+        setCardOrder([...cards]);
+      }
 
       filters.forEach(item => {
         const selected = item === button;
@@ -75,7 +119,9 @@
     applyGalleryState();
   });
 
+  randomizeAllCards();
   applyGalleryState();
+  updateFilterNext();
 
   if (!dialog || !dialogImage || !dialogTitle || !dialogEvent) return;
 
