@@ -19,7 +19,7 @@ add_action('after_setup_theme','hd_setup');
 function hd_primary_menu_rental_group($items,$args){
   if(($args->theme_location??'')!=='primary') return $items;
 
-  $rental_items=[];
+  $rental_group_started=false;
   foreach($items as $item){
     $item->classes=array_values(array_diff(
       (array)$item->classes,
@@ -42,10 +42,12 @@ function hd_primary_menu_rental_group($items,$args){
     if(!$is_rental) continue;
 
     $item->classes[]='hd-rental-menu-item';
-    $rental_items[]=$item;
+    if(!$rental_group_started){
+      $item->classes[]='hd-rental-menu-start';
+      $rental_group_started=true;
+    }
   }
 
-  if($rental_items) $rental_items[0]->classes[]='hd-rental-menu-start';
   return $items;
 }
 add_filter('wp_nav_menu_objects','hd_primary_menu_rental_group',10,2);

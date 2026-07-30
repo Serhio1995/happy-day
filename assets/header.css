@@ -41,6 +41,10 @@
   .site-header .site-nav .sub-menu .hd-rental-menu-start{grid-column:1/3;display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;padding-left:18px;border-right:0;border-radius:11px 0 0 11px;box-shadow:inset 3px 0 0 rgba(241,124,164,.9)}
   .site-header .site-nav .sub-menu .hd-rental-menu-item:not(.hd-rental-menu-start){grid-column:3/5;display:block;margin-left:-22px;border-left:0;border-radius:0 25px 11px 0}
   .site-header .site-nav .sub-menu .hd-rental-menu-start:before{content:"Rentals:";color:#ffabc6;font-size:14px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  /* Keep the rentals group intact even if cached menu HTML accidentally
+     carries the start class on more than one rental item. */
+  .site-header .site-nav .sub-menu .hd-rental-menu-start~.hd-rental-menu-item{grid-column:3/5;display:block;grid-template-columns:none;gap:0;margin-left:-22px;padding-left:13px;border-left:0;border-right:1px solid rgba(255,255,255,.12);border-radius:0 25px 11px 0;box-shadow:none}
+  .site-header .site-nav .sub-menu .hd-rental-menu-start~.hd-rental-menu-item:before{display:none;content:none}
   .site-header .site-nav .sub-menu .hd-rental-menu-item>a{width:100%;min-height:43px;padding:9px 34px 9px 0;border:0;border-radius:0;background:transparent;color:#f5f7ff}
   .site-header .site-nav .sub-menu .hd-rental-menu-item>a:before{display:none}
   .site-header .site-nav .sub-menu .hd-rental-menu-item>a:after{position:absolute;right:3px;opacity:0;transform:translate(-4px,-50%)}
@@ -102,6 +106,8 @@
   .site-header .site-nav .sub-menu .hd-rental-menu-start{display:grid;grid-template-columns:82px minmax(0,1fr);gap:9px;margin-top:11px;padding-left:12px;border-bottom:0;border-radius:12px 22px 0 0;box-shadow:inset 3px 0 0 #f17ca4}
   .site-header .site-nav .sub-menu .hd-rental-menu-item:not(.hd-rental-menu-start){display:block;margin-top:-3px;padding-left:103px;border-top:0;border-radius:0 0 12px 12px}
   .site-header .site-nav .sub-menu .hd-rental-menu-start:before{content:"Rentals:";color:#d64f7f;font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+  .site-header .site-nav .sub-menu .hd-rental-menu-start~.hd-rental-menu-item{display:block;grid-template-columns:none;gap:0;margin-top:-3px;padding-left:103px;border-top:0;border-radius:0 0 12px 12px;box-shadow:none}
+  .site-header .site-nav .sub-menu .hd-rental-menu-start~.hd-rental-menu-item:before{display:none;content:none}
   .site-header .site-nav .sub-menu .hd-rental-menu-item>a{min-height:44px;color:#59657e}
 }
 @media(min-width:520px) and (max-width:900px){.site-header .site-nav .sub-menu{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px}.site-header .site-nav .services-open>.sub-menu{max-height:620px!important}}
