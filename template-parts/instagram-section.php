@@ -17,7 +17,7 @@ $instagram_copy=hd_instagram_section_copy();
       </a>
     </header>
     <div class="hd-instagram-feed">
-      <script defer async src="https://cdn.trustindex.io/loader-feed.js?b5e0cc3777e4799777766b8de82"></script>
+      <?php echo do_shortcode('[trustindex-feed-instagram]'); ?>
     </div>
   </div>
 </section>
