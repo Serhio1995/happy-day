@@ -463,8 +463,8 @@ h1,h2,h3,h4{text-wrap:balance}
   .hd-cf7-grid input[type=date]::-webkit-date-and-time-value{min-width:0;text-align:left}
 }
 
-/* Blog covers are designed at 16:9. Show the complete artwork and its title
-   instead of cropping the left and right edges inside cards. */
+/* Fill the 16:9 card area even when an uploaded cover has different
+   proportions, avoiding empty bands around the image. */
 .blog-card-image{
   height:auto;
   aspect-ratio:16/9;
@@ -473,7 +473,7 @@ h1,h2,h3,h4{text-wrap:balance}
 .blog-card-image img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
   object-position:center;
 }
 .blog-card:hover .blog-card-image img{transform:none}
