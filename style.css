@@ -477,19 +477,28 @@ h1,h2,h3,h4{text-wrap:balance}
   object-position:center;
 }
 .blog-card:hover .blog-card-image img{transform:none}
-.blog-grid .blog-card:first-child:nth-last-child(n+2){display:block}
+.blog-grid .blog-card:first-child:nth-last-child(n+2){display:flex;flex-direction:column}
 .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-image{
   height:auto;
   min-height:0;
   aspect-ratio:16/9;
 }
 .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-body{
-  display:block;
+  display:flex;
+  flex:1;
+  flex-direction:column;
   padding:30px 34px 31px;
 }
+.blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-footer{margin-top:auto}
+@media(min-width:1001px){
+  .blog-grid .blog-card:first-child:nth-last-child(n+3){grid-row:1/span 2}
+  .blog-grid .blog-card:first-child:nth-last-child(n+3)+.blog-card{grid-column:3;grid-row:1}
+  .blog-grid .blog-card:first-child:nth-last-child(n+3)+.blog-card+.blog-card{grid-column:3;grid-row:2}
+}
 @media(max-width:600px){
+  .blog-grid .blog-card:first-child:nth-last-child(n+2){display:block}
   .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-image{height:auto;aspect-ratio:16/9}
-  .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-body{padding:25px}
+  .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-body{display:block;padding:25px}
 }
 
 /* Instagram feed — a dedicated social-proof section before the footer. */
