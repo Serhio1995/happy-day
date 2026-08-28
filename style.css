@@ -501,6 +501,41 @@ h1,h2,h3,h4{text-wrap:balance}
   .blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-body{display:block;padding:25px}
 }
 
+/* Uniform blog cards: drop the oversized "featured first post" treatment so
+   every card is the same shape and size in a standard responsive grid.
+   The .blog-grid column count (3 / 2 / 1) is left to the rules above. */
+.blog-grid .blog-card:first-child:nth-last-child(n+2){
+  grid-column:auto;
+  grid-row:auto;
+  display:flex;
+  flex-direction:column;
+  grid-template-columns:none;
+  border-radius:20px 48px 20px 20px;
+}
+.blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-image{
+  height:auto;
+  min-height:0;
+  aspect-ratio:16/9;
+}
+.blog-grid .blog-card:first-child:nth-last-child(n+2) .blog-card-body{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  justify-content:flex-start;
+  padding:25px 25px 23px;
+}
+.blog-grid .blog-card:first-child:nth-last-child(n+2) h2{font-size:23px}
+.blog-grid .blog-card:first-child:nth-last-child(n+3),
+.blog-grid .blog-card:first-child:nth-last-child(n+3)+.blog-card,
+.blog-grid .blog-card:first-child:nth-last-child(n+3)+.blog-card+.blog-card{
+  grid-column:auto;
+  grid-row:auto;
+}
+/* Equal-height cards with the meta row pinned to the bottom. */
+.blog-grid .blog-card{display:flex;flex-direction:column}
+.blog-grid .blog-card .blog-card-body{display:flex;flex:1;flex-direction:column}
+.blog-grid .blog-card .blog-card-footer{margin-top:auto}
+
 /* Instagram feed — a dedicated social-proof section before the footer. */
 .hd-instagram-section{
   position:relative;
