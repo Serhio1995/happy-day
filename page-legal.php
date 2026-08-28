@@ -5,6 +5,7 @@ get_header();
 while(have_posts()): the_post();
   $kicker=get_post_meta(get_the_ID(),'_hd_legal_kicker',true)?:'Clear, thoughtful, and transparent';
   $intro=get_post_meta(get_the_ID(),'_hd_legal_intro',true);
+  $updated=get_post_meta(get_the_ID(),'_hd_legal_updated',true)?:get_the_modified_date('F j, Y');
   $sections=json_decode((string)get_post_meta(get_the_ID(),'_hd_legal_sections',true),true);
   if(!is_array($sections)) $sections=[];
 ?>
@@ -39,7 +40,7 @@ while(have_posts()): the_post();
         </div>
       </aside>
       <div class="legal-content">
-        <div class="legal-updated"><i class="fa-solid fa-calendar" aria-hidden="true"></i> Last updated: July 13, 2026</div>
+        <div class="legal-updated"><i class="fa-solid fa-calendar" aria-hidden="true"></i> Last updated: <?php echo esc_html($updated); ?></div>
         <?php the_content(); ?>
         <div class="legal-closing">
           <i class="fa-solid fa-heart" aria-hidden="true"></i>

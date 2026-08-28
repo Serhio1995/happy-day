@@ -93,7 +93,10 @@ h1,h2,h3,h4{text-wrap:balance}
 /* Infinite service ribbon */
 .service-marquee{position:relative;padding:17px 0!important;overflow:hidden;background:linear-gradient(100deg,#df4f83 0%,#f17ca4 45%,#f593b3 70%,#d94a80 100%);box-shadow:0 10px 30px rgba(216,70,124,.22);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 .service-marquee:before,.service-marquee:after{content:"";position:absolute;z-index:2;top:0;bottom:0;width:90px;pointer-events:none}.service-marquee:before{left:0;background:linear-gradient(90deg,rgba(123,39,89,.34),transparent)}.service-marquee:after{right:0;background:linear-gradient(-90deg,rgba(123,39,89,.34),transparent)}
-.service-marquee-track{display:flex;width:max-content;will-change:transform;animation:service-marquee-right 48s linear infinite}.service-marquee:hover .service-marquee-track{animation-play-state:paused}
+.service-marquee-track{display:flex;width:max-content;will-change:transform}
+/* The loop only reads seamlessly once the group is cloned (see site.js); a
+   single group stays static so there is no jump when JS is unavailable. */
+.service-marquee-track:has(>.service-marquee-group+.service-marquee-group){animation:service-marquee-right 48s linear infinite}.service-marquee:hover .service-marquee-track{animation-play-state:paused}
 .service-marquee-group{display:flex;align-items:center;gap:13px;padding-right:13px}.service-marquee a{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.1);color:#fff;font-size:11px;font-weight:900;letter-spacing:.065em;text-transform:uppercase;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.18);transition:background .25s ease,transform .25s ease,box-shadow .25s ease}.service-marquee a i{font-size:9px;color:#ffe0eb}.service-marquee a:hover{transform:translateY(-2px);background:#fff;color:#d6487c;box-shadow:0 7px 16px rgba(101,25,66,.2)}.service-marquee a:hover i{color:#f17ca4}
 @keyframes service-marquee-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){.service-marquee-track{animation-play-state:paused;transform:none}.service-marquee{overflow-x:auto;mask-image:none;-webkit-mask-image:none}}

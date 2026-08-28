@@ -35,6 +35,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     }));
   }
 
+  // The service ribbon needs a second identical group for the seamless loop;
+  // clone it at runtime so the markup carries each service link only once.
+  const marqueeTrack=document.querySelector('.service-marquee-track');
+  if(marqueeTrack&&marqueeTrack.children.length===1){
+    const clone=marqueeTrack.firstElementChild.cloneNode(true);
+    clone.setAttribute('aria-hidden','true');
+    clone.querySelectorAll('a').forEach(link=>link.setAttribute('tabindex','-1'));
+    marqueeTrack.appendChild(clone);
+  }
+
   const examples={name:'e.g. Sarah Johnson',phone:'e.g. 647-527-5505',email:'e.g. sarah@example.com',details:'e.g. Birthday on August 24 in Richmond Hill. Pink and ivory balloon arch for 30 guests.'};
   Object.entries(examples).forEach(([name,placeholder])=>{
     document.querySelectorAll(`[name="${name}"]`).forEach(field=>{if(!field.placeholder)field.placeholder=placeholder});
