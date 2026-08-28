@@ -232,8 +232,7 @@ function hd_floating_cart_fragment($fragments){
 add_filter('woocommerce_add_to_cart_fragments','hd_floating_cart_fragment');
 
 
-/* CSS hero backgrounds do not receive WordPress image srcset handling. Prefer
- * the generated WebP sibling and preload only the above-the-fold image. */
+/* Prefer the generated WebP sibling when one exists on disk. */
 function hd_hero_image_url($attachment_id){
   $attachment_id=(int) $attachment_id;
   $url=wp_get_attachment_image_url($attachment_id,'full');
@@ -263,12 +262,23 @@ function hd_current_hero_image_url(){
   return hd_hero_image_url((int)($data['hero_image']??0));
 }
 function hd_preload_hero_image(){
-  $url=hd_current_hero_image_url();
-  if(!$url) return;
-  $extension=strtolower((string)pathinfo((string)wp_parse_url($url,PHP_URL_PATH),PATHINFO_EXTENSION));
-  $type=$extension==='webp'?'image/webp':($extension==='png'?'image/png':'image/jpeg');
-  printf("<link rel=\"preload\" as=\"image\" href=\"%s\" type=\"%s\" fetchpriority=\"high\">\n",esc_url($url),esc_attr($type));
   echo "<link rel=\"preconnect\" href=\"https://cdn.trustindex.io\" crossorigin>\n";
+  /* Match the preload to the actual <img> the hero renders: an attachment
+   * carries a srcset, a theme-file hero_asset is a single source. */
+  $id=hd_current_hero_image_id();
+  if($id){
+    $src=wp_get_attachment_image_url($id,'full');
+    if(!$src) return;
+    $srcset=wp_get_attachment_image_srcset($id,'full');
+    printf(
+      "<link rel=\"preload\" as=\"image\" href=\"%s\"%s fetchpriority=\"high\">\n",
+      esc_url($src),
+      $srcset?sprintf(' imagesrcset="%s" imagesizes="100vw"',esc_attr($srcset)):''
+    );
+    return;
+  }
+  $url=hd_current_hero_image_url();
+  if($url) printf("<link rel=\"preload\" as=\"image\" href=\"%s\" fetchpriority=\"high\">\n",esc_url($url));
 }
 add_action('wp_head','hd_preload_hero_image',1);
 
