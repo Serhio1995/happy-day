@@ -59,7 +59,7 @@ $hero_image_ids=array_slice(array_values(array_filter(array_map(
 
 get_header();
 ?>
-<main class="hd-gallery-page">
+<div class="hd-gallery-page">
   <section class="hd-gallery-hero">
     <div class="hd-gallery-hero-orb hd-gallery-hero-orb-one" aria-hidden="true"></div>
     <div class="hd-gallery-hero-orb hd-gallery-hero-orb-two" aria-hidden="true"></div>
@@ -177,5 +177,5 @@ get_header();
       <button class="hd-gallery-lightbox-nav hd-gallery-lightbox-next" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </dialog>
-</main>
+</div>
 <?php get_footer(); ?>

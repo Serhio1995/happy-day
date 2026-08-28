@@ -32,7 +32,7 @@
       <div class="header-actions">
         <a class="phone icon-link" href="tel:+16475275505"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>647-527-5505</span></a>
         <a class="hd-btn" href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>">Request a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-        <button class="mobile-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span class="mobile-toggle-lines" aria-hidden="true"><i></i><i></i></span><span class="screen-reader-text">Open menu</span></button>
+        <button class="mobile-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span class="mobile-toggle-lines" aria-hidden="true"><i></i><i></i></span></button>
       </div>
     </div>
   </div>
