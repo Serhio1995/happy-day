@@ -63,7 +63,7 @@
   </nav>
 
   <div class="footer-bottom"><div class="hd-wrap">
-    <span>© <?php echo esc_html(date('Y')); ?> Happy Day Toronto. All rights reserved.</span>
+    <span>© <?php echo esc_html(wp_date('Y')); ?> Happy Day Toronto. All rights reserved.</span>
     <a href="#top" class="footer-to-top">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
   </div></div>
 </footer>
