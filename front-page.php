@@ -19,11 +19,11 @@
 ['Valentine’s Day Balloons','Romantic decor for private events, proposals, restaurants and brand displays.','/services/valentines-day-balloons/'],
 ['Bar Mitzvah Balloons','Themed garlands, arches, entrances and backdrops for an unforgettable celebration.','/services/bar-mitzvah-balloons/'],
 ['Backdrop Rental','Versatile backdrops for parties, weddings, showers, corporate events and photoshoots.','/services/backdrop-rental/'],
-['Marquee Number Rental','Light-up numbers for birthdays, anniversaries, graduations and milestone celebrations.','/services/number-rental/'],
 ['Balloon Ceiling Decor','Dramatic overhead installations for birthdays, schools, corporate and holiday events.','/services/balloon-ceiling-decor/'],
 ['Graduation Balloons','School colours, number displays, backdrops and photo-ready graduation decor.','/services/graduation-balloons/'],
 ['Engagement Balloons','Elegant installations for proposals, engagement parties and romantic photo areas.','/services/engagement-balloons/'],
-['Halloween Balloons','Spooky, playful or stylish themed garlands, arches and party backdrops.','/services/halloween-balloons/']]; foreach($services as $s):
+['Halloween Balloons','Spooky, playful or stylish themed garlands, arches and party backdrops.','/services/halloween-balloons/'],
+['Marquee Number Rental','Light-up numbers for birthdays, anniversaries, graduations and milestone celebrations.','/services/number-rental/']]; foreach($services as $s):
 $service_slug=basename(trim(parse_url($s[2],PHP_URL_PATH),'/'));
 $service_file=get_template_directory().'/inc/services/'.$service_slug.'.php';
 $service_image=0;$service_asset='';
