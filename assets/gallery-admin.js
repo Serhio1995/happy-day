@@ -6,7 +6,9 @@
   var $empty=$('.hd-gallery-empty');
 
   function escapeHtml(value){
-    return $('<div>').text(value||'').html();
+    // .text().html() encodes < > &, but not quotes; escape them too so the
+    // result is safe inside a double-quoted HTML attribute.
+    return $('<div>').text(value||'').html().replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   }
 
   function refreshEmpty(){
@@ -14,14 +16,15 @@
   }
 
   function rowHtml(attachment){
+    var id=parseInt(attachment.id,10)||0;
     var thumb=(attachment.sizes&&attachment.sizes.thumbnail)
       ?attachment.sizes.thumbnail.url
       :attachment.url;
     return ''+
-      '<div class="hd-gallery-image-row" data-id="'+attachment.id+'">'+
+      '<div class="hd-gallery-image-row" data-id="'+id+'">'+
         '<span class="hd-gallery-drag dashicons dashicons-move" title="Drag to reorder"></span>'+
         '<img src="'+escapeHtml(thumb)+'" alt="">'+
-        '<input type="hidden" name="hd_gallery_image_id[]" value="'+attachment.id+'">'+
+        '<input type="hidden" name="hd_gallery_image_id[]" value="'+id+'">'+
         '<label><span>Work title</span>'+
           '<input type="text" name="hd_gallery_image_title[]" value="'+escapeHtml(attachment.title)+'" placeholder="Example: Elegant balloon backdrop">'+
         '</label>'+
