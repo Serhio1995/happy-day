@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Reserve My Marquee Numbers',
     'hero_asset' => 'assets/images/marquee-number-rental-toronto-hero.jpg',
+    'card_asset' => 'assets/images/marquee-number-rental-toronto.webp',
     'sections' => [
         [
             'title' => 'Light-Up Numbers Made for Milestones',
