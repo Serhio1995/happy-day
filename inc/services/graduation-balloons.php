@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Graduation Decor',
     'hero_image' => 89,
+    'card_asset' => 'assets/images/graduation-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Custom Graduation Balloon Decorations',
