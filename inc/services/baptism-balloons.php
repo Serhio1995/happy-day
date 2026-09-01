@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Baptism Decor',
     'hero_image' => 83,
+    'card_asset' => 'assets/images/baptism-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Elegant Balloon Decor for Baptism Celebrations',

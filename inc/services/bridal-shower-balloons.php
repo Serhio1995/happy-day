@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Bridal Shower Decor',
     'hero_image' => 85,
+    'card_asset' => 'assets/images/bridal-shower-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Elegant Bridal Shower Balloon Decor',

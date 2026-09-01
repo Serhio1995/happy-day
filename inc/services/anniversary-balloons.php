@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Anniversary Decor',
     'hero_image' => 77,
+    'card_asset' => 'assets/images/anniversary-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Balloon Decor for Anniversary Celebrations',

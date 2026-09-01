@@ -7,7 +7,7 @@ return [
 'Create a wedding space that feels elegant, personal, and ready for photos. Happy Day Toronto provides custom wedding balloon decor in Toronto and across the GTA for receptions, ceremonies, stages, backdrops, entrances, dessert tables, and intimate wedding celebrations.',
 'From soft romantic balloon garlands to statement wedding backdrops, we design each setup around your colours, venue, and celebration style.'
 ],
-'hero_button'=>'Plan My Wedding Decor','hero_image'=>31,
+'hero_button'=>'Plan My Wedding Decor','hero_image'=>31,'card_asset'=>'assets/images/wedding-balloon-decoration-toronto.webp',
 'sections'=>[
 ['title'=>'Elegant Wedding Balloons and Decorations','image'=>105,'paragraphs'=>[
 'Wedding balloons can be soft, refined, romantic, and stylish when they are designed around the right colour palette and venue setting. Our wedding balloons and decorations can be created for modern receptions, classic banquet halls, intimate restaurant weddings, home celebrations, bridal events, and photo-ready ceremony spaces.',

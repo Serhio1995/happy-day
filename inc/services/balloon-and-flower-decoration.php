@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Balloon & Flower Setup',
     'hero_image' => 80,
+    'card_asset' => 'assets/images/balloon-and-flower-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Elegant Flower Balloon Decor for Events',

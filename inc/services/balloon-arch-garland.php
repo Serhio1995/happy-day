@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Balloon Arch Setup',
     'hero_image' => 81,
+    'card_asset' => 'assets/images/balloon-arches-garlands-toronto.webp',
     'sections' => [
         [
             'title' => 'Custom Balloon Arch Decor for Events',

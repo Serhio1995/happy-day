@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Baby Shower Decor',
     'hero_image' => 78,
+    'card_asset' => 'assets/images/baby-shower-balloon-decor-toronto.webp',
     'sections' => [
         [
             'title' => 'Beautiful Baby Shower Balloon Decor',

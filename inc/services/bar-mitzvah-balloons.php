@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Mitzvah Decor',
     'hero_image' => 84,
+    'card_asset' => 'assets/images/bar-bat-mitzvah-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Custom Bar & Bat Mitzvah Balloons for a Meaningful Celebration',

@@ -17,7 +17,7 @@
 ['Baptism Balloons','Soft, elegant decor for family gatherings, churches, banquet halls and restaurants.','/services/baptism-balloons/'],
 ['Christmas Balloons','Festive custom decorations for holiday parties, offices, families and seasonal photos.','/services/christmas-balloons/'],
 ['Valentine’s Day Balloons','Romantic decor for private events, proposals, restaurants and brand displays.','/services/valentines-day-balloons/'],
-['Bar Mitzvah Balloons','Themed garlands, arches, entrances and backdrops for an unforgettable celebration.','/services/bar-mitzvah-balloons/'],
+['Bar/Bat Mitzvah Balloons','Themed garlands, arches, entrances and backdrops for an unforgettable celebration.','/services/bar-mitzvah-balloons/'],
 ['Backdrop Rental','Versatile backdrops for parties, weddings, showers, corporate events and photoshoots.','/services/backdrop-rental/'],
 ['Balloon Ceiling Decor','Dramatic overhead installations for birthdays, schools, corporate and holiday events.','/services/balloon-ceiling-decor/'],
 ['Graduation Balloons','School colours, number displays, backdrops and photo-ready graduation decor.','/services/graduation-balloons/'],
@@ -27,7 +27,7 @@
 $service_slug=basename(trim(parse_url($s[2],PHP_URL_PATH),'/'));
 $service_file=get_template_directory().'/inc/services/'.$service_slug.'.php';
 $service_image=0;$service_asset='';
-if(file_exists($service_file)){$service_card_data=require $service_file;$service_image=(int)($service_card_data['hero_image']??0);$service_asset=(string)($service_card_data['hero_asset']??'');}
+if(file_exists($service_file)){$service_card_data=require $service_file;$service_image=(int)($service_card_data['hero_image']??0);$service_asset=(string)($service_card_data['card_asset']??$service_card_data['hero_asset']??'');}
 ?>
 <article class="service-card"><a class="card-visual" href="<?php echo esc_url(hd_local_url($s[2])); ?>" aria-label="<?php echo esc_attr($s[0]); ?>"><?php if($service_asset): ?><img src="<?php echo esc_url(get_template_directory_uri().'/'.ltrim($service_asset,'/')); ?>" alt="<?php echo esc_attr($s[0]); ?>" loading="lazy" decoding="async"><?php elseif($service_image): echo wp_get_attachment_image($service_image,'large',false,['loading'=>'lazy']); endif; ?><span class="service-card-glow" aria-hidden="true"></span></a><div class="card-body"><h3><a href="<?php echo esc_url(hd_local_url($s[2])); ?>"><?php echo esc_html($s[0]); ?></a></h3><p><?php echo esc_html($s[1]); ?></p><a class="text-link" href="<?php echo esc_url(hd_local_url($s[2])); ?>"><span>Explore service</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></article><?php endforeach; ?>
 </div></div></section>

@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Christmas Decor',
     'hero_image' => 86,
+    'card_asset' => 'assets/images/christmas-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Festive Christmas Balloon Decorations',

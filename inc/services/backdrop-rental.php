@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Backdrop Setup',
     'hero_image' => 79,
+    'card_asset' => 'assets/images/backdrop-rental-toronto-gta.webp',
     'sections' => [
         [
             'title' => 'Custom Backdrop Rental for Events',

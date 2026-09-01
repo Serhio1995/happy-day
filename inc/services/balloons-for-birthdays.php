@@ -7,7 +7,7 @@ return [
 'Make the celebration feel special from the moment guests walk in. Happy Day Toronto creates custom birthday balloon decoration in Toronto and across the GTA for kids’ birthdays, adult parties, milestone celebrations, home events, restaurant parties, banquet halls, and private venues.',
 'From playful balloon garlands to elegant birthday backdrops, we design each setup around your colours, theme, space, and celebration style.'
 ],
-'hero_button'=>'Plan My Birthday Setup','hero_image'=>24,
+'hero_button'=>'Plan My Birthday Setup','hero_image'=>24,'card_asset'=>'assets/images/birthday-balloon-decoration-toronto.webp',
 'sections'=>[
 ['title'=>'Birthday Balloons That Set the Scene','paragraphs'=>[
 'A birthday setup should feel fun, personal, and easy to enjoy. Our birthday balloon decorations can be designed as a simple feature wall, a full party backdrop, a balloon arch at the entrance, a garland around the dessert table, or a complete themed setup for photos and guests.',
