@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Valentine’s Day Decor',
     'hero_image' => 91,
+    'card_asset' => 'assets/images/valentines-day-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Romantic Valentine Balloon Decoration',
