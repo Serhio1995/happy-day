@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Halloween Decor',
     'hero_image' => 90,
+    'card_asset' => 'assets/images/halloween-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Custom Halloween Balloon Decorations',
