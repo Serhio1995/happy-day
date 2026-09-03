@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Ceiling Balloon Setup',
     'hero_image' => 82,
+    'card_asset' => 'assets/images/balloon-ceiling-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Custom Balloon Ceiling Decoration for Events',
