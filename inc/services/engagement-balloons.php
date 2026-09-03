@@ -13,6 +13,7 @@ return [
     ],
     'hero_button' => 'Plan My Engagement Decor',
     'hero_image' => 88,
+    'card_asset' => 'assets/images/engagement-balloon-decoration-toronto.webp',
     'sections' => [
         [
             'title' => 'Romantic Balloon Decoration for Engagement Celebrations',
