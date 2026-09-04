@@ -10,7 +10,7 @@
   </div></header>
   <div class="hd-wrap single-featured-image"><?php echo wp_get_attachment_image(get_post_thumbnail_id()?:16,'full',false,['loading'=>'eager','fetchpriority'=>'high']); ?></div>
   <div class="hd-wrap single-blog-layout">
-    <div class="single-blog-content"><?php the_content(); ?></div>
+    <div class="single-blog-content"><?php the_content(); get_template_part('template-parts/blog-cta'); ?></div>
     <aside class="single-blog-aside">
       <div class="single-aside-card"><span>Planning an event?</span><h2>Let’s create your moment.</h2><p>Tell us your date, venue, colours, and the setup you have in mind.</p><a class="hd-btn" href="<?php echo esc_url(hd_local_url('contact')); ?>">Request a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
       <div class="single-aside-links"><h3>Explore Services</h3><a href="<?php echo esc_url(hd_local_url('services/balloons-for-birthdays')); ?>">Birthday Balloons</a><a href="<?php echo esc_url(hd_local_url('services/wedding-balloons')); ?>">Wedding Decor</a><a href="<?php echo esc_url(hd_local_url('services/balloon-arch-garland')); ?>">Arches &amp; Garlands</a><a href="<?php echo esc_url(hd_local_url('services/backdrop-rental')); ?>">Backdrop Rental</a></div>
