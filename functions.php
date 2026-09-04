@@ -83,9 +83,11 @@ add_action('template_redirect','hd_redirect_legacy_post_permalink',1);
 
 function hd_assets(){
   $fa=get_template_directory().'/assets/vendor/fontawesome/css/fontawesome.min.css';
+  $fa_solid=get_template_directory().'/assets/vendor/fontawesome/css/solid.min.css';
+  $fa_brands=get_template_directory().'/assets/vendor/fontawesome/css/brands.min.css';
   wp_enqueue_style('font-awesome-core',get_template_directory_uri().'/assets/vendor/fontawesome/css/fontawesome.min.css',[],(string) filemtime($fa));
-  wp_enqueue_style('font-awesome-solid',get_template_directory_uri().'/assets/vendor/fontawesome/css/solid.min.css',['font-awesome-core'],'7.3.0');
-  wp_enqueue_style('font-awesome-brands',get_template_directory_uri().'/assets/vendor/fontawesome/css/brands.min.css',['font-awesome-core'],'7.3.0');
+  wp_enqueue_style('font-awesome-solid',get_template_directory_uri().'/assets/vendor/fontawesome/css/solid.min.css',['font-awesome-core'],(string) filemtime($fa_solid));
+  wp_enqueue_style('font-awesome-brands',get_template_directory_uri().'/assets/vendor/fontawesome/css/brands.min.css',['font-awesome-core'],(string) filemtime($fa_brands));
   wp_enqueue_style('happy-day',get_stylesheet_uri(),[],(string) filemtime(get_stylesheet_directory().'/style.css'));
   $header_css=get_template_directory().'/assets/header.css';
   wp_enqueue_style('happy-day-header',get_template_directory_uri().'/assets/header.css',['happy-day'],(string) filemtime($header_css));
@@ -113,6 +115,10 @@ function hd_assets(){
   if(is_page_template('page-legal.php')){
     $legal_css=get_template_directory().'/assets/legal.css';
     wp_enqueue_style('happy-day-legal',get_template_directory_uri().'/assets/legal.css',['happy-day-header'],(string) filemtime($legal_css));
+  }
+  if(is_page('contact')){
+    $contact_css=get_template_directory().'/assets/contact.css';
+    wp_enqueue_style('happy-day-contact',get_template_directory_uri().'/assets/contact.css',['happy-day-header'],(string) filemtime($contact_css));
   }
   if(is_page_template('page-gallery.php')){
     $gallery_css=get_template_directory().'/assets/gallery.css';
@@ -233,6 +239,17 @@ function hd_floating_cart_fragment($fragments){
 add_filter('woocommerce_add_to_cart_fragments','hd_floating_cart_fragment');
 
 
+/* Prefer the generated WebP sibling when one exists on disk, for any
+ * theme-bundled image referenced by its path relative to the theme root. */
+function hd_theme_asset_image_url($relative_path){
+  $relative_path=ltrim((string)$relative_path,'/');
+  $path=get_template_directory().'/'.$relative_path;
+  $webp_path=preg_replace('/\.[^.\/]+$/','.webp',$path);
+  $url=get_template_directory_uri().'/'.$relative_path;
+  if($webp_path&&$webp_path!==$path&&is_file($webp_path)) return preg_replace('/\.[^.\/]+$/','.webp',$url);
+  return $url;
+}
+
 /* Prefer the generated WebP sibling when one exists on disk. */
 function hd_hero_image_url($attachment_id){
   $attachment_id=(int) $attachment_id;
@@ -259,7 +276,7 @@ function hd_current_hero_image_url(){
   $data_file=get_template_directory().'/inc/services/'.$slug.'.php';
   if(!is_file($data_file)) return '';
   $data=require $data_file;
-  if(!empty($data['hero_asset'])) return get_template_directory_uri().'/'.ltrim($data['hero_asset'],'/');
+  if(!empty($data['hero_asset'])) return hd_theme_asset_image_url($data['hero_asset']);
   return hd_hero_image_url((int)($data['hero_image']??0));
 }
 function hd_preload_hero_image(){
@@ -644,8 +661,37 @@ function hd_render_quote_form($event_type=''){
     do_shortcode('[contact-form-7 id="'.(int)$id.'" title="Happy Day Balloon Quote"]')
   );
 }
-function hd_fallback_menu(){$contact=get_page_by_path('contact');echo '<ul><li><a href="'.esc_url(home_url('/')).'">Home</a></li><li><a href="'.esc_url(home_url('/#services')).'">Services</a></li><li><a href="'.esc_url(home_url('/#about')).'">About</a></li><li><a href="'.esc_url($contact?get_permalink($contact):home_url('/')).'">Contact</a></li></ul>';}
-function hd_local_url($path){$clean=trim((string)$path,'/');$page=get_page_by_path($clean);return $page?get_permalink($page):home_url('/'.$clean.'/');}
+/* hd_local_url() and the header/footer navigation resolve the same handful of
+ * page paths (contact, about, blog, services/...) many times per request via
+ * get_page_by_path(), which is not cached by WordPress core. Cache the whole
+ * slug->ID map once so a full page render costs one lookup instead of ~40. */
+function hd_page_by_path($path){
+  static $map=null;
+  $slug=trim((string)$path,'/');
+  if($slug==='') return null;
+  if($map===null){
+    $map=get_transient('hd_page_slug_map');
+    if(!is_array($map)){
+      $map=[];
+      foreach(get_posts(['post_type'=>'page','post_status'=>'publish','numberposts'=>-1,'fields'=>'ids']) as $page_id){
+        $page_path=get_page_uri($page_id);
+        if($page_path) $map[$page_path]=(int)$page_id;
+      }
+      set_transient('hd_page_slug_map',$map,DAY_IN_SECONDS);
+    }
+  }
+  if(!isset($map[$slug])) return null;
+  $page=get_post($map[$slug]);
+  return ($page instanceof WP_Post&&$page->post_status==='publish')?$page:null;
+}
+function hd_flush_page_slug_map(){delete_transient('hd_page_slug_map');}
+add_action('save_post_page','hd_flush_page_slug_map');
+add_action('deleted_post','hd_flush_page_slug_map');
+add_action('trashed_post','hd_flush_page_slug_map');
+add_action('untrashed_post','hd_flush_page_slug_map');
+
+function hd_fallback_menu(){$contact=hd_page_by_path('contact');echo '<ul><li><a href="'.esc_url(home_url('/')).'">Home</a></li><li><a href="'.esc_url(home_url('/#services')).'">Services</a></li><li><a href="'.esc_url(home_url('/#about')).'">About</a></li><li><a href="'.esc_url($contact?get_permalink($contact):home_url('/')).'">Contact</a></li></ul>';}
+function hd_local_url($path){$clean=trim((string)$path,'/');$page=hd_page_by_path($clean);return $page?get_permalink($page):home_url('/'.$clean.'/');}
 
 /* Keep legacy custom menu links portable between localhost, LAN preview and production. */
 function hd_portable_menu_link($atts){

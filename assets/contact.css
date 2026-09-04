@@ -1,0 +1,18 @@
+/* Contact page editorial introduction — loaded only on the Contact page. */
+.contact-page .contact-intro{position:relative;isolation:isolate;overflow:hidden;padding:54px 48px 50px;border-radius:24px 72px 24px 24px;background:linear-gradient(145deg,#213d7a 0%,#293f7b 58%,#56366f 100%);box-shadow:16px 18px 0 rgba(241,124,164,.15),0 28px 65px rgba(37,61,120,.16);color:#fff}
+.contact-page .contact-intro:before{content:"";position:absolute;z-index:-1;right:-58px;top:-66px;width:190px;height:190px;border:28px solid rgba(255,255,255,.055);border-radius:50%}
+.contact-page .contact-intro:after{content:"";position:absolute;z-index:-1;right:34px;bottom:36px;width:68px;height:68px;border-radius:50%;background:rgba(240,124,165,.13);box-shadow:52px 20px 0 rgba(255,255,255,.055),30px -50px 0 rgba(255,171,198,.08)}
+.contact-intro-kicker{display:block;margin-bottom:17px;color:#ffabc6;font-size:11px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}
+.contact-page .contact-intro h2{max-width:420px;margin:0 0 22px;color:#fff;font-size:clamp(46px,4.5vw,66px);line-height:.98;letter-spacing:-.055em}
+.contact-page .contact-intro>p{max-width:465px;margin:0;color:rgba(245,248,255,.76);font-size:15px;line-height:1.75}
+.contact-page .direct-contact{display:block;margin-top:38px;padding-top:27px;border-top:1px solid rgba(255,255,255,.14)}
+.contact-page .direct-intro{display:block;margin:0 0 14px;color:#ffb4cc;font-size:12px;font-weight:800;letter-spacing:.04em}
+.contact-page .direct-links{display:grid;gap:5px}
+.contact-page .direct-links a{display:grid;grid-template-columns:34px minmax(0,1fr);align-items:center;gap:11px;width:fit-content;max-width:100%;padding:7px 0;color:#fff;transition:color .2s ease,transform .2s ease}
+.contact-page .direct-links a i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.09);color:#ff9fbd;font-size:13px}
+.contact-page .direct-links a span{min-width:0;overflow-wrap:anywhere}
+.contact-page .direct-email{font-size:14px;font-weight:720;letter-spacing:0}
+.contact-page .direct-phone{font-size:23px;font-weight:850;letter-spacing:-.025em}
+.contact-page .direct-links a:hover{color:#ffb4cc;transform:translateX(4px)}
+@media(max-width:900px){.contact-page .contact-intro{padding:50px 44px}.contact-page .contact-intro h2{font-size:58px}}
+@media(max-width:600px){.contact-page .contact-intro{padding:38px 25px 40px;border-radius:20px 48px 20px 20px;box-shadow:10px 12px 0 rgba(241,124,164,.13),0 22px 48px rgba(37,61,120,.15)}.contact-page .contact-intro h2{font-size:46px}.contact-page .contact-intro:after{opacity:.6}.contact-page .direct-phone{font-size:21px}}

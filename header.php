@@ -31,7 +31,7 @@
       </nav>
       <div class="header-actions">
         <a class="phone icon-link" href="<?php echo esc_url(hd_phone_href()); ?>"><i class="fa-solid fa-phone" aria-hidden="true"></i><span><?php echo esc_html(hd_phone()); ?></span></a>
-        <a class="hd-btn" href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>">Request a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="hd-btn" href="<?php echo esc_url(hd_local_url('contact')); ?>">Request a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         <button class="mobile-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><span class="mobile-toggle-lines" aria-hidden="true"><i></i><i></i></span></button>
       </div>
     </div>
