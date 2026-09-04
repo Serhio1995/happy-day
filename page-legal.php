@@ -35,7 +35,7 @@ while(have_posts()): the_post();
           </nav>
           <div class="legal-help">
             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-            <div><strong>Questions?</strong><a href="mailto:happydaytorontoballoons@gmail.com">Email our team</a></div>
+            <div><strong>Questions?</strong><a href="<?php echo esc_url(hd_email_href()); ?>">Email our team</a></div>
           </div>
         </div>
       </aside>

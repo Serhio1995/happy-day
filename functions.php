@@ -2,6 +2,7 @@
 if (!defined('ABSPATH')) exit;
 
 require_once get_template_directory().'/inc/gallery.php';
+require_once get_template_directory().'/inc/customizer.php';
 
 function hd_setup(){
   add_theme_support('title-tag'); add_theme_support('post-thumbnails'); add_theme_support('custom-logo'); add_theme_support('align-wide');
@@ -628,7 +629,13 @@ function hd_quote_form_id(){
 function hd_render_quote_form($event_type=''){
   $id=hd_quote_form_id();
   if(!$id||!shortcode_exists('contact-form-7')){
-    echo '<div class="hd-form-unavailable"><p>Please email <a href="mailto:happydaytorontoballoons@gmail.com">happydaytorontoballoons@gmail.com</a> or call <a href="tel:+16475275505">647-527-5505</a>.</p></div>';
+    printf(
+      '<div class="hd-form-unavailable"><p>Please email <a href="%1$s">%2$s</a> or call <a href="%3$s">%4$s</a>.</p></div>',
+      esc_url(hd_email_href()),
+      esc_html(hd_email()),
+      esc_url(hd_phone_href()),
+      esc_html(hd_phone())
+    );
     return;
   }
   printf(

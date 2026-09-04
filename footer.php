@@ -16,10 +16,13 @@
     <div class="footer-brand">
       <div class="footer-logo"><?php if (has_custom_logo()) { the_custom_logo(); } else { ?>HAPPY DAY<br><small>TORONTO</small><?php } ?></div>
       <p>Custom balloon decoration designed around your moment, your colours, and your space.</p>
+      <?php $hd_socials=hd_social_links(); if($hd_socials): ?>
       <div class="footer-socials">
-        <a href="https://www.instagram.com/happydaytoronto/" target="_blank" rel="noopener noreferrer" aria-label="Happy Day Toronto on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://www.facebook.com/HappyDayToronto/" target="_blank" rel="noopener noreferrer" aria-label="Happy Day Toronto on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <?php foreach($hd_socials as $hd_social): ?>
+        <a href="<?php echo esc_url($hd_social['url']); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr(get_bloginfo('name').' on '.$hd_social['label']); ?>"><i class="<?php echo esc_attr($hd_social['icon']); ?>" aria-hidden="true"></i></a>
+        <?php endforeach; ?>
       </div>
+      <?php endif; ?>
     </div>
 
     <nav class="footer-column" aria-label="Footer navigation">
@@ -46,9 +49,10 @@
     <div class="footer-column footer-contact">
       <div class="footer-title">LET’S TALK</div>
       <p class="footer-contact-list">
-        <a href="tel:+16475275505"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>647-527-5505</span></a>
-        <a href="mailto:happydaytorontoballoons@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>happydaytorontoballoons@gmail.com</span></a>
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Richmond Hill, Ontario</span></span>
+        <a href="<?php echo esc_url(hd_phone_href()); ?>"><i class="fa-solid fa-phone" aria-hidden="true"></i><span><?php echo esc_html(hd_phone()); ?></span></a>
+        <a href="<?php echo esc_url(hd_email_href()); ?>"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span><?php echo esc_html(hd_email()); ?></span></a>
+        <?php if(hd_address()): ?><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><?php echo esc_html(hd_address()); ?></span></span><?php endif; ?>
+        <?php foreach(hd_hours_lines() as $hd_hours_line): ?><span><i class="fa-solid fa-clock" aria-hidden="true"></i><span><?php echo esc_html($hd_hours_line); ?></span></span><?php endforeach; ?>
       </p>
     </div>
   </div>
