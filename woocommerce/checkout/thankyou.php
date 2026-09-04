@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 					<p><?php esc_html_e( 'The payment could not be processed. You can try again or contact Happy Day Toronto if you need help.', 'happy-day' ); ?></p>
 					<div class="hd-thankyou-actions">
 						<a href="<?php echo esc_url( $order->get_checkout_payment_url() ); ?>" class="hd-btn"><span><?php esc_html_e( 'Try Payment Again', 'happy-day' ); ?></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-						<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hd-thankyou-secondary"><i class="fa-regular fa-envelope" aria-hidden="true"></i><?php esc_html_e( 'Contact us', 'happy-day' ); ?></a>
+						<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hd-thankyou-secondary"><i class="fa-solid fa-envelope" aria-hidden="true"></i><?php esc_html_e( 'Contact us', 'happy-day' ); ?></a>
 					</div>
 				</div>
 			</section>
@@ -44,20 +44,20 @@ defined( 'ABSPATH' ) || exit;
 					</p>
 					<div class="hd-thankyou-actions">
 						<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="hd-btn"><span><?php esc_html_e( 'Continue Shopping', 'happy-day' ); ?></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-						<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hd-thankyou-secondary"><i class="fa-regular fa-envelope" aria-hidden="true"></i><?php esc_html_e( 'Need help with this order?', 'happy-day' ); ?></a>
+						<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hd-thankyou-secondary"><i class="fa-solid fa-envelope" aria-hidden="true"></i><?php esc_html_e( 'Need help with this order?', 'happy-day' ); ?></a>
 					</div>
 				</div>
 			</section>
 
 			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details hd-thankyou-overview">
 				<li class="woocommerce-order-overview__order order"><i class="fa-solid fa-hashtag" aria-hidden="true"></i><span><?php esc_html_e( 'Order number', 'happy-day' ); ?><strong><?php echo esc_html( $order->get_order_number() ); ?></strong></span></li>
-				<li class="woocommerce-order-overview__date date"><i class="fa-regular fa-calendar" aria-hidden="true"></i><span><?php esc_html_e( 'Order date', 'happy-day' ); ?><strong><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></strong></span></li>
+				<li class="woocommerce-order-overview__date date"><i class="fa-solid fa-calendar" aria-hidden="true"></i><span><?php esc_html_e( 'Order date', 'happy-day' ); ?><strong><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></strong></span></li>
 				<?php if ( $order->get_billing_email() ) : ?>
-					<li class="woocommerce-order-overview__email email"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span><?php esc_html_e( 'Email', 'happy-day' ); ?><strong><?php echo esc_html( $order->get_billing_email() ); ?></strong></span></li>
+					<li class="woocommerce-order-overview__email email"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span><?php esc_html_e( 'Email', 'happy-day' ); ?><strong><?php echo esc_html( $order->get_billing_email() ); ?></strong></span></li>
 				<?php endif; ?>
 				<li class="woocommerce-order-overview__total total"><i class="fa-solid fa-receipt" aria-hidden="true"></i><span><?php esc_html_e( 'Order total', 'happy-day' ); ?><strong><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></strong></span></li>
 				<?php if ( $order->get_payment_method_title() ) : ?>
-					<li class="woocommerce-order-overview__payment-method method"><i class="fa-regular fa-credit-card" aria-hidden="true"></i><span><?php esc_html_e( 'Payment method', 'happy-day' ); ?><strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong></span></li>
+					<li class="woocommerce-order-overview__payment-method method"><i class="fa-solid fa-credit-card" aria-hidden="true"></i><span><?php esc_html_e( 'Payment method', 'happy-day' ); ?><strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong></span></li>
 				<?php endif; ?>
 			</ul>
 

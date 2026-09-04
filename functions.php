@@ -120,6 +120,10 @@ function hd_assets(){
     $contact_css=get_template_directory().'/assets/contact.css';
     wp_enqueue_style('happy-day-contact',get_template_directory_uri().'/assets/contact.css',['happy-day-header'],(string) filemtime($contact_css));
   }
+  if(is_front_page()){
+    $home_css=get_template_directory().'/assets/home.css';
+    wp_enqueue_style('happy-day-home',get_template_directory_uri().'/assets/home.css',['happy-day-header'],(string) filemtime($home_css));
+  }
   if(is_page_template('page-gallery.php')){
     $gallery_css=get_template_directory().'/assets/gallery.css';
     $gallery_js=get_template_directory().'/assets/gallery.js';
@@ -157,11 +161,24 @@ function hd_assets(){
     wp_script_add_data('happy-day-gallery','strategy','defer');
   }
   if(is_page_template('page-service.php')){
-    wp_enqueue_style('leaflet',get_template_directory_uri().'/assets/vendor/leaflet/leaflet.css',[],'1.9.4');
-    wp_enqueue_script('leaflet',get_template_directory_uri().'/assets/vendor/leaflet/leaflet.js',[],'1.9.4',true);
-    wp_enqueue_script('happy-day-gta-map',get_template_directory_uri().'/assets/gta-map.js',['leaflet'],(string) filemtime(get_template_directory().'/assets/gta-map.js'),true);
-    wp_script_add_data('leaflet','strategy','defer');
-    wp_script_add_data('happy-day-gta-map','strategy','defer');
+    /* The GTA map (Leaflet, ~165KB of CSS+JS) sits well below the fold on
+     * every service page. Only actually load it once the map section is
+     * about to scroll into view, instead of paying for it on every
+     * service-page visit regardless of scroll depth. */
+    wp_register_script('happy-day-gta-map-loader','',[],false,true);
+    wp_enqueue_script('happy-day-gta-map-loader');
+    wp_add_inline_script('happy-day-gta-map-loader',sprintf(
+      'document.addEventListener("DOMContentLoaded",function(){'.
+      'var section=document.querySelector(".service-gta-section");if(!section)return;'.
+      'var loaded=false;function load(){if(loaded)return;loaded=true;observer.disconnect();'.
+      'var link=document.createElement("link");link.rel="stylesheet";link.href=%s;document.head.appendChild(link);'.
+      'var s1=document.createElement("script");s1.src=%s;s1.onload=function(){var s2=document.createElement("script");s2.src=%s;document.body.appendChild(s2)};document.body.appendChild(s1)}'.
+      'var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)load()})},{rootMargin:"600px 0px"});'.
+      'observer.observe(section)});',
+      wp_json_encode(get_template_directory_uri().'/assets/vendor/leaflet/leaflet.css'),
+      wp_json_encode(get_template_directory_uri().'/assets/vendor/leaflet/leaflet.js'),
+      wp_json_encode(get_template_directory_uri().'/assets/gta-map.js?ver='.filemtime(get_template_directory().'/assets/gta-map.js'))
+    ));
   }
 }
 add_action('wp_enqueue_scripts','hd_assets');
@@ -492,7 +509,7 @@ function hd_ajax_filter_shop_products(){
     }
     woocommerce_product_loop_end();
   }else{
-    echo '<div class="hd-shop-filter-empty"><i class="fa-solid fa-balloon" aria-hidden="true"></i><h2>No products found</h2><p>Try another category or view all products.</p></div>';
+    echo '<div class="hd-shop-filter-empty"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><h2>No products found</h2><p>Try another category or view all products.</p></div>';
   }
   $products_html=(string)ob_get_clean();
   ob_start();

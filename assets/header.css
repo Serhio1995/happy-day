@@ -103,6 +103,8 @@
   .site-header .site-nav .sub-menu a:hover{padding:6px 5px;background:rgba(255,255,255,.72);color:#263d78;transform:translateX(3px)}
   .site-header .site-nav .sub-menu a:hover:after{border-color:#f17ca4;background:#f17ca4;color:#fff;transform:translateX(2px)}
   .site-header .site-nav .sub-menu .hd-rental-menu-item{order:5;grid-column:1/-1;align-items:center;margin:3px 0;padding:7px 9px;border:1px solid rgba(241,124,164,.18);background:rgba(241,124,164,.07)}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item a{grid-template-columns:minmax(0,1fr) 28px}
+  .site-header .site-nav .sub-menu .hd-rental-menu-item a:before{content:none}
   .site-header .site-nav .sub-menu .hd-rental-menu-start{display:grid;grid-template-columns:82px minmax(0,1fr);gap:9px;margin-top:11px;padding-left:12px;border-bottom:0;border-radius:12px 22px 0 0;box-shadow:inset 3px 0 0 #f17ca4}
   .site-header .site-nav .sub-menu .hd-rental-menu-item:not(.hd-rental-menu-start){display:block;margin-top:-3px;padding-left:103px;border-top:0;border-radius:0 0 12px 12px}
   .site-header .site-nav .sub-menu .hd-rental-menu-start:before{content:"Rentals:";color:#d64f7f;font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}

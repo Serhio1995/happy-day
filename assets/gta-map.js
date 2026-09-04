@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',()=>{
+(()=>{
   const section=document.querySelector('.service-gta-section .hd-wrap');
   if(!section||typeof L==='undefined')return;
   const shell=document.createElement('div');shell.className='gta-map-shell';
@@ -28,4 +28,4 @@ document.addEventListener('DOMContentLoaded',()=>{
     list.append(button);
   });
   map.fitBounds(bounds,{padding:[28,28]});setTimeout(()=>map.invalidateSize(),150);
-});
+})();
