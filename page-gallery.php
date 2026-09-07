@@ -21,14 +21,15 @@ if($managed_gallery_items){
   $filters=$fallback_filters;
 }
 
-/* Three photos for the hero collage, picked at random from the whole
-   gallery on every request so the header always looks fresh. */
+/* Photos for the hero filmstrip, picked at random from the whole gallery on
+   every request so the header always looks fresh. Rendered twice in the
+   markup for a seamless vertical scroll loop. */
 $hero_image_pool=array_values(array_unique(array_filter(array_map(
   static fn($item)=>(int)($item['id']??0),
   $gallery_items
 ))));
 shuffle($hero_image_pool);
-$hero_image_ids=array_slice($hero_image_pool,0,3);
+$hero_image_ids=array_slice($hero_image_pool,0,7);
 
 get_header();
 ?>
@@ -38,26 +39,27 @@ get_header();
     <div class="hd-gallery-hero-orb hd-gallery-hero-orb-two" aria-hidden="true"></div>
     <div class="hd-wrap hd-gallery-hero-grid">
       <div class="hd-gallery-hero-copy">
-        <span class="hd-gallery-eyebrow">Balloon decoration ideas · Toronto & the GTA</span>
         <h1>Balloon Decoration<br>Ideas &amp; Real Photos</h1>
         <p>Browse real balloon decoration photos and ideas from Happy Day Toronto: balloon arches, garlands, backdrops and themed setups for birthdays, weddings, baby and bridal showers, corporate events and milestones across Toronto and the GTA.</p>
         <a class="hd-gallery-hero-link" href="<?php echo esc_url(home_url('/contact/')); ?>">
           Plan your balloon decor <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
         </a>
       </div>
-      <div class="hd-gallery-hero-collage" aria-label="Real balloon decoration setups by Happy Day Toronto">
-        <?php foreach ($hero_image_ids as $index=>$image_id): ?>
-          <figure class="hd-gallery-hero-image hd-gallery-hero-image-<?php echo esc_attr((string)($index+1)); ?>">
-            <?php echo wp_get_attachment_image($image_id,'large',false,[
-              'loading'=>$index===0?'eager':'lazy',
-              'fetchpriority'=>$index===0?'high':'auto',
-              'decoding'=>'async',
-            ]); ?>
-          </figure>
-        <?php endforeach; ?>
-        <span class="hd-gallery-collage-note"><b><?php echo esc_html(count($gallery_items)); ?>+</b> real balloon setups</span>
-      </div>
     </div>
+    <?php if ($hero_image_ids): ?>
+    <div class="hd-gallery-hero-collage">
+      <div class="hd-gallery-filmstrip-track">
+        <?php for ($pass=0; $pass<2; $pass++): foreach ($hero_image_ids as $image_id): ?>
+          <figure class="hd-gallery-frame"><?php echo wp_get_attachment_image($image_id,'large',false,[
+            'loading'=>'lazy',
+            'decoding'=>'async',
+            'alt'=>'',
+          ]); ?></figure>
+        <?php endforeach; endfor; ?>
+      </div>
+      <span class="hd-gallery-collage-note"><b><?php echo esc_html(count($gallery_items)); ?>+</b><i>real balloon setups</i></span>
+    </div>
+    <?php endif; ?>
     <div class="hd-gallery-hero-curve" aria-hidden="true"></div>
   </section>
 
@@ -65,7 +67,6 @@ get_header();
     <div class="hd-wrap">
       <header class="hd-gallery-heading">
         <div>
-          <span class="hd-gallery-eyebrow">Balloon decoration gallery</span>
           <h2 id="gallery-heading">Browse Balloon Decoration Ideas by Celebration</h2>
         </div>
         <p>Every photo is a real balloon decoration we designed and installed. Filter the gallery by celebration — birthdays, weddings, baby and bridal showers, corporate events — or by style, such as balloon arches, garlands and backdrops.</p>
