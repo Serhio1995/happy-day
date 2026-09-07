@@ -3,12 +3,6 @@
 .hd-home .soft+section:not(.band){position:relative}
 .hd-home .soft+section:not(.band):before{content:"";position:absolute;z-index:-1;top:-90px;left:0;right:0;height:150px;pointer-events:none;background:linear-gradient(to bottom,rgba(255,243,246,.5),rgba(255,255,255,0))}
 @media(max-width:600px){.hd-home .soft{background:linear-gradient(to bottom,#fff 0%,var(--rose) 10%,var(--rose) 90%,#fff 100%)}}
-/* The process section sat as a saturated pink band wedged between the
-   near-white reviews section above and the white contact section below.
-   Give it the same white + faint-accent wash that #about and .why-section
-   use so it reads as part of the same family and blends at both edges. */
-.hd-home section.soft:has(.process-grid){background:radial-gradient(circle at 6% 16%,rgba(241,124,164,.07),transparent 24%),radial-gradient(circle at 95% 86%,rgba(37,61,120,.045),transparent 22%),linear-gradient(180deg,#fffafd 0%,#fff 55%,#fff 100%)}
-@media(max-width:600px){.hd-home section.soft:has(.process-grid){background:linear-gradient(180deg,#fffafd 0%,#fff 60%)}}
 .hd-home .eyebrow{display:none}
 .hd-home #about{position:relative;background:radial-gradient(circle at 4% 18%,rgba(241,124,164,.09) 0 78px,transparent 80px),radial-gradient(circle at 97% 84%,rgba(37,61,120,.055) 0 105px,transparent 107px),linear-gradient(180deg,#fff 0%,#fffafd 48%,#fff 100%)}
 .hd-home #about:before{content:"";position:absolute;top:80px;left:-45px;width:150px;height:150px;border:24px solid rgba(241,124,164,.055);border-radius:50%;pointer-events:none}.hd-home #about .hd-split{grid-template-columns:1.08fr .92fr;gap:86px}
