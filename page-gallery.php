@@ -31,6 +31,8 @@ $hero_image_pool=array_values(array_unique(array_filter(array_map(
 shuffle($hero_image_pool);
 $hero_image_ids=array_slice($hero_image_pool,0,7);
 
+$gallery_faqs=require get_template_directory().'/inc/gallery-faqs.php';
+
 get_header();
 ?>
 <div class="hd-gallery-page">
@@ -134,6 +136,30 @@ get_header();
       </div>
     </div>
   </section>
+
+  <?php if (!empty($gallery_faqs)): ?>
+  <section class="service-faq">
+    <div class="hd-wrap">
+      <h2>Balloon Decoration Ideas: Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <?php foreach ($gallery_faqs as $i=>$faq): ?>
+          <details <?php echo $i===0?'open':''; ?>><summary><?php echo esc_html($faq['q']); ?></summary><p><?php echo wp_kses_post($faq['a']); ?></p></details>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+  <?php
+  $faq_schema=[];
+  foreach ($gallery_faqs as $faq){
+    $faq_schema[]=[
+      '@type'=>'Question',
+      'name'=>wp_strip_all_tags($faq['q']),
+      'acceptedAnswer'=>['@type'=>'Answer','text'=>wp_strip_all_tags($faq['a'])],
+    ];
+  }
+  ?>
+  <script type="application/ld+json"><?php echo wp_json_encode(['@context'=>'https://schema.org','@type'=>'FAQPage','mainEntity'=>$faq_schema],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE); ?></script>
+  <?php endif; ?>
 
   <section class="hd-gallery-cta">
     <div class="hd-wrap hd-gallery-cta-inner">
