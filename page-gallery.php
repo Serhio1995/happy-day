@@ -4,39 +4,8 @@
  */
 if (!defined('ABSPATH')) exit;
 
-$fallback_gallery_items = [
-  ['id'=>25,  'title'=>'Birthday balloon backdrop',             'event'=>'Birthday celebration',  'categories'=>['birthdays','backdrops'],          'shape'=>'portrait'],
-  ['id'=>103, 'title'=>'Elegant wedding balloon decor',         'event'=>'Wedding reception',     'categories'=>['weddings','backdrops'],           'shape'=>'landscape'],
-  ['id'=>106, 'title'=>'Corporate balloon installation',        'event'=>'Branded event',         'categories'=>['corporate','backdrops'],          'shape'=>'square'],
-  ['id'=>114, 'title'=>'Baby shower balloon arch',              'event'=>'Baby shower',           'categories'=>['showers','arches'],               'shape'=>'portrait'],
-  ['id'=>27,  'title'=>'Playful birthday balloon theme',        'event'=>'Birthday party',        'categories'=>['birthdays'],                      'shape'=>'square'],
-  ['id'=>166, 'title'=>'Romantic proposal balloon setup',       'event'=>'Proposal celebration',  'categories'=>['weddings'],                       'shape'=>'portrait'],
-  ['id'=>118, 'title'=>'Elegant bridal shower backdrop',        'event'=>'Bridal shower',         'categories'=>['showers','backdrops'],            'shape'=>'landscape'],
-  ['id'=>107, 'title'=>'Opening ceremony balloon decor',        'event'=>'Corporate opening',     'categories'=>['corporate'],                      'shape'=>'portrait'],
-  ['id'=>126, 'title'=>'Festive Christmas balloon display',     'event'=>'Holiday celebration',   'categories'=>['seasonal'],                       'shape'=>'square'],
-  ['id'=>28,  'title'=>'Birthday arch and photo area',          'event'=>'Milestone birthday',    'categories'=>['birthdays','arches','backdrops'], 'shape'=>'landscape'],
-  ['id'=>121, 'title'=>'Bridal shower balloon styling',         'event'=>'Bridal shower',         'categories'=>['showers'],                        'shape'=>'portrait'],
-  ['id'=>168, 'title'=>'Balloons and flowers for an engagement','event'=>'Engagement party',      'categories'=>['weddings'],                       'shape'=>'square'],
-  ['id'=>130, 'title'=>'Valentine balloon decoration',          'event'=>'Valentine’s Day',       'categories'=>['seasonal'],                       'shape'=>'portrait'],
-  ['id'=>108, 'title'=>'Corporate balloon arch and backdrop',   'event'=>'Business event',        'categories'=>['corporate','arches','backdrops'], 'shape'=>'landscape'],
-  ['id'=>117, 'title'=>'Soft baby shower balloon decor',        'event'=>'Baby shower',           'categories'=>['showers'],                        'shape'=>'square'],
-  ['id'=>159, 'title'=>'Graduation balloon celebration',        'event'=>'Graduation party',      'categories'=>['seasonal'],                       'shape'=>'portrait'],
-  ['id'=>145, 'title'=>'Statement photo backdrop',              'event'=>'Private celebration',   'categories'=>['backdrops'],                      'shape'=>'landscape'],
-  ['id'=>150, 'title'=>'Custom balloon arch',                   'event'=>'Event entrance',        'categories'=>['arches'],                         'shape'=>'portrait'],
-  ['id'=>169, 'title'=>'Halloween balloon installation',        'event'=>'Halloween party',       'categories'=>['seasonal'],                       'shape'=>'square'],
-  ['id'=>153, 'title'=>'Wedding balloon arch',                  'event'=>'Wedding celebration',   'categories'=>['weddings','arches'],              'shape'=>'landscape'],
-];
-
-$fallback_filters = [
-  'all'=>'All celebrations',
-  'birthdays'=>'Birthdays',
-  'weddings'=>'Weddings & engagements',
-  'showers'=>'Baby & bridal showers',
-  'corporate'=>'Corporate',
-  'seasonal'=>'Seasonal & milestones',
-  'arches'=>'Arches',
-  'backdrops'=>'Backdrops',
-];
+$fallback_gallery_items = function_exists('hd_fallback_gallery_items') ? hd_fallback_gallery_items() : [];
+$fallback_filters = function_exists('hd_fallback_gallery_filters') ? hd_fallback_gallery_filters() : ['all'=>'All celebrations'];
 
 $managed_gallery_items=function_exists('hd_get_managed_gallery_items')
   ?hd_get_managed_gallery_items()
