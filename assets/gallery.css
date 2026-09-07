@@ -119,3 +119,26 @@ body.hd-gallery-lightbox-open{overflow:hidden}
   .hd-gallery-cta{padding-bottom:75px}.hd-gallery-cta-inner{padding:34px 24px;box-shadow:8px 9px 0 #f5b5ce}.hd-gallery-cta-inner h2{font-size:34px}
 }
 @media(prefers-reduced-motion:reduce){.hd-gallery-page *{scroll-behavior:auto!important;transition:none!important}}
+
+/* ---- Hero collage refinement ------------------------------------------- */
+.hd-gallery-hero-collage::before{content:"";position:absolute;z-index:0;left:50%;top:48%;width:122%;height:122%;transform:translate(-50%,-50%);background:radial-gradient(58% 54% at 50% 46%,rgba(255,209,229,.34),rgba(255,209,229,0) 72%);pointer-events:none}
+.hd-gallery-hero-image{border-width:6px;border-radius:30px;box-shadow:0 2px 6px rgba(18,23,54,.16),0 24px 52px rgba(18,23,54,.34);transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s cubic-bezier(.2,.7,.2,1)}
+.hd-gallery-hero-image::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);background:linear-gradient(150deg,rgba(255,255,255,.24),rgba(255,255,255,0) 44%);pointer-events:none}
+.hd-gallery-hero-image img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.hd-gallery-collage-note{gap:9px;padding:11px 15px;border-radius:16px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.7);box-shadow:0 12px 26px rgba(20,25,54,.22),0 2px 6px rgba(20,25,54,.12);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.hd-gallery-collage-note b{font-size:20px;letter-spacing:-.02em}
+
+@media(hover:hover){
+  .hd-gallery-hero-collage:hover .hd-gallery-hero-image{animation-play-state:paused;box-shadow:0 3px 9px rgba(18,23,54,.2),0 34px 66px rgba(18,23,54,.4)}
+  .hd-gallery-hero-collage:hover .hd-gallery-hero-image-1{transform:rotate(-2deg) translateY(-7px)}
+  .hd-gallery-hero-collage:hover .hd-gallery-hero-image-2{transform:rotate(0) translateY(-11px)}
+  .hd-gallery-hero-collage:hover .hd-gallery-hero-image-3{transform:rotate(3deg) translateY(-7px)}
+  .hd-gallery-hero-image:hover img{transform:scale(1.055)}
+}
+
+@media(prefers-reduced-motion:no-preference){
+  .hd-gallery-hero-image{animation:hd-collage-float 7s ease-in-out infinite}
+  .hd-gallery-hero-image-2{animation-duration:8.2s;animation-delay:-2.4s}
+  .hd-gallery-hero-image-3{animation-duration:7.6s;animation-delay:-4.7s}
+}
+@keyframes hd-collage-float{0%,100%{translate:0 0}50%{translate:0 -11px}}

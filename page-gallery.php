@@ -21,10 +21,14 @@ if($managed_gallery_items){
   $filters=$fallback_filters;
 }
 
-$hero_image_ids=array_slice(array_values(array_filter(array_map(
+/* Three photos for the hero collage, picked at random from the whole
+   gallery on every request so the header always looks fresh. */
+$hero_image_pool=array_values(array_unique(array_filter(array_map(
   static fn($item)=>(int)($item['id']??0),
   $gallery_items
-))),0,3);
+))));
+shuffle($hero_image_pool);
+$hero_image_ids=array_slice($hero_image_pool,0,3);
 
 get_header();
 ?>
