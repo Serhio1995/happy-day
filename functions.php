@@ -4,6 +4,7 @@ if (!defined('ABSPATH')) exit;
 require_once get_template_directory().'/inc/gallery.php';
 require_once get_template_directory().'/inc/customizer.php';
 require_once get_template_directory().'/inc/yoast-analysis-content.php';
+require_once get_template_directory().'/inc/schema.php';
 
 function hd_setup(){
   add_theme_support('title-tag'); add_theme_support('post-thumbnails'); add_theme_support('custom-logo'); add_theme_support('align-wide');
