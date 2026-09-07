@@ -34,14 +34,14 @@ get_header();
     <div class="hd-gallery-hero-orb hd-gallery-hero-orb-two" aria-hidden="true"></div>
     <div class="hd-wrap hd-gallery-hero-grid">
       <div class="hd-gallery-hero-copy">
-        <span class="hd-gallery-eyebrow">Our work · Toronto & the GTA</span>
-        <h1>Balloon Decor<br>We’ve Created</h1>
-        <p>Explore real balloon installations designed and set up by Happy Day Toronto for birthdays, weddings, showers, corporate events, and milestone celebrations.</p>
+        <span class="hd-gallery-eyebrow">Balloon decoration ideas · Toronto & the GTA</span>
+        <h1>Balloon Decoration<br>Ideas &amp; Real Photos</h1>
+        <p>Browse real balloon decoration photos and ideas from Happy Day Toronto: balloon arches, garlands, backdrops and themed setups for birthdays, weddings, baby and bridal showers, corporate events and milestones across Toronto and the GTA.</p>
         <a class="hd-gallery-hero-link" href="<?php echo esc_url(home_url('/contact/')); ?>">
-          Plan your celebration <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          Plan your balloon decor <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
         </a>
       </div>
-      <div class="hd-gallery-hero-collage" aria-label="A selection of Happy Day Toronto balloon decor">
+      <div class="hd-gallery-hero-collage" aria-label="Real balloon decoration setups by Happy Day Toronto">
         <?php foreach ($hero_image_ids as $index=>$image_id): ?>
           <figure class="hd-gallery-hero-image hd-gallery-hero-image-<?php echo esc_attr((string)($index+1)); ?>">
             <?php echo wp_get_attachment_image($image_id,'large',false,[
@@ -51,7 +51,7 @@ get_header();
             ]); ?>
           </figure>
         <?php endforeach; ?>
-        <span class="hd-gallery-collage-note"><b><?php echo esc_html(count($gallery_items)); ?>+</b> real setups</span>
+        <span class="hd-gallery-collage-note"><b><?php echo esc_html(count($gallery_items)); ?>+</b> real balloon setups</span>
       </div>
     </div>
     <div class="hd-gallery-hero-curve" aria-hidden="true"></div>
@@ -61,10 +61,10 @@ get_header();
     <div class="hd-wrap">
       <header class="hd-gallery-heading">
         <div>
-          <span class="hd-gallery-eyebrow">Happy Day Toronto portfolio</span>
-          <h2 id="gallery-heading">Explore Our Balloon Decor</h2>
+          <span class="hd-gallery-eyebrow">Balloon decoration gallery</span>
+          <h2 id="gallery-heading">Browse Balloon Decoration Ideas by Celebration</h2>
         </div>
-        <p>Every photo shows decor created by our team. Use the filters to browse our work by celebration type and setup style.</p>
+        <p>Every photo is a real balloon decoration we designed and installed. Filter the gallery by celebration — birthdays, weddings, baby and bridal showers, corporate events — or by style, such as balloon arches, garlands and backdrops.</p>
       </header>
 
       <div class="hd-gallery-filter-shell">
@@ -116,13 +116,13 @@ get_header();
       </div>
 
       <div class="hd-gallery-empty" hidden>
-        <h3>No projects in this category yet.</h3>
-        <p>Choose another filter to browse more of our work.</p>
+        <h3>No balloon decor photos in this category yet.</h3>
+        <p>Pick another filter to see more balloon decoration ideas.</p>
       </div>
 
       <div class="hd-gallery-more-wrap" hidden>
         <button class="hd-gallery-more" type="button" aria-controls="hd-gallery-grid" aria-expanded="false">
-          <span>Show more work</span>
+          <span>Show more balloon decor</span>
           <small><b class="hd-gallery-more-count">0</b> more</small>
           <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
         </button>
@@ -132,8 +132,8 @@ get_header();
 
   <section class="hd-gallery-cta">
     <div class="hd-wrap hd-gallery-cta-inner">
-      <div><span>Seen a setup you love?</span><h2>Let’s Create Yours.</h2></div>
-      <p>Tell us which details from our work caught your eye, along with your event type, venue, and colours. We’ll create a custom setup for your celebration.</p>
+      <div><span>Seen balloon decor you love?</span><h2>Let’s Create Yours.</h2></div>
+      <p>Tell us which balloon decoration ideas from our gallery caught your eye, plus your event type, venue and colours. We’ll design a custom balloon setup for your celebration in Toronto or the GTA.</p>
       <a href="<?php echo esc_url(home_url('/contact/')); ?>">Request a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
   </section>
