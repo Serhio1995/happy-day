@@ -99,8 +99,6 @@
 .hd-home .service-card .card-visual:before{content:"";position:absolute;z-index:2;inset:auto 0 0;height:34%;background:linear-gradient(to top,rgba(15,27,59,.28),transparent);pointer-events:none}
 .hd-home .service-card .card-visual img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .35s ease}
 .hd-home .service-card:hover .card-visual img{transform:scale(1.055);filter:saturate(1.04)}
-.hd-home .service-card-glow{position:absolute;z-index:2;right:17px;bottom:16px;width:9px;height:9px;border:2px solid rgba(255,255,255,.92);border-radius:50%;box-shadow:0 0 0 6px rgba(241,124,164,.65),0 4px 16px rgba(25,39,79,.24);transition:transform .35s ease,background .35s ease}
-.hd-home .service-card:hover .service-card-glow{transform:scale(1.12);background:#fff}
 .hd-home .service-card .card-body{position:relative;z-index:3;display:flex;min-height:244px;flex:1;flex-direction:column;padding:28px 25px 24px}
 .hd-home .service-card .card-body:before{content:"";display:block;width:36px;height:3px;margin:0 0 17px;border-radius:999px;background:linear-gradient(90deg,#ef6f9c,#f6b3c9)}
 .hd-home .service-card .card-body h3{margin:0 0 13px;color:var(--navy);font-size:22px;line-height:1.16;letter-spacing:-.035em}
