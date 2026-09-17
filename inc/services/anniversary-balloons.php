@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Anniversary Balloon Decoration for Another Beautiful Year',
-    'gallery_category' => 'seasonal',
-    'intro' => [
+    'title' => 'Anniversary Balloon Decoration for Another Beautiful Year',    'intro' => [
         'Celebrate another beautiful year together with custom anniversary balloon decoration in Toronto and across the GTA. Happy Day Toronto creates romantic, elegant, and photo-ready balloon setups for wedding anniversaries, milestone celebrations, private dinners, venue parties, and surprise events.',
         'From soft balloon garlands to stylish backdrops and number displays, we design anniversary decor around your colours, venue, and celebration style.',
     ],

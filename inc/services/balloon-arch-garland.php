@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Balloon Arch & Garland Decoration That Makes an Entrance',
-    'gallery_category' => 'arches',
-    'intro' => [
+    'title' => 'Balloon Arch & Garland Decoration That Makes an Entrance',    'intro' => [
         'Create a beautiful entrance, backdrop, or photo area with custom balloon arch and garland decoration in Toronto and across the GTA. Happy Day Toronto designs balloon arches and garlands for birthdays, weddings, baby showers, bridal showers, corporate events, graduations, grand openings, and private celebrations.',
         'From soft balloon garlands to full entrance arches and round arch balloon decoration, we create each setup around your event colours, venue, theme, and celebration style.',
     ],

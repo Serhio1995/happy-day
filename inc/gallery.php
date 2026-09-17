@@ -70,8 +70,62 @@ function hd_gallery_album_meta_box(){
     'normal',
     'high'
   );
+  add_meta_box(
+    'hd-gallery-album-pages',
+    'Show on Service Page(s)',
+    'hd_gallery_album_pages_meta_box_html',
+    'hd_gallery_album',
+    'side',
+    'default'
+  );
 }
 add_action('add_meta_boxes','hd_gallery_album_meta_box');
+
+/**
+ * Published pages using the Happy Day Service template, keyed by slug.
+ * Powers the "Show on Service Page(s)" picker on the Gallery Category
+ * editor, so a category can be linked to a page without touching code.
+ */
+function hd_service_page_choices(){
+  $pages=get_posts([
+    'post_type'=>'page',
+    'post_status'=>'publish',
+    'posts_per_page'=>-1,
+    'meta_key'=>'_wp_page_template',
+    'meta_value'=>'page-service.php',
+    'orderby'=>'title',
+    'order'=>'ASC',
+    'no_found_rows'=>true,
+  ]);
+  $choices=[];
+  foreach($pages as $page){
+    if($page->post_name!=='') $choices[$page->post_name]=get_the_title($page);
+  }
+  return $choices;
+}
+
+function hd_gallery_album_pages_meta_box_html($post){
+  $selected=get_post_meta($post->ID,'_hd_gallery_service_pages',true);
+  if(!is_array($selected)) $selected=[];
+  $choices=hd_service_page_choices();
+  ?>
+  <p class="description">Pick the service page(s) that should show a preview of this category’s photos, linking to the full gallery filtered to it.</p>
+  <?php if(!$choices): ?>
+    <p><em>No service pages found.</em></p>
+  <?php else: ?>
+    <ul class="hd-gallery-page-picker">
+      <?php foreach($choices as $slug=>$title): ?>
+        <li>
+          <label>
+            <input type="checkbox" name="hd_gallery_service_pages[]" value="<?php echo esc_attr($slug); ?>" <?php checked(in_array($slug,$selected,true)); ?>>
+            <?php echo esc_html($title); ?>
+          </label>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
+  <?php
+}
 
 function hd_gallery_album_meta_box_html($post){
   wp_nonce_field('hd_save_gallery_album','hd_gallery_album_nonce');
@@ -158,6 +212,15 @@ function hd_save_gallery_album($post_id){
     update_post_meta($post_id,'_hd_gallery_images',$images);
   }else{
     delete_post_meta($post_id,'_hd_gallery_images');
+  }
+
+  $service_pages=isset($_POST['hd_gallery_service_pages'])
+    ?array_values(array_unique(array_map('sanitize_title',(array)wp_unslash($_POST['hd_gallery_service_pages']))))
+    :[];
+  if($service_pages){
+    update_post_meta($post_id,'_hd_gallery_service_pages',$service_pages);
+  }else{
+    delete_post_meta($post_id,'_hd_gallery_service_pages');
   }
 }
 add_action('save_post_hd_gallery_album','hd_save_gallery_album');
@@ -303,6 +366,25 @@ function hd_get_gallery_items_by_category($category,$limit=6){
     static fn($item)=>in_array($category,$item['categories']??[],true)
   ));
   return $limit>0?array_slice($matching,0,$limit):$matching;
+}
+
+/**
+ * Finds the Gallery Category (if any) an editor has linked, via the "Show
+ * on Service Page(s)" picker on the category editor, to the given service
+ * page slug. This is the only place the service-page <-> category mapping
+ * lives — no code changes are needed when categories are added or renamed.
+ */
+function hd_get_gallery_category_for_service($service_slug){
+  if(!$service_slug) return null;
+  foreach(hd_get_gallery_albums() as $album){
+    $pages=get_post_meta($album->ID,'_hd_gallery_service_pages',true);
+    if(!is_array($pages)||!in_array($service_slug,$pages,true)) continue;
+    return [
+      'slug'=>$album->post_name?:sanitize_title($album->post_title),
+      'title'=>get_the_title($album),
+    ];
+  }
+  return null;
 }
 
 function hd_get_gallery_filters(){

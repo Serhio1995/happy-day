@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Backdrop Rental That Puts Every Moment in Focus',
-    'gallery_category' => 'backdrops',
-    'intro' => [
+    'title' => 'Backdrop Rental That Puts Every Moment in Focus',    'intro' => [
         'Create a beautiful photo-ready focal point with custom backdrop rental in Toronto and across the GTA. Happy Day Toronto provides backdrops for birthdays, weddings, baby showers, bridal showers, corporate events, photoshoots, parties, and private celebrations.',
         'From clean fabric backdrops to balloon backdrop decor, arches, garlands, flowers, signage, and themed setups, we help design a backdrop that fits your event style, colours, venue, and celebration.',
     ],

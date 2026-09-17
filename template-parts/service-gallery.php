@@ -1,14 +1,20 @@
 <?php
-if(!defined('ABSPATH')||empty($service_data['gallery_category'])) return;
+if(!defined('ABSPATH')) return;
 
-$gallery_category=$service_data['gallery_category'];
+$service_slug=get_post_field('post_name',get_queried_object_id());
+$gallery_match=function_exists('hd_get_gallery_category_for_service')
+  ?hd_get_gallery_category_for_service($service_slug)
+  :null;
+if(!$gallery_match) return;
+
+$gallery_category=$gallery_match['slug'];
+$gallery_label=$gallery_match['title'];
+
 $gallery_items=function_exists('hd_get_gallery_items_by_category')
   ?hd_get_gallery_items_by_category($gallery_category,6)
   :[];
 if(!$gallery_items) return;
 
-$gallery_filters=function_exists('hd_get_gallery_filters')?hd_get_gallery_filters():[];
-$gallery_label=$gallery_filters[$gallery_category]??'Balloon Decor';
 $gallery_url=hd_local_url('gallery').'?filter='.rawurlencode($gallery_category);
 ?>
 <section class="service-gallery-section soft"><div class="hd-wrap">

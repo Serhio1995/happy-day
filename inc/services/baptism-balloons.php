@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Baptism Balloon Decor for a Beautiful Family Moment',
-    'gallery_category' => 'seasonal',
-    'intro' => [
+    'title' => 'Baptism Balloon Decor for a Beautiful Family Moment',    'intro' => [
         'Celebrate a meaningful family moment with soft, elegant, and photo-ready baptism balloon decor in Toronto and across the GTA. Happy Day Toronto creates custom balloon decorations for baptisms, christenings, first communions, church celebrations, restaurant gatherings, banquet halls, and private family events.',
         'From delicate balloon garlands to beautiful backdrops and communion balloon decorations, we design each setup around your colours, venue, tradition, and celebration style.',
     ],

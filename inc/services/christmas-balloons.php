@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Christmas Balloon Decor That Feels Like Holiday Magic',
-    'gallery_category' => 'seasonal',
-    'intro' => [
+    'title' => 'Christmas Balloon Decor That Feels Like Holiday Magic',    'intro' => [
         'Bring your holiday celebration to life with festive Christmas balloon decor in Toronto and across the GTA. Happy Day Toronto creates custom balloon decorations for Christmas parties, office events, family gatherings, retail displays, restaurant celebrations, photo areas, and seasonal event setups.',
         'From elegant balloon garlands to Christmas backdrops, balloon arches, and festive tree-inspired displays, we design each setup around your space, colours, theme, and celebration style.',
     ],

@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Bridal Shower Balloons for Her Moment to Shine',
-    'gallery_category' => 'showers',
-    'intro' => [
+    'title' => 'Bridal Shower Balloons for Her Moment to Shine',    'intro' => [
         'Celebrate the bride-to-be with elegant, stylish, and photo-ready bridal shower balloons in Toronto and across the GTA. Happy Day Toronto creates custom balloon decor for bridal showers, bride-to-be parties, restaurant celebrations, home gatherings, banquet halls, and private event spaces.',
         'From soft balloon garlands to beautiful backdrops and bride-to-be decor, we design each setup around your colours, venue, theme, and celebration style.',
     ],

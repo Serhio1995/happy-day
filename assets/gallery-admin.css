@@ -22,6 +22,9 @@
 .hd-gallery-admin-thumbs{display:flex}
 .hd-gallery-admin-thumbs img{width:46px;height:46px;object-fit:cover;border:2px solid #fff;border-radius:7px;margin-left:-8px;box-shadow:0 0 0 1px #dcdcde}
 .hd-gallery-admin-thumbs img:first-child{margin-left:0}
+.hd-gallery-page-picker{margin:0;max-height:260px;overflow-y:auto}
+.hd-gallery-page-picker li{padding:3px 0}
+.hd-gallery-page-picker label{display:flex;align-items:center;gap:6px}
 @media(max-width:900px){
   .hd-gallery-image-row{grid-template-columns:24px 70px 1fr 34px}
   .hd-gallery-image-row>img{width:70px;height:60px}

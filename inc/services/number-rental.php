@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Marquee Number Rental That Lights Up the Moment',
-    'gallery_category' => 'birthdays',
-    'intro' => [
+    'title' => 'Marquee Number Rental That Lights Up the Moment',    'intro' => [
         'Make a milestone impossible to miss with marquee number rental in Toronto and the GTA. Our illuminated numbers create a bold, photo-ready focal point for birthdays, anniversaries, graduations, business milestones, and private celebrations.',
         'Choose the numbers that matter to your event, then style them on their own or pair them with balloons, a backdrop, flowers, and coordinated colours for a complete display.',
     ],

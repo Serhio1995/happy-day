@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Engagement Balloon Decoration for the Perfect Yes',
-    'gallery_category' => 'weddings',
-    'intro' => [
+    'title' => 'Engagement Balloon Decoration for the Perfect Yes',    'intro' => [
         'Celebrate the moment with custom engagement balloon decoration in Toronto and across the GTA. Happy Day Toronto creates romantic balloon decor for proposals, engagement parties, Marry Me setups, private dinners, restaurant celebrations, home surprises, and photo-ready event spaces.',
         'From soft balloon garlands to elegant backdrops and proposal setups, we design each engagement decoration around your colours, location, theme, and celebration style.',
     ],

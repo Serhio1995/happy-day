@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Halloween Balloon Decor with a Stylish Spooky Twist',
-    'gallery_category' => 'seasonal',
-    'intro' => [
+    'title' => 'Halloween Balloon Decor with a Stylish Spooky Twist',    'intro' => [
         'Create a spooky, playful, and photo-ready celebration with custom Halloween balloon decor in Toronto and across the GTA. Happy Day Toronto designs Halloween balloon decorations for parties, school events, family gatherings, restaurant displays, retail spaces, themed backdrops, photo areas, and private celebrations.',
         'From black and orange balloon garlands to spooky arches, Halloween backdrops, and themed party displays, we create each setup around your space, colours, event style, and celebration theme.',
     ],

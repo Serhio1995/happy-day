@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Balloon and Flower Decoration for Effortless Elegance',
-    'gallery_category' => 'backdrops',
-    'intro' => [
+    'title' => 'Balloon and Flower Decoration for Effortless Elegance',    'intro' => [
         'Create a softer, more elegant event setup with custom balloon and flower decoration in Toronto and across the GTA. Happy Day Toronto designs flower balloon decor for birthdays, weddings, baby showers, bridal showers, engagements, anniversaries, backdrops, wall displays, room setups, and private celebrations.',
         'From floral balloon garlands to balloon flower wall decoration and photo-ready backdrops, we create each setup around your colours, venue, theme, and celebration style.',
     ],

@@ -6,9 +6,7 @@ $link = function ($path, $label) {
 };
 
 return [
-    'title' => 'Balloon Ceiling Decor That Brings the Party Overhead',
-    'gallery_category' => 'backdrops',
-    'intro' => [
+    'title' => 'Balloon Ceiling Decor That Brings the Party Overhead',    'intro' => [
         'Create a festive indoor party atmosphere with custom balloon ceiling decor in Toronto and across the GTA. Happy Day Toronto designs ceiling balloon setups for birthdays, home parties, kids’ celebrations, private events, indoor venues, restaurants, banquet halls, and special occasions.',
         'From floating-style ceiling balloons to hanging balloon decorations and full ceiling installations, we create each setup around your event space, colours, theme, and celebration style.',
     ],
