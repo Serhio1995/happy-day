@@ -7,6 +7,7 @@ $link = function ($path, $label) {
 
 return [
     'title' => 'Valentine’s Day Balloon Decor Made for Romance',
+    'gallery_category' => 'seasonal',
     'intro' => [
         'Create a romantic, stylish, and photo-ready setup with custom Valentine’s Day balloon decor in Toronto and across the GTA. Happy Day Toronto designs balloon decorations for romantic room setups, proposals, date nights, private celebrations, restaurant events, brand displays, and Valentine’s Day parties.',
         'From heart balloons and soft garlands to elegant backdrops and surprise room decor, we create each setup around your colours, space, occasion, and celebration style.',

@@ -290,6 +290,21 @@ function hd_gallery_display_items(){
   return $managed?:hd_fallback_gallery_items();
 }
 
+/**
+ * A handful of gallery photos for one category, for embedding a small
+ * "real examples" strip on a service page. Reads from the same managed
+ * albums (or demo fallback) as the Gallery page, so it stays in sync with
+ * whatever is curated in wp-admin without a separate data source.
+ */
+function hd_get_gallery_items_by_category($category,$limit=6){
+  if(!$category) return [];
+  $matching=array_values(array_filter(
+    hd_gallery_display_items(),
+    static fn($item)=>in_array($category,$item['categories']??[],true)
+  ));
+  return $limit>0?array_slice($matching,0,$limit):$matching;
+}
+
 function hd_get_gallery_filters(){
   $filters=[];
   foreach(hd_get_gallery_albums() as $album){

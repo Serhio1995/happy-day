@@ -3,6 +3,7 @@ if(!defined('ABSPATH')) exit;
 $link=function($path,$label){return '<a href="'.esc_url(hd_local_url($path)).'">'.esc_html($label).'</a>';};
 return [
 'title'=>'Corporate Event Balloon Decor That Means Business',
+'gallery_category'=>'corporate',
 'intro'=>['Make your business event look polished, branded, and ready for photos. Happy Day Toronto provides custom balloon event decoration in Toronto and across the GTA for corporate events, grand openings, office celebrations, product launches, store openings, branded displays, and professional event setups.','From clean balloon arches to custom backdrops and company-colour garlands, we design corporate balloon decor around your brand, venue, event purpose, and guest experience.'],
 'hero_button'=>'Plan My Corporate Event Decor','hero_image'=>87,'card_asset'=>'assets/images/corporate-event-balloons-toronto.webp',
 'sections'=>[

@@ -7,6 +7,7 @@ $link = function ($path, $label) {
 
 return [
     'title' => 'Baby Shower Balloons for the Sweetest Welcome',
+    'gallery_category' => 'showers',
     'intro' => [
         'Welcome the new arrival with soft, beautiful, and photo-ready baby shower balloons in Toronto and across the GTA. Happy Day Toronto creates custom balloon decor for baby showers, gender celebrations, family gatherings, restaurant events, home parties, and venue setups.',
         'From elegant balloon arches to themed backdrops and garlands, we design each baby shower setup around your colours, venue, theme, and celebration style.',

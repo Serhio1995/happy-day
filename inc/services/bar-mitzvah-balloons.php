@@ -7,6 +7,7 @@ $link = function ($path, $label) {
 
 return [
     'title' => 'Bar & Bat Mitzvah Balloon Decorations for a Milestone to Remember',
+    'gallery_category' => 'seasonal',
     'intro' => [
         'Celebrate this meaningful coming-of-age milestone with custom Bar and Bat Mitzvah balloon decorations in Toronto and across the GTA. Happy Day Toronto creates stylish decor for family receptions in banquet halls, restaurants, synagogues, community venues, and private party spaces.',
         'From balloon centrepieces and table decor to backdrops, arches, garlands, and photo areas, every setup is designed around the celebrant, your family’s vision, the venue, and the atmosphere you want to create.',

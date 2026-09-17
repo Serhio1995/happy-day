@@ -7,6 +7,7 @@ $link = function ($path, $label) {
 
 return [
     'title' => 'Graduation Balloon Decor for a Moment Worth Celebrating',
+    'gallery_category' => 'seasonal',
     'intro' => [
         'Celebrate the graduate with custom graduation balloon decor in Toronto and across the GTA. Happy Day Toronto creates balloon decorations for graduation parties, school celebrations, college and university events, home gatherings, banquet halls, restaurants, and private venues.',
         'From school-colour garlands to photo-ready backdrops, balloon arches, and party displays, we design each graduation setup around your colours, venue, graduate, and celebration style.',

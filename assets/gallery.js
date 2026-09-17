@@ -129,8 +129,17 @@
     applyGalleryState();
   });
 
-  randomizeAllCards();
-  applyGalleryState();
+  const requestedFilter = new URLSearchParams(window.location.search).get('filter');
+  const requestedFilterButton = requestedFilter
+    ? filters.find(button => button.dataset.filter === requestedFilter)
+    : null;
+
+  if (requestedFilterButton) {
+    requestedFilterButton.click();
+  } else {
+    randomizeAllCards();
+    applyGalleryState();
+  }
   updateFilterNext();
 
   if (!dialog || !dialogImage || !dialogTitle || !dialogEvent) return;

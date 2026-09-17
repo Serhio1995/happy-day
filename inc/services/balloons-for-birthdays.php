@@ -3,6 +3,7 @@ if(!defined('ABSPATH')) exit;
 $link=function($path,$label){return '<a href="'.esc_url(hd_local_url($path)).'">'.esc_html($label).'</a>';};
 return [
 'title'=>'Birthday Balloon Decoration That Starts the Party',
+'gallery_category'=>'birthdays',
 'intro'=>[
 'Make the celebration feel special from the moment guests walk in. Happy Day Toronto creates custom birthday balloon decoration in Toronto and across the GTA for kids’ birthdays, adult parties, milestone celebrations, home events, restaurant parties, banquet halls, and private venues.',
 'From playful balloon garlands to elegant birthday backdrops, we design each setup around your colours, theme, space, and celebration style.'

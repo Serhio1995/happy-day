@@ -3,6 +3,7 @@ if(!defined('ABSPATH')) exit;
 $link=function($path,$label){return '<a href="'.esc_url(hd_local_url($path)).'">'.esc_html($label).'</a>';};
 return [
 'title'=>'Wedding Balloon Decor for a Day Worth Remembering',
+'gallery_category'=>'weddings',
 'intro'=>[
 'Create a wedding space that feels elegant, personal, and ready for photos. Happy Day Toronto provides custom wedding balloon decor in Toronto and across the GTA for receptions, ceremonies, stages, backdrops, entrances, dessert tables, and intimate wedding celebrations.',
 'From soft romantic balloon garlands to statement wedding backdrops, we design each setup around your colours, venue, and celebration style.'
