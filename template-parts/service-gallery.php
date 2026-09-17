@@ -11,20 +11,21 @@ $gallery_category=$gallery_match['slug'];
 $gallery_label=$gallery_match['title'];
 
 $gallery_items=function_exists('hd_get_gallery_items_by_category')
-  ?hd_get_gallery_items_by_category($gallery_category,6)
+  ?hd_get_gallery_items_by_category($gallery_category,0)
   :[];
 if(!$gallery_items) return;
 
-$gallery_url=hd_local_url('gallery').'?filter='.rawurlencode($gallery_category);
+$initial_count=6;
+$remaining_count=max(0,count($gallery_items)-$initial_count);
 ?>
 <section class="service-gallery-section soft"><div class="hd-wrap">
   <div class="section-head"><h2>Real <?php echo esc_html($gallery_label); ?> We’ve Installed</h2><p>A few photos from our gallery, filtered to this style of celebration.</p></div>
   <div class="service-gallery-grid">
-    <?php foreach($gallery_items as $item):
+    <?php foreach($gallery_items as $index=>$item):
       $full=wp_get_attachment_image_url($item['id'],'full');
       if(!$full) continue;
     ?>
-      <button class="service-gallery-card" type="button"
+      <button class="service-gallery-card" type="button" <?php echo $index>=$initial_count?'hidden':''; ?>
         data-full="<?php echo esc_url($full); ?>"
         data-title="<?php echo esc_attr($item['title']); ?>"
         data-event="<?php echo esc_attr($item['event']??''); ?>"
@@ -38,7 +39,9 @@ $gallery_url=hd_local_url('gallery').'?filter='.rawurlencode($gallery_category);
       </button>
     <?php endforeach; ?>
   </div>
-  <a class="hd-btn service-gallery-cta" href="<?php echo esc_url($gallery_url); ?>">View all <?php echo esc_html($gallery_label); ?> photos <i class="fa-solid fa-arrow-right"></i></a>
+  <?php if($remaining_count>0): ?>
+    <button class="hd-btn service-gallery-more" type="button">Show <?php echo esc_html((string)$remaining_count); ?> more <?php echo esc_html($gallery_label); ?> photo<?php echo $remaining_count===1?'':'s'; ?> <i class="fa-solid fa-arrow-down"></i></button>
+  <?php endif; ?>
 </div>
 <dialog class="hd-gallery-lightbox" aria-label="Photo viewer">
   <div class="hd-gallery-lightbox-inner">

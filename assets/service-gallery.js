@@ -6,6 +6,14 @@
   const dialog = section.querySelector('.hd-gallery-lightbox');
   if (!buttons.length || !dialog) return;
 
+  const moreButton = section.querySelector('.service-gallery-more');
+  moreButton?.addEventListener('click', () => {
+    const hiddenButtons = buttons.filter(button => button.hidden);
+    hiddenButtons.forEach(button => { button.hidden = false; });
+    moreButton.hidden = true;
+    hiddenButtons[0]?.focus();
+  });
+
   const image = dialog.querySelector('figure img');
   const title = dialog.querySelector('figcaption strong');
   const event = dialog.querySelector('figcaption small');
