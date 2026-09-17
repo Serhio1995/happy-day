@@ -40,7 +40,7 @@ $remaining_count=max(0,count($gallery_items)-$initial_count);
     <?php endforeach; ?>
   </div>
   <?php if($remaining_count>0): ?>
-    <button class="hd-btn service-gallery-more" type="button">Show <?php echo esc_html((string)$remaining_count); ?> more <?php echo esc_html($gallery_label); ?> photo<?php echo $remaining_count===1?'':'s'; ?> <i class="fa-solid fa-arrow-down"></i></button>
+    <button class="hd-btn service-gallery-more" type="button">Show <?php echo esc_html((string)$remaining_count); ?> more photo<?php echo $remaining_count===1?'':'s'; ?> <i class="fa-solid fa-arrow-down"></i></button>
   <?php endif; ?>
 </div>
 <dialog class="hd-gallery-lightbox" aria-label="Photo viewer">
