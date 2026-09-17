@@ -53,4 +53,8 @@ return [
     'q' => 'Where can I see your newest balloon decoration ideas and photos?',
     'a' => 'We add photos to the gallery regularly after events, with seasonal work going up around Valentine\'s Day, graduation season, Halloween and Christmas. The most recent installations, often from the same week, appear first on our ' . $instagram . '. If you are planning around a specific holiday or theme, ask us and we can send recent examples that are not in the gallery yet.',
   ],
+  [
+    'q' => 'What makes the balloons in these photos look so full and richly coloured?',
+    'a' => 'Every installation in the gallery is built with premium latex balloons, mostly Italian-made, sourced from trusted Canadian suppliers rather than the cheapest imported stock. Higher-grade latex holds a rounder shape and truer, more saturated colour than bargain balloons, which is why the garlands, arches, and backdrops you see photograph so cleanly. It is the same standard of balloon we use on every booked event, not just the ones selected for the gallery, so your own setup is built to the same finish.',
+  ],
 ];
