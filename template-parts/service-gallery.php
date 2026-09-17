@@ -21,16 +21,31 @@ $gallery_url=hd_local_url('gallery').'?filter='.rawurlencode($gallery_category);
   <div class="section-head"><h2>Real <?php echo esc_html($gallery_label); ?> We’ve Installed</h2><p>A few photos from our gallery, filtered to this style of celebration.</p></div>
   <div class="service-gallery-grid">
     <?php foreach($gallery_items as $item):
-      if(!wp_get_attachment_image_url($item['id'],'medium')) continue;
+      $full=wp_get_attachment_image_url($item['id'],'full');
+      if(!$full) continue;
     ?>
-      <a class="service-gallery-card" href="<?php echo esc_url($gallery_url); ?>">
+      <button class="service-gallery-card" type="button"
+        data-full="<?php echo esc_url($full); ?>"
+        data-title="<?php echo esc_attr($item['title']); ?>"
+        data-event="<?php echo esc_attr($item['event']??''); ?>"
+        aria-label="<?php echo esc_attr('View '.$item['title']); ?>">
         <?php echo wp_get_attachment_image($item['id'],'medium_large',false,[
           'loading'=>'lazy',
           'decoding'=>'async',
           'alt'=>$item['title'],
         ]); ?>
-      </a>
+        <span class="service-gallery-card-icon" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+      </button>
     <?php endforeach; ?>
   </div>
   <a class="hd-btn service-gallery-cta" href="<?php echo esc_url($gallery_url); ?>">View all <?php echo esc_html($gallery_label); ?> photos <i class="fa-solid fa-arrow-right"></i></a>
-</div></section>
+</div>
+<dialog class="hd-gallery-lightbox" aria-label="Photo viewer">
+  <div class="hd-gallery-lightbox-inner">
+    <button class="hd-gallery-lightbox-close" type="button" aria-label="Close image viewer"><i class="fa-solid fa-xmark"></i></button>
+    <button class="hd-gallery-lightbox-nav hd-gallery-lightbox-prev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+    <figure><img src="" alt=""><figcaption><small></small><strong></strong></figcaption></figure>
+    <button class="hd-gallery-lightbox-nav hd-gallery-lightbox-next" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</dialog>
+</section>

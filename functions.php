@@ -164,6 +164,10 @@ function hd_assets(){
     wp_script_add_data('happy-day-gallery','strategy','defer');
   }
   if(is_page_template('page-service.php')){
+    $service_gallery_js=get_template_directory().'/assets/service-gallery.js';
+    wp_enqueue_script('happy-day-service-gallery',get_template_directory_uri().'/assets/service-gallery.js',[],(string)filemtime($service_gallery_js),true);
+    wp_script_add_data('happy-day-service-gallery','strategy','defer');
+
     /* The GTA map (Leaflet, ~165KB of CSS+JS) sits well below the fold on
      * every service page. Only actually load it once the map section is
      * about to scroll into view, instead of paying for it on every
