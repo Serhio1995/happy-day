@@ -9,7 +9,10 @@ require_once get_template_directory().'/inc/image-sitemap.php';
 
 function hd_setup(){
   add_theme_support('title-tag'); add_theme_support('post-thumbnails'); add_theme_support('custom-logo'); add_theme_support('align-wide');
-  add_theme_support('woocommerce');
+  add_theme_support('woocommerce', array(
+    'thumbnail_image_width' => 800,
+    'single_image_width'    => 800,
+  ));
   add_theme_support('wc-product-gallery-zoom');
   add_theme_support('wc-product-gallery-lightbox');
   add_theme_support('wc-product-gallery-slider');
