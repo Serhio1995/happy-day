@@ -10,6 +10,10 @@
 .store-quick-nav{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:7px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.09);box-shadow:0 16px 38px rgba(25,31,78,.16);backdrop-filter:blur(10px)}
 .store-quick-nav a{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 13px;border-radius:12px;color:#fff;font-size:12px;font-weight:800;white-space:nowrap;transition:background .2s ease,transform .2s ease}.store-quick-nav a:hover,.store-quick-nav .is-active{background:#fff;color:#d84e7f;transform:translateY(-2px)}
 .store-quick-nav i{color:#ffabc6}.store-quick-nav a:hover i,.store-quick-nav .is-active i{color:#df5686}.store-quick-nav b{display:grid;place-items:center;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:#ef709d;color:#fff;font-size:9px}
+.hd-product-toolbar{display:flex;justify-content:flex-end;margin:0 0 26px}
+.hd-product-toolbar .store-quick-nav{border-color:#eadde3;background:#fff;box-shadow:0 10px 26px rgba(37,61,120,.07)}
+.hd-product-toolbar .store-quick-nav a{color:#5d6780}.hd-product-toolbar .store-quick-nav a:hover,.hd-product-toolbar .store-quick-nav .is-active{background:linear-gradient(145deg,#263d78,#514178);color:#fff}
+.hd-product-toolbar .store-quick-nav i{color:#e86a97}.hd-product-toolbar .store-quick-nav a:hover i,.hd-product-toolbar .store-quick-nav .is-active i{color:#ffabc6}
 .commerce-content{position:relative;overflow:hidden;min-height:460px;padding:90px 0 110px;background:radial-gradient(circle at -2% 18%,rgba(241,124,164,.055) 0 100px,transparent 102px),radial-gradient(circle at 101% 78%,rgba(37,61,120,.045) 0 125px,transparent 127px),linear-gradient(180deg,#fff 0%,#fffafd 52%,#fff 100%)}
 .commerce-content>.hd-wrap,.woocommerce-shell{position:relative;z-index:1}.commerce-content .alignwide{max-width:none;margin-left:0;margin-right:0}
 
@@ -387,7 +391,7 @@
 }
 
 /* Order received — a clear guest-checkout confirmation in the Happy Day style. */
-.woocommerce-order-received .commerce-content{padding-top:72px}
+.woocommerce-order-received .commerce-content,.hd-product-page .commerce-content{padding-top:56px}
 .hd-thankyou{display:grid;gap:42px;min-width:0}
 .hd-thankyou-status{position:relative;isolation:isolate;display:grid;grid-template-columns:82px minmax(0,1fr);gap:25px;align-items:start;padding:43px 46px;overflow:hidden;border-radius:23px 68px 23px 23px;background:linear-gradient(125deg,#213d79 0%,#3c407d 55%,#754a7d 100%);box-shadow:13px 16px 0 rgba(241,124,164,.14),0 26px 60px rgba(37,61,120,.16);color:#fff}
 .hd-thankyou-status:before{content:"";position:absolute;z-index:-1;right:-45px;top:-75px;width:220px;height:220px;border:35px solid rgba(255,255,255,.055);border-radius:50%}.hd-thankyou-status:after{content:"";position:absolute;z-index:-1;right:19%;bottom:-75px;width:140px;height:140px;border-radius:50%;background:rgba(241,124,164,.14)}

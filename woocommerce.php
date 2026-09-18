@@ -15,8 +15,10 @@ $intro=$is_product_view
     :'Discover celebration-ready details curated in the joyful Happy Day Toronto style.'));
 ?>
 <article class="hd-commerce-page <?php echo $is_order_received?'hd-thankyou-page':($is_product_view?'hd-product-page':'hd-shop-page'); ?>">
+  <?php if(!$is_product_view): ?>
   <header class="commerce-hero"><div class="hd-wrap commerce-hero-inner"><div><span><?php echo esc_html($kicker); ?></span><h1><?php echo esc_html($title); ?></h1><p><?php echo esc_html($intro); ?></p></div><?php get_template_part('template-parts/store-nav'); ?></div><span class="commerce-hero-curve" aria-hidden="true"></span></header>
-  <section class="commerce-content"><div class="hd-wrap woocommerce-shell">
+  <?php endif; ?>
+  <section class="commerce-content"><div class="hd-wrap woocommerce-shell"><?php if($is_product_view): ?><div class="hd-product-toolbar"><?php get_template_part('template-parts/store-nav'); ?></div><?php endif; ?>
     <?php woocommerce_content(); ?>
     <?php if($is_shop_view): ?>
       <section class="hd-shop-guide" aria-labelledby="hd-shop-guide-title">
