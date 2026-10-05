@@ -1,0 +1,84 @@
+/* Location pages share the site's palette, buttons, typography and forms. */
+.location-breadcrumbs{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);margin:28px 0 0}
+.location-breadcrumbs a:hover{color:var(--navy);text-decoration:underline}
+.location-jump-links{display:flex;flex-wrap:wrap;gap:12px 28px;padding-block:22px;border-bottom:1px solid var(--line)}
+.location-jump-links a{font-size:14px;font-weight:700;color:var(--navy)}
+.location-page :is(a,summary):focus-visible{outline:3px solid var(--navy);outline-offset:5px}
+.location-page [id]{scroll-margin-top:120px}
+.location-section{padding:72px 0}.location-section h2{font-size:clamp(28px,3.3vw,42px);line-height:1.15;color:var(--navy);letter-spacing:-.035em;margin:0 0 22px}
+.location-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:0}
+.location-facts>div{border-top:3px solid var(--pink);padding:20px;background:var(--rose);border-radius:0 0 16px 16px}
+.location-facts dt{font-weight:800;color:var(--navy);margin-bottom:9px}.location-facts dd{margin:0;font-size:15px}
+.location-editorial{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}.location-prose{min-width:0}.location-prose p{margin:0 0 20px;font-size:17px;line-height:1.8}.location-prose p:last-child{margin-bottom:0}
+.location-prose p a{color:var(--navy);text-decoration:underline;text-underline-offset:3px}.location-prose .check-grid{margin-top:24px}
+.location-service-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:28px 0 0}
+.location-service-links li{min-width:0}.location-service-links a{display:block;height:100%;padding:20px 38px 20px 20px;background:white;border:1px solid var(--line);border-radius:12px;color:var(--navy);font-weight:700;position:relative}.location-service-links a:after{content:'→';position:absolute;right:16px;top:20px;color:var(--pink)}.location-service-links a:hover{border-color:var(--pink);box-shadow:var(--shadow)}
+.location-budget{background:var(--navy);color:white}.location-budget h2,.location-budget h3{color:white}.location-budget .section-head p{color:#e1e7f4}.location-budget-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:32px 0}.location-budget-grid article{padding:26px;border:1px solid #ffffff30;border-radius:16px}.location-budget-grid h3{font-size:21px;line-height:1.3;margin:0 0 14px}.location-budget-grid p{margin:0;color:#e1e7f4}.location-budget .text-link{color:#ffd1df}
+.location-page .service-gta-section{background:#f2f5fb}.location-page .service-gta-section>.hd-wrap{display:block}.location-page .service-gta-section h2{color:var(--navy)}
+@media(max-width:900px){.location-facts{grid-template-columns:1fr 1fr}.location-editorial{grid-template-columns:1fr;gap:24px}.location-budget-grid{gap:14px}.location-budget-grid article{padding:20px}}
+@media(max-width:600px){.location-section{padding:48px 0}.location-jump-links{gap:12px 20px}.location-facts,.location-budget-grid{grid-template-columns:1fr}.location-service-links{grid-template-columns:1fr}}
+
+/* Photo-and-copy sections use the service template's visual language. */
+.location-page .location-content-section .service-prose{min-width:0}
+.location-page .location-content-section h2{font-size:clamp(28px,3.5vw,44px);line-height:1.15}
+.location-page .location-content-section .service-prose p{font-size:16px;line-height:1.8}
+.location-page .location-section-photo{min-height:0;align-self:center}
+.location-page .location-section-photo img{height:560px;object-fit:cover}
+.location-page .service-room-section .service-prose{display:block}
+.location-page .service-room-section .service-prose h2,.location-page .service-room-section .service-prose p{grid-column:auto;grid-row:auto}
+.location-page .service-gta-section .service-prose{width:100%;max-width:none}
+.location-page .service-options-section>.hd-wrap{max-width:1160px}
+.location-page .service-options-section .location-service-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+.location-page .service-options-section .location-service-links a{color:var(--navy)}
+.location-page .location-section{padding:72px 0}
+@media(max-width:900px){
+  .location-page .location-content-section .service-content-split{grid-template-columns:1fr;gap:32px}
+  .location-page .location-content-section .service-prose{order:0}
+  .location-page .location-section-photo{order:1;width:100%}
+  .location-page .location-section-photo img{height:480px}
+  .location-page .service-options-section .location-service-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .location-page .location-section{padding:48px 0}
+  .location-page .location-section-photo img{height:390px}
+  .location-page .service-options-section .location-service-links{grid-template-columns:1fr}
+}
+
+.location-budget-icon{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;margin-bottom:18px;border:1px solid #ffd1df40;border-radius:14px;background:#ffffff0d;color:#ffd1df;font-size:22px;line-height:1}
+
+.location-services-catalog{background:#fff8fb}
+.location-catalog-heading{max-width:760px;margin-bottom:36px}
+.location-catalog-heading .eyebrow{display:block;margin-bottom:16px}
+.location-catalog-heading h2{margin-bottom:16px}
+.location-catalog-heading p{margin:0;color:var(--muted);font-size:16px;line-height:1.8}
+.location-catalog-groups{display:grid;gap:24px}
+.location-catalog-group{padding:28px;border:1px solid var(--line);border-radius:20px;background:white}
+.location-catalog-group-heading{margin-bottom:20px}
+.location-catalog-group-heading h3{margin:0 0 6px;font-size:23px;line-height:1.25;color:var(--navy)}
+.location-catalog-group-heading p{margin:0;font-size:14px;color:var(--muted)}
+.location-catalog-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0}
+.location-catalog-links li{min-width:0}
+.location-catalog-links a{display:flex;align-items:center;gap:14px;height:100%;min-height:78px;padding:16px;border:1px solid #f4dce5;border-radius:12px;color:var(--navy);font-size:15px;font-weight:700;line-height:1.4;text-decoration:none;background:#fff}
+.location-catalog-links a:hover,.location-catalog-links a:focus-visible{background:#fff1f6;border-color:var(--pink)}
+.location-catalog-icon{display:flex;align-items:center;justify-content:center;flex:0 0 40px;width:40px;height:40px;border-radius:11px;background:#ffe8f0;color:#b93769;font-size:18px}
+.location-catalog-arrow{margin-left:auto;color:#b93769;font-size:13px;flex-shrink:0}
+@media(max-width:900px){.location-catalog-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.location-catalog-group{padding:20px}.location-catalog-links{grid-template-columns:1fr}.location-catalog-links a{min-height:68px}.location-catalog-heading{margin-bottom:28px}}
+
+/* Service-areas hub: one card per area, linking to its page. */
+.location-area-directory{background:#fff}
+.location-area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.location-area-card{position:relative;display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;transition:box-shadow .2s ease,border-color .2s ease}
+.location-area-card:hover,.location-area-card:focus-within{border-color:var(--pink);box-shadow:var(--shadow)}
+.location-area-card img{display:block;width:100%;height:180px;object-fit:cover}
+.location-area-card.is-featured{grid-column:span 2}
+.location-area-card.is-featured img{height:180px;object-position:center 35%}
+.location-area-card-body{display:flex;flex-direction:column;flex:1;padding:20px 22px 22px}
+.location-area-region{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#b93769}
+.location-area-card h3{margin:6px 0 8px;font-size:23px;line-height:1.25;color:var(--navy)}
+.location-area-card p{margin:0 0 18px;font-size:15px;line-height:1.6;color:var(--muted)}
+.location-area-link{margin-top:auto;font-size:14px;font-weight:700;color:var(--navy)}
+.location-area-link i{margin-left:4px;color:#b93769;font-size:12px}
+.location-area-link:after{content:"";position:absolute;inset:0;border-radius:20px}
+@media(max-width:900px){.location-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.location-area-grid{grid-template-columns:1fr;gap:16px}.location-area-card.is-featured{grid-column:auto}.location-area-card img,.location-area-card.is-featured img{height:170px}}

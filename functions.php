@@ -166,7 +166,10 @@ function hd_assets(){
     wp_enqueue_script('happy-day-gallery',get_template_directory_uri().'/assets/gallery.js',[],(string)filemtime($gallery_js),true);
     wp_script_add_data('happy-day-gallery','strategy','defer');
   }
-  if(is_page_template('page-service.php')){
+  if(is_page()&&hd_is_location_page()){
+    wp_enqueue_style('happy-day-locations',get_template_directory_uri().'/assets/locations.css',['happy-day-header'],(string)filemtime(get_template_directory().'/assets/locations.css'));
+  }
+  if(is_page_template('page-service.php')||hd_is_service_page()){
     $service_gallery_js=get_template_directory().'/assets/service-gallery.js';
     wp_enqueue_script('happy-day-service-gallery',get_template_directory_uri().'/assets/service-gallery.js',[],(string)filemtime($service_gallery_js),true);
     wp_script_add_data('happy-day-service-gallery','strategy','defer');
@@ -290,18 +293,16 @@ function hd_hero_image_url($attachment_id){
 function hd_current_hero_image_id(){
   if(is_front_page()) return 16;
   if(!is_page()) return 0;
-  $slug=(string) get_post_field('post_name',get_queried_object_id());
-  $data_file=get_template_directory().'/inc/services/'.$slug.'.php';
-  if(!is_file($data_file)) return 0;
+  $data_file=hd_page_data_file();
+  if(!$data_file) return 0;
   $data=require $data_file;
   return (int)($data['hero_image']??0);
 }
 function hd_current_hero_image_url(){
   if(is_front_page()) return hd_hero_image_url(16);
   if(!is_page()) return '';
-  $slug=(string) get_post_field('post_name',get_queried_object_id());
-  $data_file=get_template_directory().'/inc/services/'.$slug.'.php';
-  if(!is_file($data_file)) return '';
+  $data_file=hd_page_data_file();
+  if(!$data_file) return '';
   $data=require $data_file;
   if(!empty($data['hero_asset'])) return hd_theme_asset_image_url($data['hero_asset']);
   return hd_hero_image_url((int)($data['hero_image']??0));
@@ -328,12 +329,46 @@ function hd_preload_hero_image(){
 add_action('wp_head','hd_preload_hero_image',1);
 
 /* Service pages are file-driven. Keep their layout even if an editor plugin
- * resets the saved Page Template field while updating SEO metadata. */
+ * resets the saved Page Template field while updating SEO metadata.
+ *
+ * City pages (/service-areas/{city}/) reuse the same layout, but their copy
+ * lives in inc/locations/ so a city slug can never collide with a service
+ * slug. Only the service-areas hub and its direct children read from there. */
+function hd_is_location_page($post_id=0){
+  $post=get_post($post_id?:get_queried_object_id());
+  if(!$post||$post->post_type!=='page'||$post->post_name==='') return false;
+  if($post->post_name==='service-areas') return true;
+  return $post->post_parent&&get_post_field('post_name',$post->post_parent)==='service-areas';
+}
+function hd_page_data_file($post_id=0){
+  $post=get_post($post_id?:get_queried_object_id());
+  if(!$post||$post->post_type!=='page'||$post->post_name==='') return '';
+  $dir=hd_is_location_page($post->ID)?'/inc/locations/':'/inc/services/';
+  $data_file=get_template_directory().$dir.$post->post_name.'.php';
+  return is_file($data_file)?$data_file:'';
+}
 function hd_is_service_page(){
   if(!is_page()) return false;
-  $slug=(string) get_post_field('post_name',get_queried_object_id());
-  $data_file=get_template_directory().'/inc/services/'.$slug.'.php';
-  return is_file($data_file);
+  return hd_page_data_file()!=='';
+}
+
+/* City pages under the service-areas hub, for cross-linking from service
+ * pages and between cities. Visitors only ever see published pages; editors
+ * also see drafts so the linking can be reviewed before anything goes live. */
+function hd_service_area_pages($exclude_id=0){
+  $hub=get_page_by_path('service-areas');
+  if(!$hub) return [];
+  $statuses=current_user_can('edit_pages')?['publish','draft','pending','private']:['publish'];
+  return get_posts([
+    'post_type'=>'page',
+    'post_parent'=>$hub->ID,
+    'post_status'=>$statuses,
+    'exclude'=>$exclude_id?[$exclude_id]:[],
+    'orderby'=>'menu_order title',
+    'order'=>'ASC',
+    'numberposts'=>-1,
+    'no_found_rows'=>true,
+  ]);
 }
 function hd_service_page_template($template){
   if(!hd_is_service_page()) return $template;
@@ -341,6 +376,28 @@ function hd_service_page_template($template){
   return file_exists($service_template)?$service_template:$template;
 }
 add_filter('template_include','hd_service_page_template',30);
+
+/* Crawlable city links under the GTA map. The map itself is JavaScript and
+ * adds no real links, so this row is what connects service pages to the
+ * city pages (and the city pages to each other) for search engines. */
+function hd_render_service_area_links(){
+  $current=get_queried_object_id();
+  $pages=hd_service_area_pages($current);
+  if(!$pages) return;
+  echo '<nav class="service-area-links" aria-label="Balloon decoration service areas"><p><strong>Balloon decorations by area</strong></p><ul>';
+  if((int)get_option('page_on_front')!==$current){
+    printf('<li><a href="%s">Toronto</a></li>',esc_url(home_url('/')));
+  }
+  foreach($pages as $page){
+    $label=get_post_meta($page->ID,'_hd_area_label',true)?:get_the_title($page);
+    printf('<li><a href="%s">%s</a></li>',esc_url(get_permalink($page)),esc_html($label));
+  }
+  $hub=get_page_by_path('service-areas');
+  if($hub&&$hub->ID!==$current&&($hub->post_status==='publish'||current_user_can('edit_pages'))){
+    printf('<li><a href="%s">All service areas</a></li>',esc_url(get_permalink($hub)));
+  }
+  echo '</ul></nav>';
+}
 
 /* Give the shared Instagram feed relevant editorial context on every service
  * page instead of repeating one generic heading site-wide. */
@@ -769,3 +826,5 @@ add_filter('wp_headers',function($headers){unset($headers['X-Pingback']);return 
 add_action('send_headers',function(){if(function_exists('header_remove')) header_remove('X-Powered-By');});
 add_filter('login_errors',function(){return 'The login details are incorrect.';});
 add_action('pre_ping',function(&$links){$home=home_url();foreach($links as $key=>$link){if(strpos($link,$home)===0) unset($links[$key]);}});
+
+require_once get_template_directory().'/inc/location-seo.php';

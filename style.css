@@ -648,3 +648,6 @@ body.hd-gallery-lightbox-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .single-blog-content .hd-blog-cta-balloons i{animation:none}
 }
+
+/* City cross-links under the GTA map (service and service-area pages) */
+.service-area-links{margin-top:30px}.service-area-links p{margin:0 0 12px;color:var(--navy);font-size:13px;letter-spacing:.08em;text-transform:uppercase}.service-area-links ul{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}.service-area-links a{display:inline-block;padding:9px 16px;border:1px solid rgba(241,124,164,.35);border-radius:999px;background:#fff5f8;color:#263d78;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s ease,color .2s ease}.service-area-links a:hover,.service-area-links a:focus-visible{background:#f17ca4;color:#fff}

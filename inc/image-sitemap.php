@@ -35,8 +35,8 @@ function hd_sitemap_urlimages($images,$post_id){
   }
 
   /* File-driven service pages: hero image plus every section photo. */
-  $service_file=get_template_directory().'/inc/services/'.$post->post_name.'.php';
-  if(is_file($service_file)){
+  $service_file=function_exists('hd_page_data_file')?hd_page_data_file($post->ID):'';
+  if($service_file){
     $data=require $service_file;
     if(is_array($data)){
       $hero_alt=trim((string)($data['hero_alt']??$data['title']??''));

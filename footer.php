@@ -30,8 +30,10 @@
       <ul class="footer-links">
         <li><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
         <li><a href="<?php echo esc_url(hd_local_url('about')); ?>">About</a></li>
+        <li><a href="<?php echo esc_url(hd_local_url('gallery')); ?>">Gallery</a></li>
         <li><a href="<?php echo esc_url(hd_local_url('blog')); ?>">Blog</a></li>
         <li><a href="<?php echo esc_url(home_url('/#services')); ?>">All Services</a></li>
+        <li><a href="<?php echo esc_url(hd_local_url('service-areas')); ?>">Service Areas</a></li>
         <li><a href="<?php echo esc_url(hd_local_url('contact')); ?>">Contact</a></li>
       </ul>
     </nav>

@@ -17,9 +17,11 @@
   const map=L.map('gta-service-map',{scrollWheelZoom:false,zoomControl:true}).setView([43.82,-79.42],9);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   const bounds=[];const list=shell.querySelector('.gta-region-list');
+  const focusEl=document.querySelector('[data-map-focus]');const focus=focusEl?focusEl.dataset.mapFocus:'';let focusMarker=null;
   cities.forEach(([name,lat,lng])=>{
     const marker=L.circleMarker([lat,lng],{radius:7,color:'#fff',weight:2,fillColor:markerColor,fillOpacity:1}).addTo(map).bindTooltip(name,{direction:'top'});
     bounds.push([lat,lng]);
+    if(name===focus)focusMarker=marker;
     const button=document.createElement('button');
     button.type='button';
     button.innerHTML=`<i aria-hidden="true"></i><span>${name}</span><b aria-hidden="true">→</b>`;
@@ -28,4 +30,5 @@
     list.append(button);
   });
   map.fitBounds(bounds,{padding:[28,28]});setTimeout(()=>map.invalidateSize(),150);
+  if(focusMarker){focusMarker.setStyle({radius:10,fillColor:'#263d78'});map.setView(focusMarker.getLatLng(),11);focusMarker.openTooltip()}
 })();
