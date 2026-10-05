@@ -18,17 +18,17 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){setMenu(false);toggle.focus();}});
     window.addEventListener('resize',()=>{if(!mobile()&&nav.classList.contains('open'))setMenu(false);});
 
-    const serviceItem=nav.querySelector('.menu-item-has-children');
-    const serviceLink=serviceItem?.querySelector(':scope > a');
-    if(serviceItem&&serviceLink){
-      serviceLink.setAttribute('aria-expanded','false');
-      serviceLink.addEventListener('click',event=>{
+    nav.querySelectorAll('.menu-item-has-children').forEach(parentItem=>{
+      const parentLink=parentItem.querySelector(':scope > a');
+      if(!parentLink) return;
+      parentLink.setAttribute('aria-expanded','false');
+      parentLink.addEventListener('click',event=>{
         if(!mobile()) return;
         event.preventDefault();
-        const expanded=serviceItem.classList.toggle('services-open');
-        serviceLink.setAttribute('aria-expanded',expanded?'true':'false');
+        const expanded=parentItem.classList.toggle('services-open');
+        parentLink.setAttribute('aria-expanded',expanded?'true':'false');
       });
-    }
+    });
 
     nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
       if(mobile()&&!link.parentElement.classList.contains('menu-item-has-children'))setMenu(false);

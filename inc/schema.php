@@ -216,6 +216,22 @@ function hd_schema_opening_hours(){
   return $specs;
 }
 
+/**
+ * Place node for a city page's `area` data:
+ *   ['type'=>'City','name'=>'Vaughan','within'=>[['AdministrativeArea','York Region'], ...]]
+ * `within` runs from the nearest container outward.
+ */
+function hd_schema_place($area){
+  $place=['@type'=>$area['type']??'Place','name'=>(string)$area['name']];
+  $cursor=&$place;
+  foreach($area['within']??[] as $parent){
+    $cursor['containedInPlace']=['@type'=>$parent[0],'name'=>$parent[1]];
+    $cursor=&$cursor['containedInPlace'];
+  }
+  unset($cursor);
+  return $place;
+}
+
 /* ---------------------------------------------------------------------------
  * Upgrade Yoast's Organization node to LocalBusiness, in place
  * ------------------------------------------------------------------------- */
@@ -272,14 +288,24 @@ function hd_schema_service_graph($graph,$context){
   if(!is_array($graph)||!function_exists('hd_is_service_page')||!hd_is_service_page()) return $graph;
 
   $id=get_queried_object_id();
-  $slug=(string) get_post_field('post_name',$id);
-  $data_file=get_template_directory().'/inc/services/'.$slug.'.php';
-  if(!is_file($data_file)) return $graph;
+  $data_file=hd_page_data_file($id);
+  if(!$data_file) return $graph;
   $service_data=require $data_file;
   if(!is_array($service_data)) return $graph;
 
   $permalink=get_permalink($id);
   if(!$permalink) return $graph;
+  /* The area directory lists locations; it is not an individual service. */
+  if(hd_is_location_page($id)&&empty($service_data['area'])){
+    foreach($graph as &$node){
+      if(in_array('WebPage',(array)($node['@type']??''),true)&&!empty($node['url'])
+        &&untrailingslashit($node['url'])===untrailingslashit($permalink)){
+        $node['@type']=array_values(array_unique(array_merge((array)$node['@type'],['CollectionPage'])));
+      }
+    }
+    unset($node);
+    return $graph;
+  }
   $service_id=$permalink.'#service';
 
   /* Reuse the exact @id Yoast minted for the Organization and for this page's
@@ -299,7 +325,7 @@ function hd_schema_service_graph($graph,$context){
     }
   }
 
-  $name=get_the_title($id);
+  $name=$service_data['title']??get_the_title($id);
   if($name==='') $name=$service_data['title']??'Balloon decoration';
 
   $service=[
@@ -311,6 +337,12 @@ function hd_schema_service_graph($graph,$context){
     'provider'=>$org_ref?['@id'=>$org_ref]:null,
     'areaServed'=>hd_schema_option('area_served')?:null,
   ];
+
+  /* City pages name the specific place they serve, nested inside its
+   * municipality and region, instead of the site-wide area. */
+  if(!empty($service_data['area']['name'])){
+    $service['areaServed']=hd_schema_place($service_data['area']);
+  }
 
   if(!empty($service_data['intro'][0])){
     $service['description']=wp_strip_all_tags((string)$service_data['intro'][0]);

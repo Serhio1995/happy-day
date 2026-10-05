@@ -60,6 +60,10 @@
   .site-header .site-nav .sub-menu .hd-rental-menu-item>a:after{position:absolute;right:3px;opacity:0;transform:translate(-4px,-50%)}
   .site-header .site-nav .sub-menu .hd-rental-menu-item>a:hover{background:transparent;transform:translateX(4px)}
   .site-header .site-nav .sub-menu .hd-rental-menu-item>a:hover:after{opacity:1;transform:translate(0,-50%)}
+  /* Service areas: same panel, narrower, eight links in two even rows. */
+  .site-header .site-nav .hd-areas-menu>.sub-menu{width:min(760px,calc(100vw - 44px))}
+  .site-header .site-nav .hd-areas-menu>.sub-menu:before{content:"Where We Celebrate"}
+  .site-header .site-nav .hd-areas-menu>.sub-menu li:nth-last-child(-n+4){border-bottom:0}
 }
 
 /* WordPress menu state must not look like a hover state. */

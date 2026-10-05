@@ -5,21 +5,25 @@ $service_slug=get_post_field('post_name',get_queried_object_id());
 $gallery_match=function_exists('hd_get_gallery_category_for_service')
   ?hd_get_gallery_category_for_service($service_slug)
   :null;
-if(!$gallery_match) return;
+if(!$gallery_match && !hd_is_location_page()) return;
 
-$gallery_category=$gallery_match['slug'];
-$gallery_label=$gallery_match['title'];
+$gallery_category=$gallery_match['slug'] ?? '';
+$gallery_label=$gallery_match['title'] ?? 'Balloon Decorations';
 
 $gallery_items=function_exists('hd_get_gallery_items_by_category')
   ?hd_get_gallery_items_by_category($gallery_category,0)
   :[];
+if(hd_is_location_page() && !$gallery_match && function_exists('hd_gallery_display_items')){
+  $gallery_items=hd_gallery_display_items();
+}
+$gallery_items=array_values(array_filter($gallery_items, static fn($item)=>!empty($item['id']) && wp_get_attachment_image_url($item['id'],'full')));
 if(!$gallery_items) return;
 
 $initial_count=6;
 $remaining_count=max(0,count($gallery_items)-$initial_count);
 ?>
 <section class="service-gallery-section soft"><div class="hd-wrap">
-  <div class="section-head"><h2>Real <?php echo esc_html($gallery_label); ?> We’ve Installed</h2><p>A few photos from our gallery, filtered to this style of celebration.</p></div>
+  <div class="section-head"><h2>Real <?php echo esc_html($gallery_label); ?> We’ve Installed</h2><p><?php echo hd_is_location_page() ? 'Ideas from our portfolio, adapted to your venue. These photos show our work across the areas we serve.' : 'A few photos from our gallery, filtered to this style of celebration.'; ?></p></div>
   <div class="service-gallery-grid">
     <?php foreach($gallery_items as $index=>$item):
       $full=wp_get_attachment_image_url($item['id'],'full');
