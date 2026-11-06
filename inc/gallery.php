@@ -241,13 +241,13 @@ function hd_gallery_album_admin_assets($hook){
     'hd-gallery-admin',
     get_template_directory_uri().'/assets/gallery-admin.css',
     [],
-    (string)filemtime(get_template_directory().'/assets/gallery-admin.css')
+    hd_asset_ver(get_template_directory().'/assets/gallery-admin.css')
   );
   wp_enqueue_script(
     'hd-gallery-admin',
     get_template_directory_uri().'/assets/gallery-admin.js',
     ['jquery','jquery-ui-sortable'],
-    (string)filemtime(get_template_directory().'/assets/gallery-admin.js'),
+    hd_asset_ver(get_template_directory().'/assets/gallery-admin.js'),
     true
   );
 }

@@ -4,44 +4,61 @@ if(!defined('ABSPATH')) exit;
 /**
  * Published starting prices (CAD), confirmed by the owner.
  *
- * Service pages, location FAQs and the price table all read from here, so a
+ * Service pages, location FAQs and the price cards all read from here, so a
  * price changes in one place. Only add prices the owner has confirmed.
  */
 function hd_prices(){
   return [
-    'garland'  =>['item'=>'Balloon garland','price'=>'From $250','covers'=>'Delivery and installation included. Takedown is quoted separately.'],
-    'backdrop' =>['item'=>'Backdrop','price'=>'From $200','covers'=>'Delivery and installation included. Takedown is quoted separately.'],
-    'latex'    =>['item'=>'Latex balloons','price'=>'$6 each','covers'=>'Price per balloon. Delivery is added based on distance.'],
-    'foil'     =>['item'=>'Foil balloons','price'=>'$8 each','covers'=>'Price per balloon. Delivery is added based on distance.'],
-    'letters'  =>['item'=>'Marquee letters','price'=>'$100 per letter','covers'=>'Rental. Delivery, setup and collection are confirmed in your quote.'],
-    'numbers'  =>['item'=>'4-ft marquee numbers','price'=>'From $100','covers'=>'Rental. Delivery, setup and collection are confirmed in your quote.'],
+    'garland'  =>['group'=>'Decor','item'=>'Balloon garland','price'=>'From $250','covers'=>'Installation included. Delivery is priced by distance. We take everything down after the party.'],
+    'backdrop' =>['group'=>'Decor','item'=>'Backdrop','price'=>'From $200','covers'=>'Installation included. Delivery is priced by distance. We take everything down after the party.'],
+    'latex'    =>['group'=>'Balloons','item'=>'Latex balloons','price'=>'$6','unit'=>'each','covers'=>'Price per balloon. Delivery is priced by distance.'],
+    'foil'     =>['group'=>'Balloons','item'=>'Foil balloons','price'=>'$8','unit'=>'each','covers'=>'Price per balloon. Delivery is priced by distance.'],
+    'letters'  =>['group'=>'Rental','item'=>'Marquee letters','price'=>'$100','unit'=>'per letter','covers'=>'Light-up letters. Delivery is priced by distance. We collect them after the party.'],
+    'numbers'  =>['group'=>'Rental','item'=>'4-ft marquee numbers','price'=>'From $100','covers'=>'Light-up numbers. Delivery is priced by distance. We collect them after the party.'],
   ];
 }
 
-function hd_price($key){return hd_prices()[$key]['price'] ?? '';}
+/* Full price with its unit, e.g. "$6 each". */
+function hd_price($key){
+  $row=hd_prices()[$key] ?? null;
+  if(!$row) return '';
+  return trim($row['price'].' '.($row['unit'] ?? ''));
+}
 
-/* What moves a quote above the starting price; shared by the table and FAQs. */
+/* What the garland and backdrop starting prices cover. */
+function hd_price_terms(){
+  return 'Installation is included, delivery is priced by distance, and we take everything down after the party.';
+}
+
+/* What moves a quote above the starting price; shared by the cards and FAQs. */
 function hd_price_factors(){
   return 'The final price depends on the size of the setup, whether a backdrop is added, the distance to your venue, and the setup time.';
 }
 
-/* One-sentence answer for "How much does balloon decor cost?" FAQs. */
+/* One-paragraph answer for "How much does balloon decor cost?" FAQs. */
 function hd_price_summary(){
   return sprintf(
-    'Balloon garlands start %s and backdrops %s, both including delivery and installation, with takedown quoted separately. Latex balloons are %s, foil balloons %s, and marquee letters %s.',
-    lcfirst(hd_price('garland')),lcfirst(hd_price('backdrop')),hd_price('latex'),hd_price('foil'),hd_price('letters')
+    'Balloon garlands start %s and backdrops %s. %s Latex balloons are %s, foil balloons %s, and marquee letters %s.',
+    lcfirst(hd_price('garland')),lcfirst(hd_price('backdrop')),hd_price_terms(),hd_price('latex'),hd_price('foil'),hd_price('letters')
   );
 }
 
-/* Item | Starting price | What it covers */
+/* Price cards: item, starting price, what it covers. */
 function hd_render_price_table($keys=null){
   $prices=hd_prices();
   $keys=$keys ?: array_keys($prices);
-  echo '<div class="hd-price-table-wrap"><table class="hd-price-table"><thead><tr><th scope="col">Item</th><th scope="col">Starting price</th><th scope="col">What it covers</th></tr></thead><tbody>';
+  echo '<ul class="hd-price-grid" role="list">';
   foreach($keys as $key){
     if(empty($prices[$key])) continue;
     $row=$prices[$key];
-    printf('<tr><th scope="row">%s</th><td>%s</td><td>%s</td></tr>',esc_html($row['item']),esc_html($row['price']),esc_html($row['covers']));
+    printf(
+      '<li class="hd-price-card"><span class="hd-price-group">%s</span><h3>%s</h3><p class="hd-price-amount">%s%s</p><p class="hd-price-covers">%s</p></li>',
+      esc_html($row['group']),
+      esc_html($row['item']),
+      esc_html($row['price']),
+      !empty($row['unit'])?' <small>'.esc_html($row['unit']).'</small>':'',
+      esc_html($row['covers'])
+    );
   }
-  echo '</tbody></table></div>';
+  echo '</ul>';
 }
