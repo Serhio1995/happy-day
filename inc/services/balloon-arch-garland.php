@@ -104,6 +104,14 @@ return [
             ],
         ],
         [
+            'title' => 'Balloon Garland & Arch Prices',
+            'paragraphs' => [
+                'Starting prices in CAD. Garlands and backdrops include delivery and installation; takedown after the event is quoted separately.',
+                hd_price_factors() . ' Send your event details and we will confirm the exact price before you book.',
+            ],
+            'price_table' => true,
+        ],
+        [
             'title' => 'Balloon Arch & Garland Decoration in Toronto & GTA',
             'class' => 'service-gta-section',
             'paragraphs' => [
@@ -128,7 +136,7 @@ return [
         ['Do you offer half arch and round arch balloon decoration?', 'Yes. We create half arch balloon decoration and round arch balloon decoration for backdrops, welcome signs, dessert tables, photo areas, and event displays. These styles are popular for birthdays, baby showers, bridal showers, weddings, engagements, and modern party setups.'],
         ['Can balloon arches be used for weddings?', 'Yes. Balloon arch wedding decorations can be designed in elegant colours and paired with flowers, fabric, signage, or backdrops. Wedding balloon arches can be used for entrances, sweetheart tables, ceremony areas, stages, and photo zones.'],
         ['Can balloon arches and garlands be combined with a backdrop?', 'Yes. Balloon arches and garlands are often combined with backdrops to create a stronger photo area or event focal point. A backdrop can be styled with a half arch, round arch, balloon garland, flowers, signage, props, or custom colours.'],
-        ['How much does balloon arch decoration cost?', 'The cost of balloon arch decoration depends on the size, style, balloon colours, location, installation needs, and any add-ons such as flowers, backdrop rental, signage, or custom props. For an accurate quote, send us your event date, location, setup area, and inspiration photos.'],
+        ['How much does balloon arch decoration cost?', 'Balloon garlands start ' . lcfirst(hd_price('garland')) . ', including delivery and installation; takedown is quoted separately. ' . hd_price_factors() . ' Flowers, signage, or custom props are added to the quote. For an accurate price, send us your event date, location, setup area, and inspiration photos.'],
         ['How far in advance should I book balloon arch or garland decor?', 'It is best to book as early as possible, especially for weekends, holidays, and larger event setups. Early booking gives more time to confirm colours, backdrop needs, venue access, installation timing, and any custom decor details.'],
     ],
     'cta_title' => 'Plan Your Balloon Arch or Garland Setup',
