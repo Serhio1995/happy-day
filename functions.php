@@ -1,6 +1,12 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
+/* Cache-busting version from the file's contents. Deploys don't reliably
+   update file mtimes on production, so filemtime() left browsers on stale CSS. */
+function hd_asset_ver($path){
+  return is_file($path)?substr(md5_file($path),0,10):'';
+}
+
 require_once get_template_directory().'/inc/gallery.php';
 require_once get_template_directory().'/inc/customizer.php';
 require_once get_template_directory().'/inc/pricing.php';
@@ -93,23 +99,23 @@ function hd_assets(){
   $fa=get_template_directory().'/assets/vendor/fontawesome/css/fontawesome.min.css';
   $fa_solid=get_template_directory().'/assets/vendor/fontawesome/css/solid.min.css';
   $fa_brands=get_template_directory().'/assets/vendor/fontawesome/css/brands.min.css';
-  wp_enqueue_style('font-awesome-core',get_template_directory_uri().'/assets/vendor/fontawesome/css/fontawesome.min.css',[],(string) filemtime($fa));
-  wp_enqueue_style('font-awesome-solid',get_template_directory_uri().'/assets/vendor/fontawesome/css/solid.min.css',['font-awesome-core'],(string) filemtime($fa_solid));
-  wp_enqueue_style('font-awesome-brands',get_template_directory_uri().'/assets/vendor/fontawesome/css/brands.min.css',['font-awesome-core'],(string) filemtime($fa_brands));
-  wp_enqueue_style('happy-day',get_stylesheet_uri(),[],(string) filemtime(get_stylesheet_directory().'/style.css'));
+  wp_enqueue_style('font-awesome-core',get_template_directory_uri().'/assets/vendor/fontawesome/css/fontawesome.min.css',[],hd_asset_ver($fa));
+  wp_enqueue_style('font-awesome-solid',get_template_directory_uri().'/assets/vendor/fontawesome/css/solid.min.css',['font-awesome-core'],hd_asset_ver($fa_solid));
+  wp_enqueue_style('font-awesome-brands',get_template_directory_uri().'/assets/vendor/fontawesome/css/brands.min.css',['font-awesome-core'],hd_asset_ver($fa_brands));
+  wp_enqueue_style('happy-day',get_stylesheet_uri(),[],hd_asset_ver(get_stylesheet_directory().'/style.css'));
   $header_css=get_template_directory().'/assets/header.css';
-  wp_enqueue_style('happy-day-header',get_template_directory_uri().'/assets/header.css',['happy-day'],(string) filemtime($header_css));
-  wp_enqueue_script('happy-day',get_template_directory_uri().'/assets/site.js',[],(string) filemtime(get_template_directory().'/assets/site.js'),true);
+  wp_enqueue_style('happy-day-header',get_template_directory_uri().'/assets/header.css',['happy-day'],hd_asset_ver($header_css));
+  wp_enqueue_script('happy-day',get_template_directory_uri().'/assets/site.js',[],hd_asset_ver(get_template_directory().'/assets/site.js'),true);
   $floating_cart_js=get_template_directory().'/assets/floating-cart.js';
-  if(class_exists('WooCommerce')) wp_enqueue_script('happy-day-floating-cart',get_template_directory_uri().'/assets/floating-cart.js',[],(string) filemtime($floating_cart_js),true);
+  if(class_exists('WooCommerce')) wp_enqueue_script('happy-day-floating-cart',get_template_directory_uri().'/assets/floating-cart.js',[],hd_asset_ver($floating_cart_js),true);
   wp_script_add_data('happy-day','strategy','defer');
   if(function_exists('is_woocommerce')&&(is_woocommerce()||is_cart()||is_checkout()||is_account_page())){
     $woo_css=get_template_directory().'/assets/woocommerce.css';
-    wp_enqueue_style('happy-day-woocommerce',get_template_directory_uri().'/assets/woocommerce.css',['happy-day'],(string) filemtime($woo_css));
+    wp_enqueue_style('happy-day-woocommerce',get_template_directory_uri().'/assets/woocommerce.css',['happy-day'],hd_asset_ver($woo_css));
   }
   if(function_exists('is_shop')&&(is_shop()||is_product_category())){
     $shop_filter_js=get_template_directory().'/assets/shop-filter.js';
-    wp_enqueue_script('happy-day-shop-filter',get_template_directory_uri().'/assets/shop-filter.js',[],(string)filemtime($shop_filter_js),true);
+    wp_enqueue_script('happy-day-shop-filter',get_template_directory_uri().'/assets/shop-filter.js',[],hd_asset_ver($shop_filter_js),true);
     wp_localize_script('happy-day-shop-filter','hdShopFilter',[
       'ajaxUrl'=>admin_url('admin-ajax.php'),
       'nonce'=>wp_create_nonce('hd_shop_filter'),
@@ -118,24 +124,24 @@ function hd_assets(){
   }
   if(is_404()){
     $not_found_css=get_template_directory().'/assets/404.css';
-    wp_enqueue_style('happy-day-404',get_template_directory_uri().'/assets/404.css',['happy-day-header'],(string) filemtime($not_found_css));
+    wp_enqueue_style('happy-day-404',get_template_directory_uri().'/assets/404.css',['happy-day-header'],hd_asset_ver($not_found_css));
   }
   if(is_page_template('page-legal.php')){
     $legal_css=get_template_directory().'/assets/legal.css';
-    wp_enqueue_style('happy-day-legal',get_template_directory_uri().'/assets/legal.css',['happy-day-header'],(string) filemtime($legal_css));
+    wp_enqueue_style('happy-day-legal',get_template_directory_uri().'/assets/legal.css',['happy-day-header'],hd_asset_ver($legal_css));
   }
   if(is_page('contact')){
     $contact_css=get_template_directory().'/assets/contact.css';
-    wp_enqueue_style('happy-day-contact',get_template_directory_uri().'/assets/contact.css',['happy-day-header'],(string) filemtime($contact_css));
+    wp_enqueue_style('happy-day-contact',get_template_directory_uri().'/assets/contact.css',['happy-day-header'],hd_asset_ver($contact_css));
   }
   if(is_front_page()){
     $home_css=get_template_directory().'/assets/home.css';
-    wp_enqueue_style('happy-day-home',get_template_directory_uri().'/assets/home.css',['happy-day-header'],(string) filemtime($home_css));
+    wp_enqueue_style('happy-day-home',get_template_directory_uri().'/assets/home.css',['happy-day-header'],hd_asset_ver($home_css));
   }
   if(is_page_template('page-gallery.php')){
     $gallery_css=get_template_directory().'/assets/gallery.css';
     $gallery_js=get_template_directory().'/assets/gallery.js';
-    wp_enqueue_style('happy-day-gallery',get_template_directory_uri().'/assets/gallery.css',['happy-day-header'],(string)filemtime($gallery_css));
+    wp_enqueue_style('happy-day-gallery',get_template_directory_uri().'/assets/gallery.css',['happy-day-header'],hd_asset_ver($gallery_css));
     /*
      * Keep the carousel control usable when a production CSS optimizer builds
      * an incomplete critical-CSS set. This small inline fallback is attached
@@ -165,15 +171,15 @@ function hd_assets(){
       .hd-gallery-filter-next[hidden]{display:none!important}
       @media(max-width:1280px){.hd-gallery-filter-row{padding-right:50px}.hd-gallery-filter-next{right:4px!important}}
     ');
-    wp_enqueue_script('happy-day-gallery',get_template_directory_uri().'/assets/gallery.js',[],(string)filemtime($gallery_js),true);
+    wp_enqueue_script('happy-day-gallery',get_template_directory_uri().'/assets/gallery.js',[],hd_asset_ver($gallery_js),true);
     wp_script_add_data('happy-day-gallery','strategy','defer');
   }
   if(is_page()&&hd_is_location_page()){
-    wp_enqueue_style('happy-day-locations',get_template_directory_uri().'/assets/locations.css',['happy-day-header'],(string)filemtime(get_template_directory().'/assets/locations.css'));
+    wp_enqueue_style('happy-day-locations',get_template_directory_uri().'/assets/locations.css',['happy-day-header'],hd_asset_ver(get_template_directory().'/assets/locations.css'));
   }
   if(is_page_template('page-service.php')||hd_is_service_page()){
     $service_gallery_js=get_template_directory().'/assets/service-gallery.js';
-    wp_enqueue_script('happy-day-service-gallery',get_template_directory_uri().'/assets/service-gallery.js',[],(string)filemtime($service_gallery_js),true);
+    wp_enqueue_script('happy-day-service-gallery',get_template_directory_uri().'/assets/service-gallery.js',[],hd_asset_ver($service_gallery_js),true);
     wp_script_add_data('happy-day-service-gallery','strategy','defer');
 
     /* The GTA map (Leaflet, ~165KB of CSS+JS) sits well below the fold on
@@ -192,7 +198,7 @@ function hd_assets(){
       'observer.observe(section)});',
       wp_json_encode(get_template_directory_uri().'/assets/vendor/leaflet/leaflet.css'),
       wp_json_encode(get_template_directory_uri().'/assets/vendor/leaflet/leaflet.js'),
-      wp_json_encode(get_template_directory_uri().'/assets/gta-map.js?ver='.filemtime(get_template_directory().'/assets/gta-map.js'))
+      wp_json_encode(get_template_directory_uri().'/assets/gta-map.js?ver='.hd_asset_ver(get_template_directory().'/assets/gta-map.js'))
     ));
   }
 }
@@ -642,7 +648,7 @@ add_filter('woocommerce_sale_flash','hd_sale_flash_label',10,3);
 function hd_yith_product_options_assets(){
   if(!function_exists('is_product')||!is_product(188)) return;
   $file=get_template_directory().'/assets/yith-product-options.js';
-  wp_enqueue_script('happy-day-yith-options',get_template_directory_uri().'/assets/yith-product-options.js',[],(string)filemtime($file),true);
+  wp_enqueue_script('happy-day-yith-options',get_template_directory_uri().'/assets/yith-product-options.js',[],hd_asset_ver($file),true);
 }
 add_action('wp_enqueue_scripts','hd_yith_product_options_assets',35);
 
@@ -794,7 +800,7 @@ add_filter('nav_menu_link_attributes','hd_portable_menu_link');
 
 function hd_login_assets(){
   $login_css=get_template_directory().'/assets/login.css';
-  wp_enqueue_style('happy-day-login',get_template_directory_uri().'/assets/login.css',[],(string) filemtime($login_css));
+  wp_enqueue_style('happy-day-login',get_template_directory_uri().'/assets/login.css',[],hd_asset_ver($login_css));
   $logo_id=(int) get_theme_mod('custom_logo');
   if(!$logo_id) $logo_id=13;
   $logo=wp_get_attachment_image_url($logo_id,'full');
