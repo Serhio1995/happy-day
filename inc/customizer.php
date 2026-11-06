@@ -17,7 +17,7 @@ function hd_contact_defaults(){
     'address'   => 'Richmond Hill, Ontario',
     'hours'     => '',
     'instagram' => 'https://www.instagram.com/happydaytoronto/',
-    'facebook'  => 'https://www.facebook.com/HappyDayToronto/',
+    'facebook'  => '',
     'tiktok'    => '',
     'youtube'   => '',
     'pinterest' => '',
