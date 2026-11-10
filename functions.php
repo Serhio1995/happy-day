@@ -97,12 +97,15 @@ function hd_redirect_legacy_post_permalink(){
 add_action('template_redirect','hd_redirect_legacy_post_permalink',1);
 
 function hd_assets(){
-  $fa=get_template_directory().'/assets/vendor/fontawesome/css/fontawesome.min.css';
-  $fa_solid=get_template_directory().'/assets/vendor/fontawesome/css/solid.min.css';
-  $fa_brands=get_template_directory().'/assets/vendor/fontawesome/css/brands.min.css';
-  wp_enqueue_style('font-awesome-core',get_template_directory_uri().'/assets/vendor/fontawesome/css/fontawesome.min.css',[],hd_asset_ver($fa));
-  wp_enqueue_style('font-awesome-solid',get_template_directory_uri().'/assets/vendor/fontawesome/css/solid.min.css',['font-awesome-core'],hd_asset_ver($fa_solid));
-  wp_enqueue_style('font-awesome-brands',get_template_directory_uri().'/assets/vendor/fontawesome/css/brands.min.css',['font-awesome-core'],hd_asset_ver($fa_brands));
+  /* The subset Font Awesome CSS is ~2.5 KB in three files; inline it instead
+     of making three render-blocking requests. */
+  $fa_dir=get_template_directory().'/assets/vendor/fontawesome/css/';
+  $fa_css='';
+  foreach(['fontawesome','solid','brands'] as $fa_file) $fa_css.=(string)file_get_contents($fa_dir.$fa_file.'.min.css');
+  $fa_css=str_replace('../webfonts/',get_template_directory_uri().'/assets/vendor/fontawesome/webfonts/',$fa_css);
+  wp_register_style('font-awesome',false,[],null);
+  wp_enqueue_style('font-awesome');
+  wp_add_inline_style('font-awesome',$fa_css);
   wp_enqueue_style('happy-day',get_stylesheet_uri(),[],hd_asset_ver(get_stylesheet_directory().'/style.css'));
   $header_css=get_template_directory().'/assets/header.css';
   wp_enqueue_style('happy-day-header',get_template_directory_uri().'/assets/header.css',['happy-day'],hd_asset_ver($header_css));

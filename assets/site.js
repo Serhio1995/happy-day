@@ -72,6 +72,26 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.addEventListener('wpcf7submit',()=>window.turnstile?.reset());
   }
 
+  // Background videos sit below the fold; fetch and start them only when they come near the viewport.
+  const lazyVideos=document.querySelectorAll('video[data-hd-lazy-video]');
+  if(lazyVideos.length){
+    const startVideo=video=>{
+      video.querySelectorAll('source[data-src]').forEach(source=>{source.src=source.dataset.src;source.removeAttribute('data-src');});
+      video.load();
+      video.play()?.catch(()=>{});
+    };
+    if('IntersectionObserver' in window){
+      const videoObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        videoObserver.unobserve(entry.target);
+        startVideo(entry.target);
+      }),{rootMargin:'300px 0px'});
+      lazyVideos.forEach(video=>videoObserver.observe(video));
+    }else{
+      lazyVideos.forEach(startVideo);
+    }
+  }
+
   // Service pages share one CF7 form; keep the service's event type selected.
   const setQuoteEventTypes=()=>{
     document.querySelectorAll('.hd-cf7-shell[data-event-type]').forEach(shell=>{

@@ -29,3 +29,24 @@ function hd_trim_frontend_assets(){
 add_action('wp_enqueue_scripts','hd_trim_frontend_assets',100);
 /* Some of these are enqueued late, after wp_enqueue_scripts has run. */
 add_action('wp_footer','hd_trim_frontend_assets',1);
+
+/* Font Awesome's two subset fonts are only discovered after the CSS is
+   parsed; preload them so icons don't wait on that chain. */
+function hd_preload_icon_fonts(){
+  $base=get_template_directory_uri().'/assets/vendor/fontawesome/webfonts/';
+  foreach(['fa-solid-900.woff2','fa-brands-400.woff2'] as $font){
+    printf("<link rel=\"preload\" href=\"%s\" as=\"font\" type=\"font/woff2\" crossorigin>\n",esc_url($base.$font));
+  }
+}
+add_action('wp_head','hd_preload_icon_fonts',2);
+
+/* Styles for below-the-fold widgets (reviews, quote form, WhatsApp button)
+   don't need to block the first paint; load them without blocking. */
+function hd_async_style_tag($tag,$handle){
+  if(is_admin()) return $tag;
+  $async=in_array($handle,['contact-form-7','ht_ctc_main_css'],true)||strpos($handle,'trustindex')===0;
+  if(!$async||strpos($tag,"media='all'")===false) return $tag;
+  $deferred=str_replace("media='all'","media='print' onload=\"this.media='all'\"",$tag);
+  return $deferred.'<noscript>'.$tag.'</noscript>';
+}
+add_filter('style_loader_tag','hd_async_style_tag',10,2);
