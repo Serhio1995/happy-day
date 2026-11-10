@@ -45,10 +45,32 @@ document.addEventListener('DOMContentLoaded',()=>{
     marqueeTrack.appendChild(clone);
   }
 
-  const examples={name:'e.g. Sarah Johnson',phone:'e.g. 647-527-5505',email:'e.g. sarah@example.com',details:'e.g. Birthday on August 24 in Richmond Hill. Pink and ivory balloon arch for 30 guests.'};
-  Object.entries(examples).forEach(([name,placeholder])=>{
-    document.querySelectorAll(`[name="${name}"]`).forEach(field=>{if(!field.placeholder)field.placeholder=placeholder});
-  });
+  // Turnstile's challenge payload is ~1.7 MB, so the theme dequeues CF7's copy
+  // and loads it only once a visitor nears or starts filling in a quote form.
+  const turnstileForms=[...document.querySelectorAll('.cf-turnstile')].map(widget=>widget.closest('form')).filter(Boolean);
+  if(turnstileForms.length){
+    let turnstileRequested=false;
+    const loadTurnstile=()=>{
+      if(turnstileRequested) return;
+      turnstileRequested=true;
+      const script=document.createElement('script');
+      script.src='https://challenges.cloudflare.com/turnstile/v0/api.js';
+      script.async=true;
+      document.head.appendChild(script);
+    };
+    turnstileForms.forEach(form=>['focusin','pointerdown'].forEach(type=>form.addEventListener(type,loadTurnstile,{once:true,passive:true})));
+    if('IntersectionObserver' in window){
+      const observer=new IntersectionObserver(entries=>{
+        if(!entries.some(entry=>entry.isIntersecting)) return;
+        observer.disconnect();
+        loadTurnstile();
+      },{rootMargin:'400px 0px'});
+      turnstileForms.forEach(form=>observer.observe(form));
+    }else{
+      loadTurnstile();
+    }
+    document.addEventListener('wpcf7submit',()=>window.turnstile?.reset());
+  }
 
   // Service pages share one CF7 form; keep the service's event type selected.
   const setQuoteEventTypes=()=>{

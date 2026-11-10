@@ -11,6 +11,7 @@ require_once get_template_directory().'/inc/gallery.php';
 require_once get_template_directory().'/inc/customizer.php';
 require_once get_template_directory().'/inc/pricing.php';
 require_once get_template_directory().'/inc/quote-form.php';
+require_once get_template_directory().'/inc/performance.php';
 require_once get_template_directory().'/inc/yoast-analysis-content.php';
 require_once get_template_directory().'/inc/schema.php';
 require_once get_template_directory().'/inc/image-sitemap.php';
