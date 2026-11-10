@@ -7,7 +7,7 @@ $link = function ($path, $label) {
 
 return [
     'seo' => [
-        'title' => 'Balloon Decorations King City | Estates, Tents & Home Parties',
+        'title' => 'Balloon Decorations King City | Estates & Tent Parties',
         'description' => 'Balloon decorations in King City and King Township for estate homes, tented backyard parties, weddings and private events. Custom arches and backdrops.',
         'focus' => 'balloon decorations King City',
     ],

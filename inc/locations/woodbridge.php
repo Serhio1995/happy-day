@@ -8,7 +8,7 @@ $home = '<a href="' . esc_url(home_url('/')) . '">Toronto</a>';
 
 return [
     'seo' => [
-        'title' => 'Balloon Decorations Woodbridge | Banquet Halls & Family Events',
+        'title' => 'Balloon Decorations Woodbridge | Banquet Halls & Homes',
         'description' => 'Balloon decorations in Woodbridge for banquet halls, weddings, baptisms, communions, showers and birthdays. Custom arches, backdrops and ceiling decor.',
         'focus' => 'balloon decorations Woodbridge',
     ],

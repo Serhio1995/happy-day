@@ -1,8 +1,8 @@
 <?php
-/** File-driven location metadata. Editor overrides remain authoritative. */
+/** File-driven SEO title/description for location and service pages. Editor overrides remain authoritative. */
 if (!defined('ABSPATH')) exit;
 function hd_location_seo_value($key, $fallback){
-    if(!is_page()||!hd_is_location_page()) return $fallback;
+    if(!is_page()) return $fallback;
     $file=hd_page_data_file();
     if(!$file) return $fallback;
     $data=require $file;

@@ -8,7 +8,7 @@ $home = '<a href="' . esc_url(home_url('/')) . '">Toronto</a>';
 
 return [
     'seo' => [
-        'title' => 'Balloon Decorations North York | Arches, Garlands & Backdrops',
+        'title' => 'Balloon Decorations North York | Arches & Garlands',
         'description' => 'Custom balloon decorations in North York for birthdays, showers, Bar Mitzvahs, weddings and office events. Condo party rooms, homes and venues. Get a quote.',
         'focus' => 'balloon decorations North York',
     ],
