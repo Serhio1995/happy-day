@@ -22,8 +22,8 @@ return [
 'If you are not sure what works best, we can help you choose the right birthday balloon decoration based on your venue, guest count, photos, and budget.'
 ],'lead'=>'Popular options include:','list'=>['Birthday balloon garlands','Balloon arches for entrances or photo areas','Birthday balloon backdrops','Balloon walls and feature displays','Number balloon setups','Birthday cake table balloon decorations','Ceiling balloons for indoor parties','Themed birthday balloon decor','Balloon bouquets and room decoration','Balloon and flower accents']],
 ['title'=>'Balloon Decoration for Birthday Party Themes','class'=>'service-themes-section','image'=>27,'paragraphs'=>[
-'Themed parties are one of the best ways to make a birthday feel unique. We can create balloon birthday decoration based on your chosen colours, characters, age, season, or event style.',
-'Popular birthday themes include soft pastels, princess parties, jungle themes, sports themes, luxury black and gold, pink and gold, blue and silver, neutral beige tones, rainbow balloons, cartoon-inspired designs, and elegant adult birthday setups.',
+'Themed parties are one of the best ways to make a birthday feel unique. We can create balloon birthday decoration based on your chosen colours, age, season, or event style. Every theme is delivered through colours, shapes, props, and wording, not copied characters.',
+'Popular birthday themes include soft pastels, princess parties, jungle themes, sports themes, luxury black and gold, pink and gold, blue and silver, neutral beige tones, rainbow balloons, red and blue superhero colour schemes, pink princess looks, and elegant adult birthday setups.',
 'You can send us inspiration photos, colour ideas, or a theme name, and we will help plan a balloon setup that matches the look you want. If your theme needs a main photo area, we may recommend a backdrop, balloon garland, number display, or cake table setup.'
 ]],
 ['title'=>'Birthday Balloon Room Decoration','class'=>'service-room-section','paragraphs'=>[

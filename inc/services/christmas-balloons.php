@@ -49,7 +49,7 @@ return [
             'title' => 'Christmas Party Balloon Decor',
             'class' => 'service-options-section',
             'paragraphs' => [
-                'Christmas party balloon decor can be playful, elegant, branded, or family-friendly depending on the event. For corporate holiday parties, many clients choose clean colour palettes, branded accents, entrance arches, or photo backdrops. For family events, brighter colours, Christmas characters, candy cane themes, and festive balloon displays can make the space feel more fun.',
+                'Christmas party balloon decor can be playful, elegant, branded, or family-friendly depending on the event. For corporate holiday parties, many clients choose clean colour palettes, branded accents, entrance arches, or photo backdrops. For family events, brighter colours, Santa and snowman figures, candy cane themes, and festive balloon displays can make the space feel more fun.',
                 'If your Christmas party needs a main photo moment, a backdrop with balloon garland is usually one of the strongest options.',
             ],
             'lead' => 'We can decorate:',
