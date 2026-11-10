@@ -41,7 +41,7 @@ function hd_schema_defaults(){
     'region'      => 'ON',
     'postal'      => '',
     'country'     => 'CA',
-    'area_served' => 'Greater Toronto Area',
+    'area_served' => 'Vaughan, North York, Richmond Hill, Toronto, Greater Toronto Area',
     'price_range' => '$$',
     'geo_lat'     => '',
     'geo_lng'     => '',
@@ -71,7 +71,7 @@ function hd_schema_customize_register($wp_customize){
     'region'      =>['label'=>'Province / region code','type'=>'text','sanitize'=>'sanitize_text_field','description'=>'e.g. ON'],
     'postal'      =>['label'=>'Postal code','type'=>'text','sanitize'=>'sanitize_text_field'],
     'country'     =>['label'=>'Country code','type'=>'text','sanitize'=>'sanitize_text_field','description'=>'Two letters, e.g. CA'],
-    'area_served' =>['label'=>'Area served','type'=>'text','sanitize'=>'sanitize_text_field','description'=>'e.g. Greater Toronto Area'],
+    'area_served' =>['label'=>'Area served','type'=>'text','sanitize'=>'sanitize_text_field','description'=>'Comma-separated, e.g. Vaughan, North York, Richmond Hill, Toronto, Greater Toronto Area'],
     'price_range' =>['label'=>'Price range','type'=>'text','sanitize'=>'sanitize_text_field','description'=>'Google-style $ to $$$$'],
     'geo_lat'     =>['label'=>'Latitude','type'=>'text','sanitize'=>'sanitize_text_field','description'=>'Optional decimal degrees. Both latitude and longitude are needed for geo output.'],
     'geo_lng'     =>['label'=>'Longitude','type'=>'text','sanitize'=>'sanitize_text_field'],
@@ -232,6 +232,17 @@ function hd_schema_place($area){
   return $place;
 }
 
+/* The Area served field is a comma-separated list; publish each entry as its
+   own place so search and AI tools read the cities individually. */
+function hd_schema_area_served(){
+  $names=array_values(array_filter(array_map('trim',explode(',',hd_schema_option('area_served'))),'strlen'));
+  if(!$names) return null;
+  if(count($names)===1) return $names[0];
+  return array_map(function($name){
+    return ['@type'=>stripos($name,'area')!==false?'AdministrativeArea':'City','name'=>$name];
+  },$names);
+}
+
 /* ---------------------------------------------------------------------------
  * Upgrade Yoast's Organization node to LocalBusiness, in place
  * ------------------------------------------------------------------------- */
@@ -254,8 +265,8 @@ function hd_schema_localbusiness($data){
     if($email!=='') $data['email']=$email;
   }
 
-  $area=hd_schema_option('area_served');
-  if($area!==''&&empty($data['areaServed'])) $data['areaServed']=$area;
+  $area=hd_schema_area_served();
+  if($area&&empty($data['areaServed'])) $data['areaServed']=$area;
 
   $price=hd_schema_option('price_range');
   if($price!==''&&empty($data['priceRange'])) $data['priceRange']=$price;
@@ -335,7 +346,7 @@ function hd_schema_service_graph($graph,$context){
     'serviceType'=>'Balloon decoration',
     'url'=>$permalink,
     'provider'=>$org_ref?['@id'=>$org_ref]:null,
-    'areaServed'=>hd_schema_option('area_served')?:null,
+    'areaServed'=>hd_schema_area_served(),
   ];
 
   /* City pages name the specific place they serve, nested inside its
