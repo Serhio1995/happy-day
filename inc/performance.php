@@ -40,11 +40,13 @@ function hd_preload_icon_fonts(){
 }
 add_action('wp_head','hd_preload_icon_fonts',2);
 
-/* Styles for below-the-fold widgets (reviews, quote form, WhatsApp button)
-   don't need to block the first paint; load them without blocking. */
+/* Styles for below-the-fold widgets (quote form, WhatsApp button) don't need
+   to block the first paint; load them without blocking. Trustindex CSS must
+   stay blocking: its scripts lay out the reviews and Instagram feed on init
+   and break if the stylesheet arrives later. */
 function hd_async_style_tag($tag,$handle){
   if(is_admin()) return $tag;
-  $async=in_array($handle,['contact-form-7','ht_ctc_main_css'],true)||strpos($handle,'trustindex')===0;
+  $async=in_array($handle,['contact-form-7','ht_ctc_main_css'],true);
   if(!$async||strpos($tag,"media='all'")===false) return $tag;
   $deferred=str_replace("media='all'","media='print' onload=\"this.media='all'\"",$tag);
   return $deferred.'<noscript>'.$tag.'</noscript>';
