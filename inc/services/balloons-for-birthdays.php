@@ -36,6 +36,10 @@ return [
 'A balloon garland can frame a backdrop or table. A balloon arch can welcome guests at the entrance. A birthday backdrop can create the main photo moment for the celebration. These options can also be combined with signage, flowers, props, or themed decor.',
 'For more specific decor styles, visit our '.$link('services/balloon-arch-garland','balloon arch and garland').' page or explore our '.$link('services/backdrop-rental','backdrop rental').' options.'
 ]],
+['title'=>'Birthday Balloon Decoration Prices','paragraphs'=>[
+'Starting prices in CAD. '.hd_price_terms(),
+hd_price_factors().' Send your party details and we will confirm the exact price before you book.'
+],'price_table'=>['garland','backdrop','latex','foil','numbers']],
 ['title'=>'Birthday Balloon Decoration in Toronto & GTA','class'=>'service-gta-section','paragraphs'=>[
 'Happy Day Toronto provides birthday balloon decoration in Toronto and across the Greater Toronto Area. We decorate many types of birthday venues, including homes, restaurants, banquet halls, condo party rooms, event spaces, schools, community centres, and outdoor locations.',
 'If you are searching for birthday balloon decoration near me, balloon decoration for birthday near me, or birthday balloon decor near me, contact us with your event date, location, theme, and setup ideas. We will confirm availability and help recommend the right decor option for your celebration.'

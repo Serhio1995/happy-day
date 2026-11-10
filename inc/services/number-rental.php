@@ -116,6 +116,14 @@ return [
             ],
         ],
         [
+            'title' => 'Marquee Number & Letter Prices',
+            'paragraphs' => [
+                'Starting prices in CAD. Delivery is priced by distance, and we collect the numbers and letters after the party.',
+                'The final price depends on how many digits or letters you need, the distance to your venue, the setup time, and whether balloons or a backdrop are added.',
+            ],
+            'price_table' => ['numbers', 'letters'],
+        ],
+        [
             'title' => 'Marquee Number Rental in Toronto & the GTA',
             'class' => 'service-gta-section',
             'paragraphs' => [

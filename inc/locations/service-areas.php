@@ -126,7 +126,7 @@ return [
         ['How do I know which area page covers my address?', 'Check the neighbourhood list on this page. For example, Maple, Concord, and Thornhill are covered on the Vaughan page, and Nobleton and Schomberg on the King City page. If your neighbourhood is not listed, send us the address and we will confirm.'],
         ['Are all services available in every area?', 'Yes. Balloon arches, garlands, backdrops, ceiling decor, marquee number rentals, and decor for every occasion are available across all of our service areas.'],
         ['Do you deliver and install at my venue?', 'Yes. We deliver and install balloon decor at homes, venues, and businesses across our service areas. Send your event address and date so we can confirm availability and setup details.'],
-        ['Is travel included in the quote?', 'Your quote reflects the event location, travel, venue access, installation time, and any removal needs, so you know the full cost before booking.'],
+        ['Is travel included in the quote?', 'Delivery is not part of the starting prices: it is priced by the distance to your venue and listed in your quote, so you know the full cost before booking. Installation is included, and we take everything down after the party.'],
         ['Can you decorate several locations on the same day?', 'Often, yes — for example a ceremony and a reception, or several office locations. It depends on the distance between venues and the setup windows, so share all addresses and times when you ask for a quote.'],
         ['Do you decorate outside these areas?', 'Sometimes. Availability outside our main service areas depends on the date, the size of the setup, and travel time. Contact us with your event details and we will let you know.'],
     ],

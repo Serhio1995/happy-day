@@ -107,6 +107,14 @@ return [
             ],
         ],
         [
+            'title' => 'Backdrop Rental Prices',
+            'paragraphs' => [
+                'Starting prices in CAD. ' . hd_price_terms(),
+                'The final price depends on the backdrop size, added balloons or flowers, the distance to your venue, and the setup time. Send your event details and we will confirm the exact price before you book.',
+            ],
+            'price_table' => ['backdrop', 'garland'],
+        ],
+        [
             'title' => 'Backdrop Rental in Toronto & GTA',
             'class' => 'service-gta-section',
             'paragraphs' => [
