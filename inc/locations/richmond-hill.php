@@ -27,15 +27,44 @@ return [
     'photo_ids' => [25, 114, 146, 151, 156, 173, 118],
     'hero_button' => 'Plan My Richmond Hill Setup',
     'hero_alt' => 'Blush and ivory balloon garland beside a celebration dessert table — illustrative cover',
+    'page_class' => 'hd-city',
     'sections' => [
         [
             'title' => 'Your Local Richmond Hill Balloon Decorator',
-            'placeholder' => true,
+            'eyebrow' => 'From Oak Ridges to Langstaff',
+            'class' => 'city-bg city-bg-cream',
+            'no_photo' => true,
             'paragraphs' => [
                 'We provide balloon decoration services throughout Richmond Hill, with installation plans tailored to your home or venue. We coordinate setup times, access, and design details before your event. Availability depends on the date, so we recommend booking early.',
-                'In the north, Oak Ridges and the homes around Lake Wilcox are great for backyard parties and outdoor photo areas. Jefferson, Westbrook, and Bayview Hill have large family homes with high ceilings, perfect for staircase garlands and statement backdrops. Mill Pond and the historic Yonge Street core mix older homes, restaurants, and small venues.',
-                'Richvale and South Richvale are established family streets close to Hillcrest Mall, while Rouge Woods and Elgin Mills on the east side are newer neighbourhoods full of kids’ parties. Around Langstaff and Richmond Hill Centre, near Yonge and Highway 7, we plan compact setups for condo party rooms, and in the Headford business area we decorate offices for launches and staff events.',
             ],
+            'cards_style' => 'tickets',
+            'cards' => [
+                [
+                    'icon' => 'panorama',
+                    'title' => 'Oak Ridges & Lake Wilcox',
+                    'text' => 'Homes in the north with backyards that are great for parties and outdoor photo areas.',
+                    'meta' => 'Best for: backyard birthdays, engagements, graduations',
+                ],
+                [
+                    'icon' => 'sparkles',
+                    'title' => 'Jefferson, Westbrook & Bayview Hill',
+                    'text' => 'Large family homes with high ceilings, perfect for staircase garlands and statement backdrops.',
+                    'meta' => 'Best for: milestone birthdays, Sweet 16s, bridal showers',
+                ],
+                [
+                    'icon' => 'heart',
+                    'title' => 'Mill Pond & Yonge Street',
+                    'text' => 'The historic core, with older homes, restaurants and small venues.',
+                    'meta' => 'Best for: restaurant parties, anniversaries, showers',
+                ],
+                [
+                    'icon' => 'cake-candles',
+                    'title' => 'Rouge Woods & Elgin Mills',
+                    'text' => 'Newer neighbourhoods on the east side, full of kids’ parties.',
+                    'meta' => 'Best for: kids’ birthdays, first birthdays, gender reveals',
+                ],
+            ],
+            'note' => 'We also decorate in Richvale and South Richvale near Hillcrest Mall, condo party rooms around Langstaff and Richmond Hill Centre, and offices in the Headford business area.',
         ],
         [
             'title' => 'Celebrations We Decorate in Richmond Hill',
@@ -80,30 +109,164 @@ return [
         ],
         [
             'title' => 'Homes, Condos & Venues From Oak Ridges to Lake Wilcox',
-            'class' => 'service-themes-section',
-            'placeholder' => true,
+            'eyebrow' => 'Where the party happens',
+            'class' => 'city-bg city-bg-sky',
+            'no_photo' => true,
             'paragraphs' => [
-                'Many Richmond Hill celebrations happen at home. A living room can hold a garland over the fireplace or a round backdrop for photos, while a backyard can fit a larger arch or a full photo area. We look at ceiling height, wall width, and doorways before choosing the setup.',
-                'Condo party rooms near Yonge Street and Highway 7 usually require an elevator booking and vendor insurance. Banquet halls and restaurants often have a fixed setup window. We confirm these details in advance so the installation goes smoothly.',
-                'For offices and retail spaces, we can design balloon decor in brand colours for launches, open houses, client events, and staff celebrations.',
+                'Each type of space has its own rules and timing. This is what we check and what usually works in each one.',
+            ],
+            'zones' => [
+                [
+                    'label' => 'Family home',
+                    'temp' => 'Living rooms and backyards',
+                    'use' => 'Fireplace garland, round photo backdrop, backyard arch',
+                    'note' => 'We look at ceiling height, wall width and doorways before choosing the setup.',
+                ],
+                [
+                    'label' => 'Condo party room',
+                    'temp' => 'Yonge Street & Highway 7',
+                    'use' => 'Compact backdrop with garland, number display',
+                    'note' => 'Most buildings require an elevator booking and vendor insurance. We confirm these details in advance.',
+                ],
+                [
+                    'label' => 'Office & retail',
+                    'temp' => 'Headford business area',
+                    'use' => 'Brand-colour arch, balloon columns, launch backdrop',
+                    'note' => 'Decor in your brand colours for launches, open houses, client events and staff celebrations.',
+                ],
             ],
         ],
         [
             'title' => 'Balloon Arches & Garlands for Richmond Hill Homes',
+            'eyebrow' => 'Colours that photograph well',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'Many Richmond Hill homes have open-concept layouts, double-height foyers, and curved staircases. These are perfect for balloon garlands that follow the railing, ceiling clusters in the foyer, and large round backdrops in the living room.',
-                'Elegant, modern palettes are especially popular here: white and gold, beige and cream, sage and ivory, blush and champagne, with chrome accents. For kids’ parties, bright themed designs with number balloons are the favourites.',
                 'For cultural celebrations, we can combine balloons with flowers, greenery, and custom signage in the language you choose.',
+            ],
+            'lead' => 'Palettes Richmond Hill families ask for most:',
+            'palettes' => [
+                [
+                    'name' => 'White and gold',
+                    'note' => 'Elegant receptions',
+                    'colors' => ['#ffffff', '#d4af6a', '#f3ead7'],
+                ],
+                [
+                    'name' => 'Beige and cream',
+                    'note' => 'Modern homes',
+                    'colors' => ['#e3d3bd', '#f6efe1', '#c8b08f'],
+                ],
+                [
+                    'name' => 'Sage and ivory',
+                    'note' => 'Baby showers',
+                    'colors' => ['#b7c4a8', '#f6efe1', '#ffffff'],
+                ],
+                [
+                    'name' => 'Blush, champagne and chrome',
+                    'note' => 'Bridal showers',
+                    'colors' => ['#f4c6cf', '#e6cc9a', '#c3c9d4'],
+                ],
+                [
+                    'name' => 'Greens, gold and white',
+                    'note' => 'Nowruz',
+                    'colors' => ['#7fae6e', '#d4af6a', '#ffffff'],
+                ],
+                [
+                    'name' => 'Red and gold',
+                    'note' => 'Lunar New Year',
+                    'colors' => ['#c8323c', '#d4af6a', '#f5c542'],
+                ],
+                [
+                    'name' => 'Bright themed colours',
+                    'note' => 'Kids’ parties',
+                    'colors' => ['#f17ca4', '#7cc4e8', '#f5c542'],
+                ],
+                [
+                    'name' => 'Your brand colours',
+                    'note' => 'Headford offices',
+                    'colors' => ['outline', 'outline', 'outline'],
+                ],
+            ],
+        ],
+        [
+            'title' => 'Popular Richmond Hill Setups and What They Cost',
+            'eyebrow' => 'Real starting prices',
+            'class' => 'city-bg city-bg-blush',
+            'no_photo' => true,
+            'paragraphs' => [hd_price_summary()],
+            'combos' => [
+                'note' => 'Estimates from our starting prices in CAD, before delivery. Installation and takedown are included for garlands and backdrops. Your exact price is confirmed in the quote.',
+                'items' => [
+                    [
+                        'title' => 'Backyard Birthday',
+                        'for' => 'Oak Ridges and Lake Wilcox',
+                        'items' => [
+                            ['garland', 1, 'Garland over the cake table'],
+                            ['numbers', 2, '4-ft marquee numbers for the age'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Staircase Garland',
+                        'for' => 'Double-height foyers',
+                        'items' => [
+                            ['garland', 1, 'Garland along the railing'],
+                            ['latex', 20, 'Foyer ceiling cluster'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Condo Party Room',
+                        'for' => 'Langstaff and Richmond Hill Centre',
+                        'items' => [
+                            ['backdrop', 1, 'Round backdrop'],
+                            ['garland', 1, 'Backdrop garland'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Sweet 16',
+                        'for' => 'Jefferson and Bayview Hill homes',
+                        'items' => [
+                            ['backdrop', 1, 'Backdrop'],
+                            ['garland', 1, 'Balloon garland'],
+                            ['numbers', 2, '4-ft marquee numbers “16”'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Nowruz Table',
+                        'for' => 'Family gatherings',
+                        'items' => [
+                            ['garland', 1, 'Garland around the Haft-Seen table'],
+                            ['foil', 6, 'Gold foil accents'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Office Launch',
+                        'for' => 'Headford business area',
+                        'items' => [
+                            ['garland', 1, 'Entrance garland in brand colours'],
+                            ['backdrop', 1, 'Logo photo backdrop'],
+                        ],
+                    ],
+                ],
             ],
         ],
         [
             'title' => 'Planning a Richmond Hill Event',
+            'eyebrow' => 'When to book',
             'class' => 'service-backdrops-section',
-            'placeholder' => true,
             'paragraphs' => [
-                'Some of the busiest weekends in Richmond Hill are around Lunar New Year in winter, Nowruz in March, graduation season in June, and the December holidays. Summer is popular for backyard birthdays and engagement parties in Oak Ridges, Jefferson, and Bayview Hill. For these dates, booking two to four weeks ahead gives you the most choice.',
+                'For the busiest dates, booking two to four weeks ahead gives you the most choice.',
                 'Before booking, ask your condo, hall, or restaurant about setup times, helium rules, and whether decor can be attached to walls or ceilings. For outdoor parties, a covered patio or the shaded side of the yard helps balloons look better for longer.',
+            ],
+            'menu' => [
+                'title' => 'Richmond Hill’s Busy Seasons',
+                'subtitle' => 'When install slots fill up first',
+                'items' => [
+                    ['Lunar New Year', 'Winter'],
+                    ['Nowruz', 'March'],
+                    ['Graduation season', 'June'],
+                    ['Backyard birthdays and engagements', 'Summer'],
+                    ['Holiday parties', 'December'],
+                ],
             ],
             'lead' => 'Helpful details to send with your request:',
             'list' => [

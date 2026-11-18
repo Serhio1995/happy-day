@@ -991,3 +991,135 @@ ol.hd-zones .hd-zone-2 .hd-zone-band,ol.hd-zones .hd-zone-3 .hd-zone-band{backgr
 .service-prose .hd-combos-note{margin:26px 0 0;color:var(--muted);font-size:13.5px}
 @media(max-width:900px){.hd-combo-tickets{grid-template-columns:1fr}}
 @media(max-width:560px){.hd-combo-ticket{grid-template-columns:1fr}.hd-combo-ticket:nth-child(n){transform:none}.hd-combo-ticket-stub{flex-direction:row;align-items:baseline;justify-content:center;gap:10px;border-left:0;border-top:2px dashed rgba(255,255,255,.55);border-radius:0 0 18px 18px}.hd-combo-ticket:nth-child(3n) .hd-combo-ticket-stub{border-top-color:rgba(37,61,120,.3)}.hd-combo-ticket-stub:after{left:-10px;right:-10px;top:-11px;bottom:auto;width:auto;height:20px;background:radial-gradient(circle 10px at 10px 50%,var(--ticket-cut,#ffeef4) 98%,transparent) left/20px 20px no-repeat,radial-gradient(circle 10px at 10px 50%,var(--ticket-cut,#ffeef4) 98%,transparent) right/20px 20px no-repeat}}
+
+/* City (service-area) pages, page_class hd-city: coloured bands with a
+   scalloped top edge, reusing the visual blocks from inc/service-blocks.php. */
+.hd-city .service-content-section.city-bg{position:relative;padding-top:104px}
+.hd-city .service-content-section.city-bg-cream{background:#fbf6ec}
+.hd-city .service-content-section.city-bg-sky{background:#eef6fc}
+.hd-city .service-content-section.city-bg-blush{background:#fff0f5}
+.hd-city .service-content-section.city-bg-cream{--band:#fbf6ec}.hd-city .service-content-section.city-bg-sky{--band:#eef6fc}.hd-city .service-content-section.city-bg-blush{--band:#fff0f5}
+.hd-city .service-content-section.city-bg{z-index:1;overflow:visible}
+.hd-city .service-content-section.city-bg:after{content:"";position:absolute;z-index:1;left:0;right:0;top:-15px;height:16px;background:radial-gradient(circle at 50% 100%,var(--band) 11px,transparent 12px) 0 0/26px 16px repeat-x;pointer-events:none}
+.hd-city .city-bg .service-prose{max-width:none}
+.hd-city .city-bg .service-prose>p{max-width:760px}
+.hd-city .service-note{display:flex;gap:12px;align-items:flex-start;margin:26px 0 0;padding:14px 18px;border-left:3px solid #f17ca4;border-radius:0 12px 12px 0;background:rgba(255,255,255,.75);font-size:14px}
+.hd-city .service-note i{margin-top:4px;color:#e05a89}
+.hd-city .city-bg>.hd-wrap{max-width:1160px}
+.hd-city ol.hd-zones .hd-zone .hd-zone-band{background:var(--navy)}
+.hd-city ol.hd-zones .hd-zone-2 .hd-zone-band{background:#df5686}
+.hd-city ol.hd-zones .hd-zone-3 .hd-zone-band{background:#3d7fae}
+.hd-city ol.hd-zones .hd-zone-temp{color:#df5686}
+.hd-city ol.hd-zones .hd-zone-2 .hd-zone-temp{color:#c2477a}
+.hd-city ol.hd-zones .hd-zone-3 .hd-zone-temp{color:#3d7fae}
+.hd-city .service-content-section.location-content-section.service-backdrops-section{background:#fff!important}
+/* City pages: the services catalog as three menu boards with coloured headers. */
+.hd-city .location-catalog-groups{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start}
+.hd-city .location-catalog-group{--board:var(--navy);--board-tint:#eef1fa;--board-ink:var(--navy);overflow:hidden;padding:0;border:0;border-radius:22px 22px 22px 46px;background:#fff;box-shadow:14px 18px 0 rgba(37,61,120,.1),0 22px 50px rgba(37,61,120,.12);transform:rotate(-1deg)}
+.hd-city .location-catalog-group-2{--board:#df5686;--board-tint:#ffe8f0;--board-ink:#b93769;box-shadow:14px 18px 0 rgba(241,124,164,.18),0 22px 50px rgba(37,61,120,.12);transform:rotate(.8deg)}
+.hd-city .location-catalog-group-3{--board:#3d7fae;--board-tint:#e6f2fb;--board-ink:#2f6d99;box-shadow:14px 18px 0 rgba(124,196,232,.22),0 22px 50px rgba(37,61,120,.12);transform:rotate(-.6deg)}
+.hd-city .location-catalog-group-heading{margin:0;padding:22px 24px 20px;background:var(--board)}
+.hd-city .location-catalog-group-heading h3{margin:0 0 4px;color:#fff;font-size:21px}
+.hd-city .location-catalog-group-heading p{color:rgba(255,255,255,.78);font-size:13px}
+.hd-city .location-catalog-links{grid-template-columns:1fr;gap:0;padding:8px 16px 14px}
+.hd-city .location-catalog-links a{min-height:0;gap:12px;padding:11px 6px;border:0;border-bottom:1px dashed rgba(37,61,120,.13);border-radius:0;font-size:14.5px;transition:background .2s ease,transform .2s ease}
+.hd-city .location-catalog-links li:last-child a{border-bottom:0}
+.hd-city .location-catalog-links a:hover,.hd-city .location-catalog-links a:focus-visible{border-color:rgba(37,61,120,.13);background:#fffafc;transform:translateX(4px)}
+.hd-city .location-catalog-icon{flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:var(--board-tint);color:var(--board-ink);font-size:14px}
+.hd-city .location-catalog-arrow{color:var(--board-ink);opacity:.55;transition:opacity .2s ease}
+.hd-city .location-catalog-links a:hover .location-catalog-arrow{opacity:1}
+@media(max-width:900px){.hd-city .location-catalog-groups{grid-template-columns:1fr;max-width:480px;margin:0 auto}.hd-city .location-catalog-group{transform:none}}
+@media(prefers-reduced-motion:reduce){.hd-city .location-catalog-links a{transition:none}.hd-city .location-catalog-links a:hover{transform:none}}
+/* The hero curve takes the colour of the first band, so there is no white gap. */
+.hd-city .service-hero:has(+ .city-bg-cream):after{background:#fbf6ec}
+.hd-city .service-hero:has(+ .city-bg-sky):after{background:#eef6fc}
+.hd-city .service-hero:has(+ .city-bg-blush):after{background:#fff0f5}
+.hd-city .service-hero + .city-bg:after{display:none}
+.hd-city .service-hero + .service-content-section.city-bg{padding-top:72px}
+.hd-city .city-bg .service-prose>.service-note{max-width:none;align-items:center}
+/* City pages: "What goes into your quote" as a navy band with scalloped edges
+   and three numbered white cards. */
+.hd-city .location-budget{position:relative;z-index:2;padding:120px 0 130px}
+.hd-city .location-budget:before,.hd-city .location-budget:after{content:"";position:absolute;left:0;right:0;height:16px;pointer-events:none}
+.hd-city .location-budget:before{top:-15px;background:radial-gradient(circle at 50% 100%,var(--navy) 11px,transparent 12px) 0 0/26px 16px repeat-x}
+.hd-city .location-budget:after{bottom:-15px;background:radial-gradient(circle at 50% 0,var(--navy) 11px,transparent 12px) 0 0/26px 16px repeat-x}
+.hd-city .location-budget-grid{counter-reset:quote;gap:28px;margin-top:40px}
+.hd-city .location-budget-grid article{counter-increment:quote;position:relative;padding:30px 26px 28px;border:0;border-radius:22px 22px 22px 46px;background:#fff;box-shadow:12px 14px 0 rgba(241,124,164,.4),0 24px 50px rgba(8,16,40,.28);transform:rotate(-1deg)}
+.hd-city .location-budget-grid article:nth-child(2){box-shadow:12px 14px 0 rgba(124,196,232,.42),0 24px 50px rgba(8,16,40,.28);transform:rotate(.8deg)}
+.hd-city .location-budget-grid article:nth-child(3){box-shadow:12px 14px 0 rgba(212,175,106,.45),0 24px 50px rgba(8,16,40,.28);transform:rotate(-.6deg)}
+.hd-city .location-budget-grid article:before{content:"No. " counter(quote,decimal-leading-zero);position:absolute;top:26px;right:24px;color:rgba(37,61,120,.22);font-family:Georgia,"Times New Roman",serif;font-size:22px;font-style:italic;font-weight:700}
+.hd-city .location-budget-grid h3{color:var(--navy)}
+.hd-city .location-budget-grid p{color:var(--muted)}
+.hd-city .location-budget-icon{border:0;border-radius:50%;background:#ffe8f0;color:#df5686}
+.hd-city .location-budget-grid article:nth-child(2) .location-budget-icon{background:#e6f2fb;color:#3d7fae}
+.hd-city .location-budget-grid article:nth-child(3) .location-budget-icon{background:#fbf1dc;color:#a87b2c}
+.hd-city .location-budget .text-link{display:inline-flex;align-items:center;gap:12px;margin-top:44px;padding:14px 22px;border:1px solid rgba(255,255,255,.44);border-radius:14px;background:linear-gradient(115deg,#ef5f91 0%,#f786aa 52%,#f45f94 100%);box-shadow:0 5px 0 #c94373,0 14px 30px rgba(215,63,117,.3);color:#fff;font-weight:850;transition:transform .25s ease}
+.hd-city .location-budget .text-link:after{display:none}
+.hd-city .location-budget .text-link:hover{transform:translateY(-2px)}
+@media(max-width:900px){.hd-city .location-budget{padding:90px 0 100px}.hd-city .location-budget-grid article{transform:none}}
+.hd-city .location-budget>.hd-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"head cta" "cards cards";column-gap:40px;align-items:end}
+.hd-city .location-budget .section-head{grid-area:head;margin-bottom:0}
+.hd-city .location-budget .location-budget-grid{grid-area:cards}
+.hd-city .location-budget .text-link{grid-area:cta;justify-self:end;margin:0 0 6px}
+@media(max-width:900px){.hd-city .location-budget>.hd-wrap{grid-template-columns:1fr;grid-template-areas:"head" "cta" "cards"}.hd-city .location-budget .text-link{justify-self:start;margin:24px 0 0}}
+.hd-city .service-content-section.city-bg:before{content:"";position:absolute;z-index:1;left:0;right:0;bottom:-15px;height:16px;background:radial-gradient(circle at 50% 0,var(--band) 11px,transparent 12px) 0 0/26px 16px repeat-x;pointer-events:none}
+.hd-city .location-budget .text-link{align-self:center}
+.hd-city .service-content-section.city-bg:before{top:auto;width:auto;border:0;border-radius:0;opacity:1;transform:none;box-shadow:none;filter:none;animation:none}
+/* Quote CTA: centred under the middle card. */
+.hd-city .location-budget>.hd-wrap{grid-template-columns:1fr;grid-template-areas:"head" "cards" "cta"}
+.hd-city .location-budget .text-link{justify-self:center;align-self:auto;margin:52px 0 0}
+@media(max-width:900px){.hd-city .location-budget .text-link{justify-self:center;margin:40px 0 0}}
+.hd-city .service-content-section.city-bg:before{display:block}
+/* City pages: section photos fill the full height of the text column.
+   The figure is sized by the grid row; the image covers it. */
+.hd-city .location-content-section .service-content-split{align-items:stretch}
+.hd-city .location-content-section .service-content-split>.location-section-photo{position:relative;align-self:stretch;height:auto;min-height:440px}
+.hd-city .location-section-photo img{position:absolute;inset:0;width:100%;height:100%!important;max-height:none!important;object-fit:cover}
+.hd-city .hd-menu-where{white-space:nowrap}
+@media(max-width:900px){.hd-city .location-content-section .service-content-split>.location-section-photo{min-height:0;aspect-ratio:4/3}}
+/* City pages: booking steps hang from a ribbon garland, each number is a
+   hanging balloon (air-filled garlands hang knot-up). Same idea as the New
+   Year page, without the seasonal pieces. */
+.hd-city .service-process{background:#fbf6ec}
+.hd-city .service-process .process-grid{padding-top:112px}
+.hd-city .service-process .process-grid:before{top:0;left:0;right:0;height:72px;box-shadow:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='72' viewBox='0 0 280 72'%3E%3Cpath d='M0 14C70 58 210 58 280 14' fill='none' stroke='%23f17ca4' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M0 20C70 62 210 62 280 20' fill='none' stroke='%23f5abc4' stroke-width='2' stroke-dasharray='2 7' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/25% 72px repeat-x}
+.hd-city .service-process .process-grid .step{overflow:visible;padding-top:58px;background:#fff;border-color:rgba(241,124,164,.22);transform-origin:60px -60px}
+.hd-city .service-process .process-grid .step:nth-child(odd){transform:rotate(-1.2deg)}
+.hd-city .service-process .process-grid .step:nth-child(even){transform:translateY(24px) rotate(1deg)}
+.hd-city .service-process .process-grid .step:hover{transform:rotate(0)}
+.hd-city .service-process .process-grid .step:nth-child(even):hover{transform:translateY(24px) rotate(0)}
+.hd-city .service-process .process-grid .step:before{content:"";position:absolute;left:59px;top:-98px;width:2px;height:58px;background:linear-gradient(180deg,#f17ca4,rgba(37,61,120,.35))}
+.hd-city .service-process .process-grid .step:nth-child(even):before{top:-122px;height:82px}
+.hd-city .service-process .process-grid .step b{--b:#f17ca4;top:-44px;left:30px;width:60px;height:68px;border:0;border-radius:50% 50% 50% 50%/56% 56% 44% 44%;background:radial-gradient(circle at 34% 64%,rgba(255,255,255,.6),transparent 26%),var(--b);box-shadow:inset -6px -8px 14px rgba(0,0,0,.12),0 12px 24px rgba(37,61,120,.22);font-size:18px}
+.hd-city .service-process .process-grid .step b:before{content:"";position:absolute;top:-7px;left:50%;width:12px;height:9px;margin-left:-6px;background:var(--b);clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);filter:brightness(.85)}
+.hd-city .service-process .process-grid .step:nth-child(2) b{--b:#253d78}
+.hd-city .service-process .process-grid .step:nth-child(3) b{--b:#d4a94f}
+.hd-city .service-process .process-grid .step:nth-child(4) b{--b:#6aa9d4}
+.hd-city .service-process .process-grid .step:after{display:none}
+@media(max-width:900px){.hd-city .service-process .process-grid{padding-top:56px}.hd-city .service-process .process-grid:before,.hd-city .service-process .process-grid .step:before{display:none}.hd-city .service-process .process-grid .step:nth-child(n){transform:none}}
+@media(prefers-reduced-motion:reduce){.hd-city .service-process .process-grid .step{transition:none}}
+/* City pages: reviews block with a heading and even spacing above and below. */
+.hd-city .service-reviews-section{padding:96px 0!important}
+.hd-city .city-reviews-head{margin:0 0 34px}
+.hd-city .city-reviews-head .eyebrow{display:block;margin-bottom:12px}
+.hd-city .city-reviews-head h2{margin:0;color:var(--navy)}
+@media(max-width:900px){.hd-city .service-reviews-section{padding:70px 0!important}}
+.hd-city .city-reviews-head h2{font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1.15}@media(max-width:600px){.hd-city .city-reviews-head h2{font-size:34px}}
+.hd-city .city-reviews-head{text-align:center}
+/* Service areas hub: area cards as postcards with a stamp-style region tag. */
+.hd-city .location-area-grid{gap:34px 26px}
+.hd-city .location-area-card{--tint:rgba(241,124,164,.22);overflow:visible;padding:12px 12px 0;border:0;border-radius:8px;background:#fff;box-shadow:10px 12px 0 var(--tint),0 20px 44px rgba(37,61,120,.13);transform:rotate(-1deg);transition:transform .25s ease,box-shadow .25s ease}
+.hd-city .location-area-card:nth-child(3n+2){--tint:rgba(124,196,232,.28);transform:rotate(.9deg)}
+.hd-city .location-area-card:nth-child(3n){--tint:rgba(212,175,106,.3);transform:rotate(-.5deg)}
+.hd-city .location-area-card:hover,.hd-city .location-area-card:focus-within{border:0;transform:translateY(-5px) rotate(0);box-shadow:12px 16px 0 var(--tint),0 26px 54px rgba(37,61,120,.18)}
+.hd-city .location-area-card img,.hd-city .location-area-card.is-featured img{height:200px;border-radius:5px}
+.hd-city .location-area-card-body{padding:18px 10px 20px}
+.hd-city .location-area-region{position:absolute;top:24px;right:24px;z-index:1;padding:6px 10px;border:2px dashed #e05a89;border-radius:4px;background:#fff;box-shadow:0 4px 12px rgba(37,61,120,.18);color:#b93769;font-size:10px;transform:rotate(4deg)}
+.hd-city .location-area-card:nth-child(3n+2) .location-area-region{border-color:#3d7fae;color:#2f6d99;transform:rotate(-3deg)}
+.hd-city .location-area-card:nth-child(3n) .location-area-region{border-color:#b8893a;color:#8a6420}
+.hd-city .location-area-card h3{margin:0 0 8px;font-size:24px}
+.hd-city .location-area-link{display:inline-flex;align-items:center;align-self:flex-start;gap:6px;padding:9px 14px;border-radius:999px;background:#fff0f5;color:#b93769;font-size:13px;line-height:1.3}
+.hd-city .location-area-link i{margin:0}
+@media(max-width:900px){.hd-city .location-area-card:nth-child(n){transform:none}}
+@media(prefers-reduced-motion:reduce){.hd-city .location-area-card{transition:none}.hd-city .location-area-card:hover{transform:none}}
+.hd-city .location-area-link{border-radius:12px}

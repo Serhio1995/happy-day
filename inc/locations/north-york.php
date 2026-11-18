@@ -27,15 +27,44 @@ return [
     'photo_ids' => [26, 116, 149, 154, 159, 107, 175],
     'hero_button' => 'Plan My North York Setup',
     'hero_alt' => 'Blue, ivory and silver balloon backdrop in a modern party lounge — illustrative cover',
+    'page_class' => 'hd-city',
     'sections' => [
         [
             'title' => 'Balloon Decor Across North York',
-            'placeholder' => true,
+            'eyebrow' => 'A city within a city',
+            'class' => 'city-bg city-bg-cream',
+            'no_photo' => true,
             'paragraphs' => [
                 'North York was its own city until it joined Toronto in 1998, and it still feels like a city within a city. Every part of it celebrates a little differently, so we plan each balloon setup around the neighbourhood and the space.',
-                'In Willowdale and around Yonge and Finch, most events happen in condo party rooms and smaller units, where compact garlands and round backdrops work best. Around Yonge and Sheppard and North York Centre, near Mel Lastman Square, we often decorate offices and venues before business hours. Bayview Village, York Mills, and Hoggs Hollow have larger family homes and backyards with room for full entrance arches and garden photo areas.',
-                'Along Bathurst Street — in Bathurst Manor, Clanton Park, and Lansing — many celebrations are Bar and Bat Mitzvahs and family holidays in homes and event halls. In Don Mills, Parkwoods, and Fairview we decorate homes, offices, and restaurants, and around Downsview and York University graduation parties are especially popular.',
             ],
+            'cards_style' => 'tickets',
+            'cards' => [
+                [
+                    'icon' => 'gift',
+                    'title' => 'Willowdale & Yonge and Finch',
+                    'text' => 'Most events happen in condo party rooms and smaller units, where compact garlands and round backdrops work best.',
+                    'meta' => 'Best for: condo parties, first birthdays, showers',
+                ],
+                [
+                    'icon' => 'file-contract',
+                    'title' => 'North York Centre',
+                    'text' => 'Offices and venues around Yonge and Sheppard and Mel Lastman Square, decorated before business hours.',
+                    'meta' => 'Best for: office parties, launches, grand openings',
+                ],
+                [
+                    'icon' => 'panorama',
+                    'title' => 'Bayview Village & York Mills',
+                    'text' => 'Larger family homes and backyards in Bayview Village, York Mills and Hoggs Hollow, with room for full entrance arches and garden photo areas.',
+                    'meta' => 'Best for: milestone birthdays, engagements, garden parties',
+                ],
+                [
+                    'icon' => 'sparkles',
+                    'title' => 'Bathurst Manor & Clanton Park',
+                    'text' => 'Along Bathurst Street, in Bathurst Manor, Clanton Park and Lansing, many celebrations are Bar and Bat Mitzvahs and family holidays. See our ' . $link('services/bar-mitzvah-balloons', 'Bar and Bat Mitzvah balloons') . '.',
+                    'meta' => 'Best for: Bar/Bat Mitzvahs, Hanukkah, family holidays',
+                ],
+            ],
+            'note' => 'In Don Mills, Parkwoods and Fairview we decorate homes, offices and restaurants, and around Downsview and York University graduation parties are especially popular.',
         ],
         [
             'title' => 'Celebrations We Decorate in North York',
@@ -80,30 +109,153 @@ return [
         ],
         [
             'title' => 'Condo Party Rooms, Homes & Venues',
-            'class' => 'service-themes-section',
-            'placeholder' => true,
+            'eyebrow' => 'Where the party happens',
+            'class' => 'city-bg city-bg-sky',
+            'no_photo' => true,
             'paragraphs' => [
-                'Condo party rooms are among the most common places we decorate in North York. Most buildings ask for a booked service elevator, a certificate of insurance, and a set window for setup and removal. Checking these rules with your property management early helps avoid delays on the day of the event.',
-                'For private homes, we look at ceiling height, entrance width, and where guests will take photos. For restaurants and banquet halls, we coordinate the setup time with the venue so the decor is finished before guests arrive.',
-                'We also decorate offices, schools, retail spaces, and community venues. For business events, we can work with brand colours and install outside of busy hours when the venue requires it.',
+                'Each type of space in North York has its own rules and timing. This is what we check and what usually works in each one.',
+            ],
+            'zones' => [
+                [
+                    'label' => 'Condo party room',
+                    'temp' => 'Willowdale & the Yonge corridor',
+                    'use' => 'Round backdrop with garland, half arch, ceiling cluster over the dessert table',
+                    'note' => 'Most buildings ask for a booked service elevator, a certificate of insurance and a set window for setup and removal.',
+                ],
+                [
+                    'label' => 'Family home',
+                    'temp' => 'Bayview Village to York Mills',
+                    'use' => 'Full entrance arch, garden photo area, balloon wall with names',
+                    'note' => 'We look at ceiling height, entrance width and where guests will take photos.',
+                ],
+                [
+                    'label' => 'Office & venue',
+                    'temp' => 'North York Centre & Don Mills',
+                    'use' => 'Brand-colour decor, entrance arch, launch backdrop',
+                    'note' => 'For business events we can install outside busy hours when the venue requires it.',
+                ],
             ],
         ],
         [
             'title' => 'Balloon Arches & Garlands in Willowdale, Bayview Village & Don Mills',
+            'eyebrow' => 'Colours that photograph well',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'Because so many North York events happen in condos and compact rooms, we often suggest designs that give a big effect without taking up much floor space: a garland wrapped around a round backdrop, a half arch framing a welcome sign, or a ceiling cluster above the dessert table.',
                 'In larger homes and halls, full entrance arches, double-layered garlands, and balloon walls with custom names or numbers create a stronger focal point for photos.',
-                'White, gold, and chrome are popular for formal receptions. Blue, white, and silver are a classic choice for Bar and Bat Mitzvahs and Hanukkah, soft pastels for baby showers, and bright, playful colours for kids’ birthdays. We can match any palette, including school colours and brand colours.',
+            ],
+            'lead' => 'Palettes North York hosts ask for most:',
+            'palettes' => [
+                [
+                    'name' => 'White, gold and chrome',
+                    'note' => 'Formal receptions',
+                    'colors' => ['#ffffff', '#d4af6a', '#c3c9d4'],
+                ],
+                [
+                    'name' => 'Blue, white and silver',
+                    'note' => 'Bar Mitzvahs and Hanukkah',
+                    'colors' => ['#2f5fa8', '#ffffff', '#c3c9d4'],
+                ],
+                [
+                    'name' => 'Soft pastels',
+                    'note' => 'Baby showers',
+                    'colors' => ['#f4c6cf', '#bcd7f0', '#f6e7b4'],
+                ],
+                [
+                    'name' => 'Bright playful colours',
+                    'note' => 'Kids’ birthdays',
+                    'colors' => ['#f17ca4', '#7cc4e8', '#f5c542'],
+                ],
+                [
+                    'name' => 'Your school colours',
+                    'note' => 'Graduations',
+                    'colors' => ['outline', 'outline', 'outline'],
+                ],
+                [
+                    'name' => 'Your brand colours',
+                    'note' => 'Office events',
+                    'colors' => ['outline', 'outline', 'outline'],
+                ],
+            ],
+        ],
+        [
+            'title' => 'Popular North York Setups and What They Cost',
+            'eyebrow' => 'Real starting prices',
+            'class' => 'city-bg city-bg-blush',
+            'no_photo' => true,
+            'paragraphs' => [hd_price_summary()],
+            'combos' => [
+                'note' => 'Estimates from our starting prices in CAD, before delivery. Installation and takedown are included for garlands and backdrops. Your exact price is confirmed in the quote.',
+                'items' => [
+                    [
+                        'title' => 'Ceiling Cluster',
+                        'for' => 'Over the dessert table',
+                        'items' => [
+                            ['latex', 30, 'Helium ceiling balloons'],
+                            ['foil', 6, 'Foil accents'],
+                        ],
+                    ],
+                    [
+                        'title' => 'First Birthday Table',
+                        'for' => 'Condos and homes',
+                        'items' => [
+                            ['garland', 1, 'Garland over the table'],
+                            ['numbers', 1, '4-ft marquee number “1”'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Condo Party Room',
+                        'for' => 'Willowdale and Yonge and Finch',
+                        'items' => [
+                            ['backdrop', 1, 'Round backdrop'],
+                            ['garland', 1, 'Backdrop garland'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Office Launch',
+                        'for' => 'North York Centre',
+                        'items' => [
+                            ['garland', 1, 'Entrance garland in brand colours'],
+                            ['backdrop', 1, 'Logo photo backdrop'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Bar Mitzvah Photo Wall',
+                        'for' => 'Bathurst halls and homes',
+                        'items' => [
+                            ['backdrop', 1, 'Backdrop'],
+                            ['garland', 1, 'Balloon garland'],
+                            ['numbers', 2, '4-ft marquee numbers “13”'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Graduation Party',
+                        'for' => 'Downsview and York University',
+                        'items' => [
+                            ['garland', 1, 'Garland in school colours'],
+                            ['letters', 4, 'Marquee letters “GRAD”'],
+                        ],
+                    ],
+                ],
             ],
         ],
         [
             'title' => 'Planning a North York Event',
+            'eyebrow' => 'When to book',
             'class' => 'service-backdrops-section',
-            'placeholder' => true,
             'paragraphs' => [
-                'The busiest times of year in North York are June, when high schools and York University celebrate graduation, and December, with Hanukkah, Christmas, and office holiday parties. Spring brings Nowruz, Easter, and Passover gatherings, and fall is a busy season for Bar and Bat Mitzvahs. For these dates, booking two to four weeks ahead gives you the most choice.',
-                'If your event is in a condo, ask your building about elevator bookings and vendor insurance before you book. Some party rooms and venues also limit helium or ceiling attachments — in that case, we can suggest air-filled designs that look just as full.',
+                'For the busiest dates, booking two to four weeks ahead gives you the most choice.',
+                'If your event is in a condo, ask your building about elevator bookings and vendor insurance before you book. Some party rooms and venues also limit helium or ceiling attachments; in that case, we can suggest air-filled designs that look just as full.',
+            ],
+            'menu' => [
+                'title' => 'North York’s Busy Seasons',
+                'subtitle' => 'When install slots fill up first',
+                'items' => [
+                    ['Nowruz, Easter and Passover', 'Spring'],
+                    ['High school and York University graduations', 'June'],
+                    ['Bar and Bat Mitzvahs', 'Fall'],
+                    ['Hanukkah, Christmas and office parties', 'December'],
+                ],
             ],
             'lead' => 'Helpful details to send with your request:',
             'list' => [

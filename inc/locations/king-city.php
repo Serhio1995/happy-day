@@ -26,14 +26,42 @@ return [
     'photo_ids' => [104, 117, 148, 153, 168, 110, 152],
     'hero_button' => 'Plan My King City Setup',
     'hero_alt' => 'Sage and ivory balloon arch for a sheltered garden celebration — illustrative cover',
+    'page_class' => 'hd-city',
     'sections' => [
         [
             'title' => 'Balloon Decor for King City Homes & Estates',
-            'placeholder' => true,
+            'eyebrow' => 'Across King Township',
+            'class' => 'city-bg city-bg-cream',
+            'no_photo' => true,
             'paragraphs' => [
-                'King City is the largest community in King Township, a rural part of York Region known for its large lots, country homes, horse farms, and green, open landscape on the Oak Ridges Moraine. Many celebrations here take place at home — in spacious great rooms, on wide patios, in landscaped gardens, or under a rented tent.',
-                'These spaces allow for bigger balloon features than a typical city home: a long garland along a terrace, a grand entrance arch at the front door, an oversized backdrop for family photos, or decor that ties a tent, a dessert table, and a lounge area together.',
-                'Beyond King City itself, we decorate events in Nobleton along Highway 27, in the historic village of Schomberg, in Kettleby and Pottageville, and on private estates and farms across the township, where long driveways, barns, and open fields leave room for truly large installations.',
+                'King City is the largest community in King Township, a rural part of York Region known for its large lots, country homes, horse farms, and green, open landscape on the Oak Ridges Moraine. Many celebrations here take place at home, in great rooms, on wide patios, in landscaped gardens, or under a rented tent.',
+            ],
+            'cards_style' => 'tickets',
+            'cards' => [
+                [
+                    'icon' => 'cake-candles',
+                    'title' => 'King City',
+                    'text' => 'Country homes with great rooms, wide patios and landscaped gardens, where a long terrace garland or a grand entrance arch fits easily.',
+                    'meta' => 'Best for: milestone birthdays, reunions, garden parties',
+                ],
+                [
+                    'icon' => 'panorama',
+                    'title' => 'Nobleton',
+                    'text' => 'Family homes and backyards along Highway 27, with room for an arch at the front door or a full photo area outside.',
+                    'meta' => 'Best for: kids’ birthdays, showers, graduations',
+                ],
+                [
+                    'icon' => 'heart',
+                    'title' => 'Schomberg',
+                    'text' => 'The historic village, with older homes and smaller spaces where a well-proportioned setup looks best.',
+                    'meta' => 'Best for: anniversaries, engagements, holiday gatherings',
+                ],
+                [
+                    'icon' => 'gift',
+                    'title' => 'Kettleby, Pottageville & estates',
+                    'text' => 'Private estates and farms with long driveways, barns and open fields, leaving room for truly large installations.',
+                    'meta' => 'Best for: at-home weddings, tented parties, reunions',
+                ],
             ],
         ],
         [
@@ -78,30 +106,127 @@ return [
         ],
         [
             'title' => 'Outdoor & Tented Events in King City, Nobleton & Schomberg',
-            'class' => 'service-themes-section',
-            'placeholder' => true,
+            'eyebrow' => 'Where the party happens',
+            'class' => 'city-bg city-bg-sky',
+            'no_photo' => true,
             'paragraphs' => [
-                'Open properties in King Township can be windier and sunnier than sheltered city backyards. Balloons outdoors are affected by wind, heat, direct sun, rain, and uneven ground, so outdoor decor needs a stronger structure and secure anchoring.',
-                'A tent is often the best place for the main balloon feature. It protects the decor from sun and rain and gives a clear frame for an arch, garland, or backdrop. We can also style entrances, tent poles, and lounge areas.',
-                'For rural addresses, please share clear directions, where our team can park, and how far the setup area is from the driveway.',
+                'Open properties in King Township can be windier and sunnier than sheltered city backyards, so outdoor decor needs a stronger structure and secure anchoring. For rural addresses, please share clear directions, where our team can park, and how far the setup area is from the driveway.',
+            ],
+            'zones' => [
+                [
+                    'label' => 'Under a tent',
+                    'temp' => 'The best spot for the main feature',
+                    'use' => 'Arch or garland on the tent entrance, styled tent poles, lounge area decor',
+                    'note' => 'A tent protects the decor from sun and rain. Tell us when it will be up, and we install after it is ready.',
+                ],
+                [
+                    'label' => 'Open garden',
+                    'temp' => 'Wind, sun and uneven ground',
+                    'use' => 'Weighted arch, garland with greenery, ground clusters',
+                    'note' => 'We anchor everything securely and plan an indoor backup in case of strong wind or rain.',
+                ],
+                [
+                    'label' => 'Great room & foyer',
+                    'temp' => 'Country homes',
+                    'use' => 'Staircase garland, fireplace garland, family photo backdrop',
+                    'note' => 'Indoor setups last longest and suit spring events and the winter holidays.',
+                ],
             ],
         ],
         [
             'title' => 'Balloon Arches & Garlands for King City Homes & Tents',
+            'eyebrow' => 'Colours that photograph well',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'The natural setting of King Township suits organic, garden-inspired designs. Balloon garlands mixed with greenery, dried grasses, or fresh flowers look beautiful against wood, stone, and open fields.',
-                'Popular palettes include sage, ivory, and eucalyptus green; terracotta, sand, and cream; and classic white and gold for formal receptions. For kids’ birthdays and family reunions, bright colours and big number balloons stand out well outdoors.',
                 'Large properties also allow for statement pieces: a balloon arch over the driveway entrance, a garland along a barn door, or a backdrop wide enough for a full family photo.',
+            ],
+            'lead' => 'Palettes that suit King Township:',
+            'palettes' => [
+                [
+                    'name' => 'Sage, ivory and eucalyptus',
+                    'note' => 'Garden parties',
+                    'colors' => ['#b7c4a8', '#f6efe1', '#7f9a7a'],
+                ],
+                [
+                    'name' => 'Terracotta, sand and cream',
+                    'note' => 'Rustic and autumn events',
+                    'colors' => ['#c9704d', '#e3cfae', '#f6efe1'],
+                ],
+                [
+                    'name' => 'White and gold',
+                    'note' => 'Formal receptions',
+                    'colors' => ['#ffffff', '#d4af6a', '#f3ead7'],
+                ],
+                [
+                    'name' => 'Bright party colours',
+                    'note' => 'Kids’ birthdays outdoors',
+                    'colors' => ['#f17ca4', '#7cc4e8', '#f5c542'],
+                ],
+            ],
+        ],
+        [
+            'title' => 'Popular King City Setups and What They Cost',
+            'eyebrow' => 'Real starting prices',
+            'class' => 'city-bg city-bg-blush',
+            'no_photo' => true,
+            'paragraphs' => [hd_price_summary()],
+            'combos' => [
+                'note' => 'Estimates from our starting prices in CAD, before delivery. Installation and takedown are included for garlands and backdrops. Your exact price is confirmed in the quote.',
+                'items' => [
+                    [
+                        'title' => 'Front Door Welcome',
+                        'for' => 'Country homes',
+                        'items' => [
+                            ['garland', 1, 'Garland around the front door'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Garden Party Arch',
+                        'for' => 'Backyards and patios',
+                        'items' => [
+                            ['garland', 1, 'Garland arch with greenery'],
+                            ['backdrop', 1, 'Photo backdrop'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Milestone Birthday',
+                        'for' => 'Great rooms',
+                        'items' => [
+                            ['backdrop', 1, 'Backdrop'],
+                            ['garland', 1, 'Backdrop garland'],
+                            ['numbers', 2, '4-ft marquee numbers'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Tent Reception',
+                        'for' => 'Tented events',
+                        'items' => [
+                            ['garland', 1, 'Garland on the tent entrance'],
+                            ['garland', 1, 'Garland over the head table'],
+                            ['backdrop', 1, 'Family photo backdrop'],
+                        ],
+                    ],
+                ],
             ],
         ],
         [
             'title' => 'Planning a King City Event',
+            'eyebrow' => 'When to book',
             'class' => 'service-backdrops-section',
-            'placeholder' => true,
             'paragraphs' => [
-                'Summer is the busiest season in King Township, with garden parties, tented events, at-home weddings, and family reunions from late spring to early fall. For large outdoor setups, booking three to six weeks ahead is best. Spring events are often held indoors or under cover, and winter holidays bring foyer, staircase, and fireplace decor in family homes.',
-                'For outdoor events, choose a sheltered main spot — a tent, covered porch, or the side of the house protected from wind — and keep an indoor backup in case of strong wind or rain. If you are renting a tent, let us know when it will be up so we can install after it is ready.',
+                'Summer is the busiest season in King Township. For large outdoor setups, booking three to six weeks ahead is best.',
+                'For outdoor events, choose a sheltered main spot, such as a tent, a covered porch, or the side of the house protected from wind, and keep an indoor backup in case of strong wind or rain.',
+            ],
+            'menu' => [
+                'title' => 'King Township’s Busy Seasons',
+                'subtitle' => 'When install slots fill up first',
+                'items' => [
+                    ['Garden parties, tents and at-home weddings', 'Late spring to fall'],
+                    ['Family reunions', 'Summer'],
+                    ['Indoor and covered events', 'Spring'],
+                    ['Foyer, staircase and fireplace decor', 'Winter holidays'],
+                ],
             ],
             'lead' => 'Helpful details to send with your request:',
             'list' => [

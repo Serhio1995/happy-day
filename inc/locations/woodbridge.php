@@ -27,15 +27,44 @@ return [
     'photo_ids' => [27, 123, 176, 157, 167, 112, 124],
     'hero_button' => 'Plan My Woodbridge Setup',
     'hero_alt' => 'Ivory, gold and burgundy balloon backdrop in a warm event venue — illustrative cover',
+    'page_class' => 'hd-city',
     'sections' => [
         [
             'title' => 'Balloon Decor for Big Woodbridge Celebrations',
-            'placeholder' => true,
+            'eyebrow' => 'Neighbourhood by neighbourhood',
+            'class' => 'city-bg city-bg-cream',
+            'no_photo' => true,
             'paragraphs' => [
-                'Woodbridge is a historic community on the Humber River that became part of Vaughan in 1971. It is home to one of the largest Italian-Canadian communities in the country, along with many Portuguese, Filipino, and other families — and a strong tradition of celebrating together. Many events here are large: a baptism with extended family, a first communion lunch, a shower for a hundred guests, or a wedding reception in a banquet hall.',
-                'The historic village around Woodbridge Avenue and Market Lane has restaurants, cafés, and older family homes, where compact, well-planned setups work best. East Woodbridge and West Woodbridge are established family neighbourhoods popular for home birthdays, showers, and garden parties near the Humber River. Sonoma Heights has larger homes with high ceilings and big backyards, ideal for grand arches and ceiling decor, while Vellore and the Weston Road area are full of young families and first birthdays.',
-                'Along Highway 7 and the Pine Valley corridor, banquet halls and event venues host most of the area’s weddings, communions, and large receptions.',
+                'Woodbridge is a historic community on the Humber River that became part of Vaughan in 1971. It is home to one of the largest Italian-Canadian communities in the country, along with many Portuguese, Filipino, and other families, and a strong tradition of celebrating together. Many events here are large: a baptism with extended family, a first communion lunch, a shower for a hundred guests, or a wedding reception in a banquet hall.',
             ],
+            'cards_style' => 'tickets',
+            'cards' => [
+                [
+                    'icon' => 'heart',
+                    'title' => 'Historic village',
+                    'text' => 'Restaurants, cafés and older family homes around Woodbridge Avenue and Market Lane, where compact, well-planned setups work best.',
+                    'meta' => 'Best for: communion lunches, showers, anniversaries',
+                ],
+                [
+                    'icon' => 'cake-candles',
+                    'title' => 'East & West Woodbridge',
+                    'text' => 'Established family neighbourhoods near the Humber River, popular for home birthdays, showers and garden parties.',
+                    'meta' => 'Best for: birthdays, baby showers, garden parties',
+                ],
+                [
+                    'icon' => 'sparkles',
+                    'title' => 'Sonoma Heights',
+                    'text' => 'Larger homes with high ceilings and big backyards, ideal for grand arches and ceiling decor.',
+                    'meta' => 'Best for: milestone birthdays, engagements, baptisms',
+                ],
+                [
+                    'icon' => 'gift',
+                    'title' => 'Vellore & Weston Road',
+                    'text' => 'Neighbourhoods full of young families, where first birthdays and kids’ parties are the most common setups.',
+                    'meta' => 'Best for: first birthdays, kids’ parties, gender reveals',
+                ],
+            ],
+            'note' => 'Along Highway 7 and the Pine Valley corridor, banquet halls and event venues host most of the area’s weddings, communions and large receptions.',
         ],
         [
             'title' => 'Celebrations We Decorate in Woodbridge',
@@ -79,30 +108,152 @@ return [
         ],
         [
             'title' => 'Banquet Halls, Restaurants & Family Homes',
-            'class' => 'service-themes-section',
-            'placeholder' => true,
+            'eyebrow' => 'Where the party happens',
+            'class' => 'city-bg city-bg-sky',
+            'no_photo' => true,
             'paragraphs' => [
-                'Banquet halls in and around Woodbridge usually give vendors a fixed window to set up before the doors open. We confirm the time with you and the venue, and plan the installation so everything is finished before the first guests arrive.',
                 'In a large hall, the main focal points are usually the entrance, the head table or sweetheart table, the cake or dessert table, and a photo area. We design these pieces to work together in one colour palette.',
-                'For home parties and backyard events, we look at the room size, ceiling height, and outdoor conditions, and choose decor that fits the space and the weather.',
+            ],
+            'zones' => [
+                [
+                    'label' => 'Banquet hall',
+                    'temp' => 'Highway 7 & Pine Valley',
+                    'use' => 'Entrance columns, sweetheart table backdrop, balloon ceiling over the dance floor',
+                    'note' => 'Halls usually give vendors a fixed window before the doors open. We confirm it with you and the venue.',
+                ],
+                [
+                    'label' => 'Restaurant',
+                    'temp' => 'The historic village',
+                    'use' => 'Compact backdrop, table garlands, welcome piece at the door',
+                    'note' => 'Smaller rooms need a well-planned layout, so the decor looks full and still leaves room for service.',
+                ],
+                [
+                    'label' => 'Family home',
+                    'temp' => 'East Woodbridge to Sonoma Heights',
+                    'use' => 'Garland over the dining table or fireplace, round backdrop with a sign, front door arch',
+                    'note' => 'We look at room size, ceiling height and the weather before choosing the setup.',
+                ],
             ],
         ],
         [
             'title' => 'Balloon Arches, Garlands & Ceiling Decor in Woodbridge',
+            'eyebrow' => 'Colours that photograph well',
             'class' => 'service-room-section',
             'paragraphs' => [
-                'Classic, elegant palettes are the most requested in Woodbridge: white and gold, ivory and champagne, white and silver, and soft blush. For baptisms and first communions, white is usually the base, with a touch of baby blue, pink, gold, or silver.',
                 'In banquet halls, balloon ceilings over the dance floor, tall balloon columns at the entrance, and wide backdrops with the family name or the date make a strong impression in photos.',
                 'At home, we often suggest a garland over the dining table or fireplace, a round backdrop with a custom sign, and a small arch at the front door to welcome guests.',
+            ],
+            'lead' => 'Palettes Woodbridge families ask for most:',
+            'palettes' => [
+                [
+                    'name' => 'White and gold',
+                    'note' => 'Baptisms and weddings',
+                    'colors' => ['#ffffff', '#d4af6a', '#f3ead7'],
+                ],
+                [
+                    'name' => 'Ivory and champagne',
+                    'note' => 'Banquet hall receptions',
+                    'colors' => ['#f6efe1', '#e6cc9a', '#c99a3e'],
+                ],
+                [
+                    'name' => 'White and silver',
+                    'note' => 'Anniversaries',
+                    'colors' => ['#ffffff', '#c3c9d4', '#e8ebf0'],
+                ],
+                [
+                    'name' => 'Soft blush',
+                    'note' => 'Bridal and baby showers',
+                    'colors' => ['#f4c6cf', '#ffffff', '#e6cc9a'],
+                ],
+                [
+                    'name' => 'White and baby blue',
+                    'note' => 'Baptisms',
+                    'colors' => ['#ffffff', '#bcd7f0', '#d4af6a'],
+                ],
+                [
+                    'name' => 'White and soft pink',
+                    'note' => 'First communions',
+                    'colors' => ['#ffffff', '#f6b8cb', '#d4af6a'],
+                ],
+            ],
+        ],
+        [
+            'title' => 'Popular Woodbridge Setups and What They Cost',
+            'eyebrow' => 'Real starting prices',
+            'class' => 'city-bg city-bg-blush',
+            'no_photo' => true,
+            'paragraphs' => [hd_price_summary()],
+            'combos' => [
+                'note' => 'Estimates from our starting prices in CAD, before delivery. Installation and takedown are included for garlands and backdrops. Your exact price is confirmed in the quote.',
+                'items' => [
+                    [
+                        'title' => 'Front Door Arch',
+                        'for' => 'Family homes',
+                        'items' => [
+                            ['garland', 1, 'Garland around the front door'],
+                        ],
+                    ],
+                    [
+                        'title' => 'First Communion Lunch',
+                        'for' => 'Restaurants and homes',
+                        'items' => [
+                            ['backdrop', 1, 'Backdrop with a name sign'],
+                            ['garland', 1, 'Backdrop garland'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Milestone Birthday at Home',
+                        'for' => 'Living and dining rooms',
+                        'items' => [
+                            ['garland', 1, 'Garland over the fireplace'],
+                            ['numbers', 2, '4-ft marquee numbers'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Baptism Reception',
+                        'for' => 'Hall or home',
+                        'items' => [
+                            ['backdrop', 1, 'Backdrop'],
+                            ['garland', 1, 'Backdrop garland'],
+                            ['latex', 20, 'Helium balloons'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Ceiling Over the Dance Floor',
+                        'for' => 'Large receptions',
+                        'items' => [
+                            ['latex', 100, 'Helium ceiling balloons'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Banquet Hall Entrance',
+                        'for' => 'Highway 7 halls',
+                        'items' => [
+                            ['garland', 1, 'Entrance garland'],
+                            ['backdrop', 1, 'Head table backdrop'],
+                            ['garland', 1, 'Backdrop garland'],
+                        ],
+                    ],
+                ],
             ],
         ],
         [
             'title' => 'Planning a Woodbridge Event',
+            'eyebrow' => 'When to book',
             'class' => 'service-backdrops-section',
-            'placeholder' => true,
             'paragraphs' => [
-                'First communion and confirmation season, usually from April to June, is the busiest time for Woodbridge halls and family homes, followed by summer weddings. Fall brings the Woodbridge Fall Fair, Thanksgiving gatherings, and anniversaries, and December is full of Christmas family events. For banquet hall events, booking three to five weeks ahead is best.',
+                'For banquet hall events, booking three to five weeks ahead is best.',
                 'Banquet halls often have back-to-back events, so ask for the exact access time and removal deadline in writing. For baptisms and communions, check whether decor is allowed at the church, and plan the main setup at the reception venue.',
+            ],
+            'menu' => [
+                'title' => 'Woodbridge’s Busy Seasons',
+                'subtitle' => 'When install slots fill up first',
+                'items' => [
+                    ['First communions and confirmations', 'April to June'],
+                    ['Weddings', 'Summer'],
+                    ['Fall Fair, Thanksgiving and anniversaries', 'Fall'],
+                    ['Christmas family events', 'December'],
+                ],
             ],
             'lead' => 'Helpful details to send with your request:',
             'list' => [

@@ -41,8 +41,8 @@ $location_service_groups = [
       <?php endif; ?>
     </div>
     <div class="location-catalog-groups">
-      <?php foreach ($location_service_groups as [$group_title, $group_description, $services]): ?>
-        <div class="location-catalog-group">
+      <?php foreach ($location_service_groups as $group_index => [$group_title, $group_description, $services]): ?>
+        <div class="location-catalog-group location-catalog-group-<?php echo (int) $group_index + 1; ?>">
           <div class="location-catalog-group-heading"><h3><?php echo esc_html($group_title); ?></h3><p><?php echo esc_html($group_description); ?></p></div>
           <ul class="location-catalog-links">
             <?php foreach ($services as [$slug, $label, $icon]): ?>

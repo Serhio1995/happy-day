@@ -26,20 +26,48 @@ return [
     'photo_ids' => [106, 142, 147, 155, 162, 108, 145],
     'hero_button' => 'Plan My Vaughan Setup',
     'hero_alt' => 'Blush, ivory and gold balloon arch in an elegant event hall — illustrative cover',
+    'page_class' => 'hd-city',
     'sections' => [
         [
             'title' => 'Balloon Decor Across Vaughan',
-            'placeholder' => true,
+            'eyebrow' => 'Neighbourhood by neighbourhood',
+            'class' => 'city-bg city-bg-cream',
+            'no_photo' => true,
             'paragraphs' => [
-                'Vaughan is one of the fastest-growing cities in York Region, and each of its communities celebrates a little differently. We plan every balloon setup around the neighbourhood, the venue, and the way guests will move through the space.',
-                'Family homes in Maple, Vellore Village, and Patterson host backyard birthdays, showers, and graduation parties, often with room for a full arch or a garden photo area. In Thornhill, around Bathurst Street and Clark Avenue, and in Carrville and Thornhill Woods, many celebrations are Bar and Bat Mitzvahs, holidays, and family milestones. Concord and the Vaughan Metropolitan Centre are home to offices, showrooms, and new condo towers, where we design branded decor and compact party room setups.',
-                'Planning an event in Woodbridge or Kleinburg? Both are part of Vaughan, and each has its own page with local details: ' . $link('service-areas/woodbridge', 'balloon decorations in Woodbridge') . ' and ' . $link('service-areas/kleinburg', 'balloon decorations in Kleinburg') . '.',
+                'Vaughan is one of the fastest-growing cities in York Region, and each of its communities celebrates a little differently. We plan every setup around the neighbourhood, the venue and the way guests will move through the space.',
             ],
+            'cards_style' => 'tickets',
+            'cards' => [
+                [
+                    'icon' => 'cake-candles',
+                    'title' => 'Maple',
+                    'text' => 'Family homes with backyards around Major Mackenzie Drive, with room for a full arch, a garden photo corner or a marquee number display.',
+                    'meta' => 'Best for: backyard birthdays, showers, graduations',
+                ],
+                [
+                    'icon' => 'sparkles',
+                    'title' => 'Thornhill',
+                    'text' => 'Around Bathurst Street, Clark Avenue and Thornhill Woods. Many celebrations here are Bar and Bat Mitzvahs, holidays and family milestones. See our ' . $link('services/bar-mitzvah-balloons', 'Bar and Bat Mitzvah balloons') . '.',
+                    'meta' => 'Best for: Bar/Bat Mitzvahs, Hanukkah, milestones',
+                ],
+                [
+                    'icon' => 'file-contract',
+                    'title' => 'Concord & the VMC',
+                    'text' => 'Offices, showrooms and new condo towers near Highway 7. We design branded decor and compact setups that fit a condo party room.',
+                    'meta' => 'Best for: grand openings, office parties, condo party rooms',
+                ],
+                [
+                    'icon' => 'gift',
+                    'title' => 'Vellore, Patterson & Carrville',
+                    'text' => 'Family neighbourhoods with open-concept homes, where ceiling balloons, staircase garlands and a living room backdrop work well.',
+                    'meta' => 'Best for: baby showers, baptisms, kids’ birthdays',
+                ],
+            ],
+            'note' => 'Planning in Woodbridge or Kleinburg? Both are part of Vaughan and have their own pages: ' . $link('service-areas/woodbridge', 'Woodbridge') . ' and ' . $link('service-areas/kleinburg', 'Kleinburg') . '.',
         ],
         [
             'title' => 'Celebrations We Decorate in Vaughan',
             'class' => 'service-age-section',
-            'placeholder' => true,
             'paragraphs' => [
                 'Vaughan has large Italian, Jewish, Russian-speaking, South Asian, and many other communities, and families here love to celebrate together. Events range from small at-home gatherings to receptions with hundreds of guests.',
                 'We design balloon decor for religious milestones, family traditions, and business events, always in the colours and style that fit the occasion.',
@@ -80,30 +108,73 @@ return [
         ],
         [
             'title' => 'Banquet Halls, Backyards & Business Spaces',
-            'class' => 'service-themes-section',
-            'placeholder' => true,
+            'eyebrow' => 'Where the party happens',
+            'class' => 'city-bg city-bg-sky',
+            'no_photo' => true,
             'paragraphs' => [
-                'Banquet halls along Highway 7 and Rutherford Road usually give vendors a fixed setup window before the event. We confirm that time with you and the venue, so arches, backdrops, and table decor are ready before guests arrive.',
-                'Backyard events in Maple, Vellore, and Thornhill give more room for large arches and photo areas, but outdoor decor needs a plan for wind, heat, and rain. We choose the right anchoring and suggest a sheltered spot when the forecast is uncertain.',
-                'For offices, showrooms, and retail stores in Concord and near the Vaughan Metropolitan Centre, we can design decor in brand colours and install it before opening hours.',
+                'Each type of venue has its own rules, timing and space. This is what we check and what usually works in each one.',
+            ],
+            'zones' => [
+                ['label' => 'Banquet hall', 'temp' => 'Highway 7 & Rutherford Road', 'use' => 'Entrance arch, head table backdrop, ceiling balloons over the dance floor', 'note' => 'Most halls give vendors a fixed setup window. We confirm it with you and the venue, so the decor is ready before guests arrive.'],
+                ['label' => 'Backyard', 'temp' => 'Maple, Vellore & Thornhill', 'use' => 'Full arch, garden photo area, weighted balloon columns', 'note' => 'Outdoor decor needs a plan for wind, heat and rain. We anchor everything and suggest a sheltered spot if the forecast is uncertain.'],
+                ['label' => 'Office & showroom', 'temp' => 'Concord & the VMC', 'use' => 'Branded entrance arch, balloon columns, logo photo backdrop', 'note' => 'Decor in your brand colours, installed before opening hours so it does not get in the way of work.'],
             ],
         ],
         [
             'title' => 'Balloon Arches, Garlands & Styles for Vaughan Events',
+            'eyebrow' => 'Colours that photograph well',
             'class' => 'service-room-section',
             'paragraphs' => [
-                'Vaughan homes and halls often have high ceilings and wide rooms, which makes them perfect for statement pieces: a full entrance arch, a wide backdrop behind the head table, a balloon ceiling over the dance floor, or a long garland along a staircase.',
-                'For family celebrations, classic palettes like white and gold, ivory and champagne, or blush and silver are very popular. Baptisms and communions often use white with soft blue, pink, or gold, while kids’ birthdays go bright and themed.',
-                'For businesses in Concord and the VMC, we design clean, modern decor in brand colours — entrance arches for grand openings, balloon columns for showrooms, and branded backdrops for photo areas.',
+                'Vaughan homes and halls often have high ceilings and wide rooms, which suits statement pieces: a full entrance arch, a wide backdrop behind the head table, a balloon ceiling over the dance floor, or a long garland along a staircase.',
+            ],
+            'lead' => 'Palettes Vaughan families ask for most:',
+            'palettes' => [
+                ['name' => 'White and gold', 'note' => 'Weddings and receptions', 'colors' => ['#ffffff', '#d4af6a', '#f3ead7']],
+                ['name' => 'Ivory and champagne', 'note' => 'Banquet hall elegance', 'colors' => ['#f6efe1', '#e6cc9a', '#c99a3e']],
+                ['name' => 'Blush and silver', 'note' => 'Showers and engagements', 'colors' => ['#f4c6cf', '#c3c9d4', '#ffffff']],
+                ['name' => 'White and soft blue', 'note' => 'Baptisms and communions', 'colors' => ['#ffffff', '#bcd7f0', '#d4af6a']],
+                ['name' => 'Navy, gold and white', 'note' => 'Bar Mitzvahs and milestones', 'colors' => ['#1c2a55', '#d4af6a', '#ffffff']],
+                ['name' => 'Black and gold', 'note' => 'Milestone birthdays', 'colors' => ['#1d1f2b', '#d4af6a', '#c99a3e']],
+                ['name' => 'Bright party colours', 'note' => 'Kids’ birthdays', 'colors' => ['#f17ca4', '#7cc4e8', '#f5c542']],
+                ['name' => 'Your brand colours', 'note' => 'Concord and VMC businesses', 'colors' => ['outline', 'outline', 'outline']],
+            ],
+        ],
+        [
+            'title' => 'Popular Vaughan Setups and What They Cost',
+            'eyebrow' => 'Real starting prices',
+            'class' => 'city-bg city-bg-blush',
+            'no_photo' => true,
+            'paragraphs' => [
+                hd_price_summary(),
+            ],
+            'combos' => [
+                'note' => 'Estimates from our starting prices in CAD, before delivery. Installation and takedown are included for garlands and backdrops. Your exact price is confirmed in the quote.',
+                'items' => [
+                    ['title' => 'Backyard Birthday', 'for' => 'Maple and Vellore homes', 'items' => [['garland', 1, 'Garland over the cake table'], ['numbers', 2, '4-ft marquee numbers for the age']]],
+                    ['title' => 'Living Room Milestone', 'for' => 'Family dinners at home', 'items' => [['garland', 1, 'Garland over the fireplace'], ['foil', 10, 'Foil accents'], ['numbers', 2, '4-ft marquee numbers']]],
+                    ['title' => 'Baptism at Home', 'for' => 'After the church service', 'items' => [['backdrop', 1, 'Backdrop'], ['garland', 1, 'Backdrop garland'], ['latex', 20, 'Helium balloons']]],
+                    ['title' => 'Bar Mitzvah Photo Wall', 'for' => 'Thornhill halls and homes', 'items' => [['backdrop', 1, 'Backdrop'], ['garland', 1, 'Balloon garland'], ['numbers', 2, '4-ft marquee numbers “13”']]],
+                    ['title' => 'Banquet Hall Entrance', 'for' => 'Receptions on Highway 7', 'items' => [['garland', 1, 'Entrance garland'], ['backdrop', 1, 'Head table backdrop'], ['garland', 1, 'Backdrop garland']]],
+                    ['title' => 'Grand Opening', 'for' => 'Concord and VMC businesses', 'items' => [['garland', 1, 'Entrance garland in brand colours'], ['latex', 30, 'Helium balloons for the storefront']]],
+                ],
             ],
         ],
         [
             'title' => 'Planning a Vaughan Event',
+            'eyebrow' => 'When to book',
             'class' => 'service-backdrops-section',
-            'placeholder' => true,
             'paragraphs' => [
-                'Spring is busy in Vaughan with Easter, Passover, and first communion season, and summer brings backyard birthdays, engagement parties, and weddings. Fall is a popular time for Bar and Bat Mitzvahs in Thornhill, and December fills up quickly with Christmas, Hanukkah, and office parties. For these dates, booking two to four weeks ahead gives you the most choice.',
-                'For banquet halls, it helps to share the floor plan, so we can place decor where it looks best without blocking tables or the dance floor. For backyard parties, choose a shaded or sheltered spot for the main balloon feature and keep a backup plan for strong wind or rain.',
+                'Vaughan’s calendar has a few busy stretches. For these dates, booking two to four weeks ahead gives you the most choice; for weddings, communion season and December, book earlier.',
+            ],
+            'menu' => [
+                'title' => 'Vaughan’s Busy Seasons',
+                'subtitle' => 'When install slots fill up first',
+                'items' => [
+                    ['Easter, Passover and first communions', 'March to May'],
+                    ['Backyard birthdays, engagements and weddings', 'June to August'],
+                    ['Bar and Bat Mitzvahs in Thornhill', 'September to November'],
+                    ['Christmas, Hanukkah and office parties', 'December'],
+                ],
             ],
             'lead' => 'Helpful details to send with your request:',
             'list' => [

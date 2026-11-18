@@ -27,7 +27,7 @@ return [
     'hero_button' => 'Check Availability',
     'hero_alt' => 'Custom balloon decor from the Happy Day Toronto portfolio',
     // Not used on any city page or in the shared gallery block below.
-    'photo_ids' => [144, 143, 122, 163],
+    'photo_ids' => [144, 143, 122],
     'area_directory' => [
         'title' => 'Choose Your Area',
         'text' => 'Every area has its own page with the neighbourhoods we cover, the venues we work in most, and local planning tips.',
@@ -48,29 +48,40 @@ return [
                 'text' => 'Banquet halls, church halls, and big family celebrations.'],
         ],
     ],
+    'page_class' => 'hd-city',
     'sections' => [
         [
             'title' => 'One Team for Toronto and York Region',
+            'eyebrow' => 'Local balloon decor studio',
+            'class' => 'city-bg city-bg-cream',
+            'no_photo' => true,
             'paragraphs' => [
                 'Happy Day Toronto is a local balloon decor studio. The same team designs, delivers, and installs every setup, whether the event is in a downtown condo, a North York office, or a backyard in King Township.',
-                'We decorate homes, condo party rooms, banquet halls, restaurants, churches, offices, schools, and outdoor events. Each area page explains what usually matters for local venues — parking, elevators, setup windows, or space for a larger arch.',
-                'If you are not sure which page covers your address, look for your neighbourhood below or send us the address and date.',
+                'We decorate homes, condo party rooms, banquet halls, restaurants, churches, offices, schools, and outdoor events. Each area page explains what usually matters for local venues: parking, elevators, setup windows, or space for a larger arch.',
             ],
+            'note' => 'Not sure which page covers your address? Find your neighbourhood below, or send us the address and date.',
         ],
         [
             'title' => 'Find Your Neighbourhood',
+            'eyebrow' => 'Which page covers you',
             'class' => 'service-age-section',
             'paragraphs' => [
-                'Many GTA neighbourhoods go by their own names. Here is where the most common ones are covered on our site:',
+                'Many GTA neighbourhoods go by their own names. Follow the route to see which area page covers yours.',
+                'Every area page lists the neighbourhoods we cover, the venues we work in most, and local planning tips.',
             ],
-            'list' => [
-                'Willowdale, Yonge and Sheppard, Don Mills, York Mills, Bayview Village, Downsview — ' . $area('north-york', 'North York'),
-                'Maple, Concord, Thornhill, Vellore Village, Patterson, Carrville, VMC — ' . $area('vaughan', 'Vaughan'),
-                'Oak Ridges, Jefferson, Mill Pond, Bayview Hill, Richvale, Langstaff, Rouge Woods — ' . $area('richmond-hill', 'Richmond Hill'),
-                'Nobleton, Schomberg, Kettleby — ' . $area('king-city', 'King City'),
-                'Kleinburg village, Major Mackenzie Drive, Nashville Road — ' . $area('kleinburg', 'Kleinburg'),
-                'East Woodbridge, Sonoma Heights, Vellore, the Highway 7 corridor — ' . $area('woodbridge', 'Woodbridge'),
-                'Downtown, midtown, and the rest of the city — ' . $home,
+            'route' => [
+                'title' => 'Find Your Area',
+                'subtitle' => 'Neighbourhoods and the page that covers them',
+                'stops' => [
+                    ['name' => 'Toronto', 'path' => '', 'text' => 'Downtown, midtown and the rest of the city'],
+                    ['name' => 'North York', 'path' => 'service-areas/north-york', 'text' => 'Willowdale, Yonge and Sheppard, Don Mills, York Mills, Bayview Village, Downsview'],
+                    ['name' => 'Vaughan', 'path' => 'service-areas/vaughan', 'text' => 'Maple, Concord, Thornhill, Vellore Village, Patterson, Carrville, VMC'],
+                    ['name' => 'Woodbridge', 'path' => 'service-areas/woodbridge', 'text' => 'East Woodbridge, Sonoma Heights, Vellore, the Highway 7 corridor'],
+                    ['name' => 'Kleinburg', 'path' => 'service-areas/kleinburg', 'text' => 'Kleinburg village, Major Mackenzie Drive, Nashville Road'],
+                    ['name' => 'Richmond Hill', 'path' => 'service-areas/richmond-hill', 'text' => 'Oak Ridges, Jefferson, Mill Pond, Bayview Hill, Richvale, Langstaff, Rouge Woods'],
+                    ['name' => 'King City', 'path' => 'service-areas/king-city', 'text' => 'Nobleton, Schomberg, Kettleby'],
+                ],
+                'all' => 'All service areas',
             ],
         ],
         [
@@ -82,28 +93,37 @@ return [
         ],
         [
             'title' => 'How Venues Differ Across the GTA',
-            'class' => 'service-themes-section',
+            'eyebrow' => 'Where the party happens',
+            'class' => 'city-bg city-bg-sky',
+            'no_photo' => true,
             'paragraphs' => [
-                'The venue shapes the design as much as the colour palette does. Condo party rooms and offices usually need compact decor, a booked elevator, and a short setup window. Banquet halls give a fixed time before guests arrive, so we plan the install order around it.',
-                'Larger homes and private properties have room for full arches, wide backdrops, and garden photo areas, but outdoor decor needs a plan for wind, heat, and rain.',
-                'Each area page covers the venues we see most often there, so you can plan around the space you actually have.',
+                'The venue shapes the design as much as the colour palette does. These are the three kinds of space we decorate most. For local venues, parking and building rules, open your area page from the list above.',
+            ],
+            'zones' => [
+                ['label' => 'Condo & office', 'temp' => 'Compact spaces', 'use' => 'Compact garlands, round backdrops, ceiling clusters', 'note' => 'Usually needs compact decor, a booked elevator and a short setup window.'],
+                ['label' => 'Banquet hall', 'temp' => 'Fixed setup window', 'use' => 'Entrance arch, head table backdrop, balloon ceiling', 'note' => 'Halls give a fixed time before guests arrive, so we plan the install order around it.'],
+                ['label' => 'Home & garden', 'temp' => 'Room for big pieces', 'use' => 'Full arches, wide backdrops, garden photo areas', 'note' => 'Larger properties have room for big pieces, but outdoor decor needs a plan for wind, heat and rain.'],
             ],
         ],
         [
             'title' => 'Travel, Setup and Timing',
+            'eyebrow' => 'When to book',
             'class' => 'service-backdrops-section',
             'paragraphs' => [
                 'We travel to every address in our service areas with all the materials and tools for the installation. Travel, venue access, and setup time are included in your written quote, so there are no surprises on the day.',
                 'Most installations are finished before guests arrive. When a venue needs same-day teardown, or when rentals such as backdrops and marquee numbers are included, we can schedule removal after the event.',
             ],
-            'lead' => 'Book further ahead for:',
-            'list' => [
-                'Weekends in May and June',
-                'Wedding and graduation season',
-                'December holiday parties',
-                'Large or multi-room installations',
-                'Venues with short setup windows',
-                'Events outside our main areas',
+            'menu' => [
+                'title' => 'Book Further Ahead For',
+                'subtitle' => 'When install slots fill up first',
+                'items' => [
+                    ['Weekends in May and June', 'Spring'],
+                    ['Wedding and graduation season', 'Summer'],
+                    ['December holiday parties', 'December'],
+                    ['Large or multi-room installations', 'Any time'],
+                    ['Venues with short setup windows', 'Any time'],
+                    ['Events outside our main areas', 'Any time'],
+                ],
             ],
         ],
         [

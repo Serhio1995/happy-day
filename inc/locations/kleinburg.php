@@ -26,15 +26,44 @@ return [
     'photo_ids' => [105, 120, 174, 150, 165, 111, 119],
     'hero_button' => 'Plan My Kleinburg Setup',
     'hero_alt' => 'Blush and mauve balloon garland in a garden courtyard — illustrative cover',
+    'page_class' => 'hd-city',
     'sections' => [
         [
             'title' => 'Refined Balloon Decor for Kleinburg Celebrations',
-            'placeholder' => true,
+            'eyebrow' => 'Around the village',
+            'class' => 'city-bg city-bg-cream',
+            'no_photo' => true,
             'paragraphs' => [
                 'Kleinburg is a historic village in the City of Vaughan, set above the Humber River valley and known for its heritage main street, the McMichael Canadian Art Collection, and its green, scenic surroundings. Many hosts here want decor that feels polished and natural rather than loud.',
-                'In the village core along Islington Avenue, venues are often smaller, so we keep designs in proportion and plan parking and loading carefully. West of the village, Nashville Road has quiet streets and larger lots for garden parties and backyard arches. The newer estate-style homes around Major Mackenzie Drive and Highway 427 have open layouts and high ceilings, ideal for staircase garlands and statement backdrops.',
-                'Homes near the Humber River ravine have beautiful natural backdrops that suit organic garlands with greenery and flowers, and the larger rural lots toward King Township leave room for outdoor installations.',
             ],
+            'cards_style' => 'tickets',
+            'cards' => [
+                [
+                    'icon' => 'heart',
+                    'title' => 'Village core',
+                    'text' => 'Smaller venues along Islington Avenue, so we keep designs in proportion and plan parking and loading carefully.',
+                    'meta' => 'Best for: restaurant dinners, showers, anniversaries',
+                ],
+                [
+                    'icon' => 'panorama',
+                    'title' => 'Nashville Road',
+                    'text' => 'Quiet streets and larger lots west of the village, good for garden parties and backyard arches.',
+                    'meta' => 'Best for: garden parties, kids’ birthdays, engagements',
+                ],
+                [
+                    'icon' => 'sparkles',
+                    'title' => 'Major Mackenzie & Highway 427',
+                    'text' => 'Newer estate-style homes with open layouts and high ceilings, ideal for staircase garlands and statement backdrops.',
+                    'meta' => 'Best for: milestone birthdays, baptisms, bridal showers',
+                ],
+                [
+                    'icon' => 'gift',
+                    'title' => 'Humber River ravine',
+                    'text' => 'Homes with beautiful natural backdrops that suit organic garlands with greenery and flowers.',
+                    'meta' => 'Best for: at-home weddings, proposals, anniversaries',
+                ],
+            ],
+            'note' => 'Kleinburg is part of Vaughan. See also ' . $link('service-areas/vaughan', 'balloon decorations in Vaughan') . '.',
         ],
         [
             'title' => 'Celebrations We Decorate in Kleinburg',
@@ -79,30 +108,138 @@ return [
         ],
         [
             'title' => 'Estate Homes, Gardens & Village Venues',
-            'class' => 'service-themes-section',
-            'placeholder' => true,
+            'eyebrow' => 'Where the party happens',
+            'class' => 'city-bg city-bg-sky',
+            'no_photo' => true,
             'paragraphs' => [
-                'Many Kleinburg celebrations happen at home — in large foyers, open-concept living spaces, and landscaped backyards. A grand staircase, a double-height entrance, or a long patio are great places for a balloon garland or statement arch.',
-                'For restaurants and venues in the village, we coordinate the setup time with the venue and keep the design in proportion to the space, so the decor frames the room instead of crowding it.',
-                'Outdoor garden events are beautiful in Kleinburg, but balloons outside are affected by sun, wind, and heat. We recommend a covered or shaded spot for the main feature and plan secure anchoring.',
+                'Most Kleinburg celebrations happen in one of three kinds of space. This is what we check and what usually works in each.',
+            ],
+            'zones' => [
+                [
+                    'label' => 'Estate home',
+                    'temp' => 'Foyers and open-concept rooms',
+                    'use' => 'Staircase garland, double-height entrance arch, patio garland',
+                    'note' => 'A grand staircase, a double-height entrance or a long patio is the best place for the main garland.',
+                ],
+                [
+                    'label' => 'Village venue',
+                    'temp' => 'Islington Avenue',
+                    'use' => 'Proportioned backdrop, table garlands, entrance piece',
+                    'note' => 'We coordinate the setup time with the venue and keep the design in proportion, so it frames the room instead of crowding it.',
+                ],
+                [
+                    'label' => 'Garden',
+                    'temp' => 'Backyards and patios',
+                    'use' => 'Organic garland with greenery, arch in a shaded spot',
+                    'note' => 'Sun, wind and heat affect balloons outside, so we choose a covered or shaded spot and anchor everything securely.',
+                ],
             ],
         ],
         [
             'title' => 'Balloon Arches, Garlands & Floral Balloon Decor in Kleinburg',
+            'eyebrow' => 'Colours that photograph well',
             'class' => 'service-room-section',
             'paragraphs' => [
-                'The most requested look in Kleinburg is soft and organic: garlands in several balloon sizes, mixed with greenery, pampas, or seasonal flowers, in palettes like ivory and sage, blush and champagne, or white and gold.',
+                'The most requested look in Kleinburg is soft and organic: garlands in several balloon sizes, mixed with greenery, pampas, or seasonal flowers.',
                 'Chrome and pearl finishes add a subtle shine for weddings and anniversaries. Custom acrylic or wooden signs with names, dates, or a monogram make the setup feel personal.',
-                'For autumn events, warm tones such as terracotta, rust, and cream suit the colours of the Humber River valley. For winter holidays, we often use white, silver, and deep green with a touch of gold.',
+            ],
+            'lead' => 'Palettes Kleinburg hosts ask for most:',
+            'palettes' => [
+                [
+                    'name' => 'Ivory and sage',
+                    'note' => 'Garden weddings',
+                    'colors' => ['#f6efe1', '#b7c4a8', '#ffffff'],
+                ],
+                [
+                    'name' => 'Blush and champagne',
+                    'note' => 'Showers and engagements',
+                    'colors' => ['#f4c6cf', '#e6cc9a', '#ffffff'],
+                ],
+                [
+                    'name' => 'White and gold',
+                    'note' => 'Receptions',
+                    'colors' => ['#ffffff', '#d4af6a', '#f3ead7'],
+                ],
+                [
+                    'name' => 'Chrome and pearl',
+                    'note' => 'Weddings and anniversaries',
+                    'colors' => ['#d9dde4', '#f4efe6', '#b9c0cc'],
+                ],
+                [
+                    'name' => 'Terracotta, rust and cream',
+                    'note' => 'Autumn events',
+                    'colors' => ['#c9704d', '#a4492b', '#f6efe1'],
+                ],
+                [
+                    'name' => 'White, silver and deep green',
+                    'note' => 'Winter holidays',
+                    'colors' => ['#ffffff', '#c3c9d4', '#2f5a43'],
+                ],
+            ],
+        ],
+        [
+            'title' => 'Popular Kleinburg Setups and What They Cost',
+            'eyebrow' => 'Real starting prices',
+            'class' => 'city-bg city-bg-blush',
+            'no_photo' => true,
+            'paragraphs' => [hd_price_summary()],
+            'combos' => [
+                'note' => 'Estimates from our starting prices in CAD, before delivery. Installation and takedown are included for garlands and backdrops. Your exact price is confirmed in the quote.',
+                'items' => [
+                    [
+                        'title' => 'Bridal Shower Backdrop',
+                        'for' => 'Homes and village venues',
+                        'items' => [
+                            ['backdrop', 1, 'Backdrop'],
+                            ['garland', 1, 'Floral-style garland'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Staircase & Foyer',
+                        'for' => 'Estate homes',
+                        'items' => [
+                            ['garland', 1, 'Staircase garland'],
+                            ['garland', 1, 'Entrance garland'],
+                        ],
+                    ],
+                    [
+                        'title' => 'Baptism Lunch',
+                        'for' => 'After the church service',
+                        'items' => [
+                            ['backdrop', 1, 'Backdrop'],
+                            ['garland', 1, 'Backdrop garland'],
+                            ['latex', 20, 'Helium balloons'],
+                        ],
+                    ],
+                    [
+                        'title' => 'At-Home Wedding',
+                        'for' => 'Gardens and great rooms',
+                        'items' => [
+                            ['garland', 1, 'Ceremony arch garland'],
+                            ['backdrop', 1, 'Sweetheart table backdrop'],
+                            ['garland', 1, 'Backdrop garland'],
+                        ],
+                    ],
+                ],
             ],
         ],
         [
             'title' => 'Planning a Kleinburg Event',
+            'eyebrow' => 'When to book',
             'class' => 'service-backdrops-section',
-            'placeholder' => true,
             'paragraphs' => [
-                'Wedding season and summer garden parties make June to August the busiest time in Kleinburg, so for weddings and floral designs we recommend booking three to five weeks ahead. In September the village is busy with local events such as the Binder Twine Festival, so plan parking and setup times around them.',
-                'Neutral and floral palettes often use specialty balloon finishes, so it helps to choose colours early. Some village venues also have rules about helium, wall attachments, or setup times. If you already have a florist, we can match their flowers so the balloons and florals look like one design.',
+                'For weddings and floral designs we recommend booking three to five weeks ahead. Neutral and floral palettes often use specialty balloon finishes, so it helps to choose colours early.',
+                'Some village venues have rules about helium, wall attachments, or setup times. If you already have a florist, we can match their flowers so the balloons and florals look like one design.',
+            ],
+            'menu' => [
+                'title' => 'Kleinburg’s Busy Seasons',
+                'subtitle' => 'When install slots fill up first',
+                'items' => [
+                    ['Weddings and summer garden parties', 'June to August'],
+                    ['Binder Twine Festival: plan parking', 'September'],
+                    ['Warm autumn palettes', 'October to November'],
+                    ['White, silver and green holiday decor', 'December'],
+                ],
             ],
             'lead' => 'Helpful details to send with your request:',
             'list' => [

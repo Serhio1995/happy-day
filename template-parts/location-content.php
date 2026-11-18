@@ -53,13 +53,16 @@ $location_photo_index = 0;
         continue;
     }
     $section_id = 'location-detail-'.$index;
-    $photo = (!$is_map && $location_photos)
+    /* Sections with a wide block (cards, zones, combos) can skip the photo
+       with 'no_photo' => true, so the photo goes to the next section. */
+    $route = $section['route'] ?? null;
+    $photo = (!$is_map && !$route && empty($section['no_photo']) && $location_photos)
         ? ($location_photos[$location_photo_index++] ?? null) : null;
 ?>
 <section id="<?php echo esc_attr($section_id); ?>" class="service-content-section location-content-section <?php echo $index % 2 ? 'service-soft ' : ''; echo esc_attr($section_class); ?>">
-  <div class="hd-wrap<?php echo $photo ? ' service-content-split' : ''; ?>">
+  <div class="hd-wrap<?php echo ($photo || $route) ? ' service-content-split' : ''; ?>">
     <div class="service-prose">
-      <span class="eyebrow"><?php echo esc_html($is_map ? 'Areas we serve' : 'Your local celebration'); ?></span>
+      <span class="eyebrow"><?php echo esc_html($section['eyebrow'] ?? ($is_map ? 'Areas we serve' : 'Your local celebration')); ?></span>
       <h2><?php echo esc_html($section['title']); ?></h2>
       <?php foreach ($section['paragraphs'] ?? [] as $paragraph): ?><p><?php echo wp_kses_post($paragraph); ?></p><?php endforeach; ?>
       <?php if (!empty($section['lead'])): ?><p class="service-list-lead"><strong><?php echo esc_html($section['lead']); ?></strong></p><?php endif; ?>
@@ -68,7 +71,20 @@ $location_photo_index = 0;
           <?php foreach ($section['list'] as $item): ?><li><?php echo wp_kses_post($item); ?></li><?php endforeach; ?>
         </ul>
       <?php endif; ?>
-      <?php if ($is_map) hd_render_service_area_links(); ?>
+      <?php
+      /* Optional visual blocks shared with service pages (inc/service-blocks.php). */
+      if (!empty($section['menu'])) hd_render_service_menu($section['menu']);
+      if (!empty($section['palettes'])) hd_render_service_palettes($section['palettes']);
+      if (!empty($section['cards'])) hd_render_service_cards($section['cards'], $section['cards_style'] ?? '');
+      if (!empty($section['zones'])) hd_render_service_zones($section['zones']);
+      if (!empty($section['combos'])) {
+          if (!empty($section['combos']['title'])) printf('<h3 class="hd-combos-title">%s</h3>', esc_html($section['combos']['title']));
+          if (!empty($section['combos']['intro'])) printf('<p>%s</p>', esc_html($section['combos']['intro']));
+          hd_render_price_combos($section['combos']['items'], $section['combos']['note'] ?? '');
+      }
+      if (!empty($section['note'])) printf('<p class="service-note"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i><span>%s</span></p>', wp_kses_post($section['note']));
+      if ($is_map) hd_render_service_area_links();
+      ?>
     </div>
     <?php if ($photo): ?>
       <figure class="service-section-photo location-section-photo">
@@ -77,11 +93,12 @@ $location_photo_index = 0;
             'sizes' => '(max-width: 900px) 100vw, 45vw',
         ]); ?>
       </figure>
+    <?php elseif ($route): hd_render_service_route($route); ?>
     <?php endif; ?>
   </div>
 </section>
 <?php if ($index === 0): ?>
-<?php if(shortcode_exists('trustindex')): ?><section class="google-reviews-section service-reviews-section"><div class="hd-wrap"><?php echo do_shortcode('[trustindex no-registration=google]'); ?></div></section><?php endif; ?>
+<?php if(shortcode_exists('trustindex')): ?><section class="google-reviews-section service-reviews-section"><div class="hd-wrap"><?php if (strpos($service_data['page_class'] ?? '', 'hd-city') !== false): ?><div class="city-reviews-head"><span class="eyebrow">Google reviews</span><h2>What Our Clients Say</h2></div><?php endif; ?><?php echo do_shortcode('[trustindex no-registration=google]'); ?></div></section><?php endif; ?>
 <?php endif; ?>
 <?php endforeach; ?>
 <section class="location-section location-budget" id="location-budget"><div class="hd-wrap"><div class="section-head"><span class="eyebrow">Plan with confidence</span><h2>What goes into your balloon decor quote?</h2><p>A custom quote reflects your design and the practical details of your venue. Share your budget range so we can recommend a suitable scale and layout.</p></div><div class="location-budget-grid"><article><span class="location-budget-icon" aria-hidden="true"><i class="fa-solid fa-palette"></i></span><h3>Design & materials</h3><p>Installation size, balloon colours and finishes, personalization, flowers, backdrops and number rentals shape the design cost.</p></article><article><span class="location-budget-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span><h3>Delivery & installation</h3><p>Your event address, parking, loading access, elevators and the available setup window affect installation planning.</p></article><article><span class="location-budget-icon" aria-hidden="true"><i class="fa-solid fa-arrow-rotate-left"></i></span><h3>Rentals & removal</h3><p>Tell us whether the venue requires same-day teardown. Confirm rental returns, removal timing and all inclusions in your written quote.</p></article></div><a class="text-link" href="#service-quote">Get a quote for your event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></section>
