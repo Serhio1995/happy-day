@@ -11,6 +11,7 @@ return [
         'From elegant balloon garlands to Christmas backdrops, balloon arches, and festive tree-inspired displays, we design each setup around your space, colours, theme, and celebration style.',
     ],
     'hero_button' => 'Plan My Christmas Decor',
+    'page_class' => 'hd-holiday hd-xmas',
     'hero_image' => 86,
     'card_asset' => 'assets/images/christmas-balloon-decoration-toronto.webp',
     'sections' => [
@@ -25,7 +26,8 @@ return [
         ],
         [
             'title' => 'Xmas Balloon Decoration for Holiday Parties',
-            'class' => 'service-age-section',
+            'class' => 'ny-bg ny-bg-champagne',
+            'list_style' => 'tags',
             'image' => 127,
             'paragraphs' => [
                 'Xmas balloon decoration works well for both private and business events. It can help define the main party area, create a photo spot, decorate the entrance, highlight a dessert table, or make an office space feel more festive.',
@@ -47,7 +49,8 @@ return [
         ],
         [
             'title' => 'Christmas Party Balloon Decor',
-            'class' => 'service-options-section',
+            'class' => 'ny-bg ny-bg-ice',
+            'list_style' => 'nice-list',
             'paragraphs' => [
                 'Christmas party balloon decor can be playful, elegant, branded, or family-friendly depending on the event. For corporate holiday parties, many clients choose clean colour palettes, branded accents, entrance arches, or photo backdrops. For family events, brighter colours, Santa and snowman figures, candy cane themes, and festive balloon displays can make the space feel more fun.',
                 'If your Christmas party needs a main photo moment, a backdrop with balloon garland is usually one of the strongest options.',
@@ -68,17 +71,28 @@ return [
         ],
         [
             'title' => 'Christmas Backdrops, Arches & Garlands',
-            'class' => 'service-themes-section',
+            'class' => 'ny-bg ny-bg-pine',
             'image' => 128,
             'paragraphs' => [
                 'Backdrops, arches, and garlands are some of the most popular choices for Christmas balloon decoration because they create a clear feature area. A Christmas backdrop can be used for guest photos, family pictures, company holiday portraits, Santa photos, product displays, or social media content.',
                 'A balloon arch can frame an entrance, stage, photo area, or dessert table. A balloon garland can add holiday colour to a sign, wall, backdrop, fireplace, staircase, or event display.',
                 'Popular palettes include red, green and white; gold, white and champagne; silver, blue and white; candy cane red and white; winter wonderland tones; neutral beige and gold; or custom brand colours. For more options, visit our ' . $link('services/balloon-arch-garland', 'balloon arch and garland') . ' page.',
             ],
+            'palettes' => [
+                ['name' => 'Red, green and white', 'note' => 'Classic Christmas', 'colors' => ['#c8323c', '#2f6b4f', '#ffffff']],
+                ['name' => 'Gold, white and champagne', 'note' => 'Candlelight and ornaments', 'colors' => ['#d4af6a', '#ffffff', '#e6cc9a']],
+                ['name' => 'Silver, blue and white', 'note' => 'Frost on the windows', 'colors' => ['#c3c9d4', '#5d8fc9', '#ffffff']],
+                ['name' => 'Candy cane red and white', 'note' => 'Sweets on the tree', 'colors' => ['#c8323c', '#ffffff', '#e2525c']],
+                ['name' => 'Winter wonderland tones', 'note' => 'Snow and ice', 'colors' => ['#bfe3f5', '#ffffff', '#c3c9d4']],
+                ['name' => 'Neutral beige and gold', 'note' => 'Cozy and calm', 'colors' => ['#e8dcc6', '#d4af6a', '#f6efe2']],
+                ['name' => 'Luxury black and gold', 'note' => 'Elegant holiday evening', 'colors' => ['#1d1f2b', '#d4af6a', '#2b2d3a']],
+                ['name' => 'Custom brand colours', 'note' => 'Office and store events', 'colors' => ['outline', 'outline', 'outline']],
+            ],
         ],
         [
             'title' => 'Balloon Christmas Tree Decorations',
-            'class' => 'service-room-section',
+            'class' => 'ny-bg ny-bg-rose',
+            'placeholder' => true,
             'paragraphs' => [
                 'Balloon Christmas tree decorations are a fun way to create a unique holiday display. A balloon tree can be used in offices, retail spaces, event venues, schools, restaurants, party rooms, and photo areas. It can be designed as a playful Christmas feature or as part of a more polished holiday installation.',
                 'Christmas tree balloon decorations can be made with green balloons, metallic accents, ornaments, stars, candy cane colours, winter colours, or brand colours. They work well as a standalone feature or together with a backdrop, garland, arch, or holiday display.',
@@ -87,26 +101,29 @@ return [
         ],
         [
             'title' => 'Christmas Decorations with Balloons for Businesses',
-            'class' => 'service-backdrops-section',
+            'class' => 'ny-bg ny-bg-champagne ny-reverse',
             'image' => 129,
             'paragraphs' => [
                 'Christmas decorations with balloons are useful for businesses that want a festive setup without permanent decor. Balloon installations can be created for a one-day event, a weekend promotion, a holiday party, or a seasonal display.',
                 'For business and corporate spaces, we can create balloon decor for entrances, lobbies, reception areas, product displays, staff parties, photo walls, retail windows, and branded holiday events.',
                 'If your business is planning a holiday celebration, you may also want to explore our ' . $link('services/corporate-event-balloons', 'corporate event balloons') . ' page for branded balloon displays, grand openings, office parties, and company events.',
             ],
-            'lead' => 'Business holiday installations include:',
-            'list' => [
-                'Lobby and reception displays',
-                'Retail window decoration',
-                'Branded holiday backdrops',
-                'Office party photo areas',
-                'Product display accents',
-                'Seasonal entrance decor',
+            'menu' => [
+                'title' => 'Holiday Menu',
+                'subtitle' => 'Business holiday installations include',
+                'items' => [
+                    ['Lobby and reception displays', 'first thing guests see'],
+                    ['Retail window decoration', 'street-facing windows'],
+                    ['Branded holiday backdrops', 'in your logo colours'],
+                    ['Office party photo areas', 'staff and guest photos'],
+                    ['Product display accents', 'shelves and counters'],
+                    ['Seasonal entrance decor', 'front doors'],
+                ],
             ],
         ],
         [
             'title' => 'Christmas Balloon Decor in Toronto & GTA',
-            'class' => 'service-gta-section',
+            'class' => 'service-gta-section ny-bg ny-bg-ice',
             'paragraphs' => [
                 'Happy Day Toronto provides Christmas balloon decor in Toronto and across the Greater Toronto Area. We decorate homes, restaurants, offices, retail spaces, banquet halls, schools, community venues, event spaces, and private party locations.',
                 'If you are looking for Christmas balloon decorations, Xmas balloon decor, Christmas party balloon decor, or balloon decoration for Christmas in Toronto, send us your event date, location, theme, colour preferences, and setup ideas. We will help you choose the right festive balloon setup for your space.',

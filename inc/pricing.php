@@ -62,3 +62,34 @@ function hd_render_price_table($keys=null){
   }
   echo '</ul>';
 }
+
+/* Numeric starting price for a key ("From $250" -> 250). */
+function hd_price_value($key){
+  $row=hd_prices()[$key] ?? null;
+  return $row?(int)preg_replace('/[^0-9]/','',$row['price']):0;
+}
+
+/* Sample combinations as till receipts, totals computed from hd_prices().
+   $combos = [['title'=>'...','for'=>'...','items'=>[['garland',1,'Garland over the fireplace'], ...]], ...] */
+function hd_render_price_combos($combos,$note=''){
+  $prices=hd_prices();
+  echo '<ul class="hd-combo-tickets" role="list">';
+  foreach($combos as $combo){
+    $total=0;$lines='';
+    foreach($combo['items'] as $item){
+      [$key,$qty]=$item;
+      if(empty($prices[$key])) continue;
+      $sum=hd_price_value($key)*$qty;$total+=$sum;
+      $label=$item[2]??$prices[$key]['item'];
+      $lines.=sprintf('<li><span>%s%s</span><span class="hd-combo-ticket-sum">$%s</span></li>',$qty>1?'<b>'.esc_html($qty).' ×</b> ':'',esc_html($label),esc_html(number_format($sum)));
+    }
+    echo '<li class="hd-combo-ticket"><div class="hd-combo-ticket-main">';
+    printf('<h3>%s</h3>',esc_html($combo['title']));
+    if(!empty($combo['for'])) printf('<p class="hd-combo-ticket-for">%s</p>',esc_html($combo['for']));
+    printf('<ul class="hd-combo-ticket-lines" role="list">%s</ul></div>',$lines);
+    printf('<div class="hd-combo-ticket-stub"><span>From</span><strong>$%s</strong><small>estimated</small></div>',esc_html(number_format($total)));
+    echo '</li>';
+  }
+  echo '</ul>';
+  if($note) printf('<p class="hd-combos-note">%s</p>',esc_html($note));
+}

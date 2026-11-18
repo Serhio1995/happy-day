@@ -8,14 +8,13 @@ if(!defined('ABSPATH')) exit;
  * Edits made to the "Form" or "Mail" body tabs in CF7 are overridden by this
  * file; the recipient, sender, subject and headers still come from CF7.
  */
-function hd_quote_response_time(){return 'We reply the same day.';}
 
 function hd_quote_budget_ranges(){
   return ['Under $250','$250–$500','$500–$1,000','$1,000+','Not sure yet'];
 }
 
 function hd_quote_occasions(){
-  return ['Birthday','Wedding','Baby Shower','Bridal Shower','Corporate Event','Engagement','Anniversary','Baptism','Graduation','Christmas Party','Halloween Party','Valentine’s Day','Bar Mitzvah','Backdrop Rental','Balloon Arch & Garland','Balloon Ceiling Decor','Balloon & Flower Decoration','Other'];
+  return ['Birthday','Wedding','Baby Shower','Bridal Shower','Corporate Event','Engagement','Anniversary','Baptism','Graduation','Christmas Party','New Year’s Eve','Halloween Party','Valentine’s Day','Bar Mitzvah','Backdrop Rental','Balloon Arch & Garland','Balloon Ceiling Decor','Balloon & Flower Decoration','Other'];
 }
 
 function hd_quote_cf7_options($values){
@@ -25,12 +24,10 @@ function hd_quote_cf7_options($values){
 function hd_quote_form_template(){
   $occasions=hd_quote_cf7_options(hd_quote_occasions());
   $budgets=hd_quote_cf7_options(hd_quote_budget_ranges());
-  $response=esc_html(hd_quote_response_time());
   return <<<CF7
 <div class="hd-cf7-form-head">
 <h3>Request Your Balloon Quote</h3>
 <p>Share your event details and we’ll get back to you with availability and pricing.</p>
-<p class="hd-cf7-response"><i class="fa-solid fa-clock" aria-hidden="true"></i> {$response}</p>
 </div>
 <div class="hd-cf7-grid">
 <div class="hd-cf7-field"><label>Your Name [text* your-name autocomplete:name placeholder "Example: Sarah Johnson"]</label></div>

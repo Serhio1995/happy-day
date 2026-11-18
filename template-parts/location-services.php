@@ -22,6 +22,7 @@ $location_service_groups = [
         ['corporate-event-balloons', 'Corporate event balloons', 'file-contract'],
         ['graduation-balloons', 'Graduation balloons', 'sparkles'],
         ['christmas-balloons', 'Christmas balloons', 'gift'],
+        ['new-year-balloons', 'New Year’s Eve balloons', 'sparkles'],
         ['valentines-day-balloons', 'Valentine’s Day balloons', 'heart'],
         ['halloween-balloons', 'Halloween balloons', 'wand-magic-sparkles'],
     ]],

@@ -10,6 +10,7 @@ function hd_asset_ver($path){
 require_once get_template_directory().'/inc/gallery.php';
 require_once get_template_directory().'/inc/customizer.php';
 require_once get_template_directory().'/inc/pricing.php';
+require_once get_template_directory().'/inc/service-blocks.php';
 require_once get_template_directory().'/inc/quote-form.php';
 require_once get_template_directory().'/inc/performance.php';
 require_once get_template_directory().'/inc/content-seo.php';
@@ -198,6 +199,7 @@ function hd_assets(){
      * every service page. Only actually load it once the map section is
      * about to scroll into view, instead of paying for it on every
      * service-page visit regardless of scroll depth. */
+    if(!hd_is_holiday_service_page()){
     wp_register_script('happy-day-gta-map-loader','',[],false,true);
     wp_enqueue_script('happy-day-gta-map-loader');
     wp_add_inline_script('happy-day-gta-map-loader',sprintf(
@@ -212,6 +214,7 @@ function hd_assets(){
       wp_json_encode(get_template_directory_uri().'/assets/vendor/leaflet/leaflet.js'),
       wp_json_encode(get_template_directory_uri().'/assets/gta-map.js?ver='.hd_asset_ver(get_template_directory().'/assets/gta-map.js'))
     ));
+    }
   }
 }
 add_action('wp_enqueue_scripts','hd_assets');
