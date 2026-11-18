@@ -40,10 +40,17 @@ function hd_primary_menu_rental_group($items,$args){
   foreach($items as $item){
     $item->classes=array_values(array_diff(
       (array)$item->classes,
-      ['hd-rental-menu-item','hd-rental-menu-start']
+      ['hd-rental-menu-item','hd-rental-menu-start','hd-areas-menu']
     ));
 
     $path=trim((string)wp_parse_url((string)$item->url,PHP_URL_PATH),'/');
+
+    /* The Service Areas parent gets its own compact dropdown styling
+       (assets/header.css), without relying on a class set in wp-admin. */
+    if($path==='service-areas'&&empty($item->menu_item_parent)){
+      $item->classes[]='hd-areas-menu';
+      continue;
+    }
     $path_slug=sanitize_title((string)basename($path));
     $title_slug=sanitize_title(wp_strip_all_tags((string)$item->title));
     $object_slug='';
