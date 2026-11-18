@@ -8,7 +8,7 @@ $home = '<a href="' . esc_url(home_url('/')) . '">Toronto</a>';
 
 return [
     'seo' => [
-        'title' => 'Balloon Decorations Woodbridge | Banquet Halls & Homes',
+        'title' => 'Balloon Decorations Woodbridge, Vaughan | Banquet Halls',
         'description' => 'Balloon decorations in Woodbridge for banquet halls, weddings, baptisms, communions, showers and birthdays. Custom arches, backdrops and ceiling decor.',
         'focus' => 'balloon decorations Woodbridge',
     ],
@@ -88,7 +88,7 @@ return [
             ],
         ],
         [
-            'title' => 'Balloon Styles That Work Well in Woodbridge',
+            'title' => 'Balloon Arches, Garlands & Ceiling Decor in Woodbridge',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'Classic, elegant palettes are the most requested in Woodbridge: white and gold, ivory and champagne, white and silver, and soft blush. For baptisms and first communions, white is usually the base, with a touch of baby blue, pink, gold, or silver.',
@@ -128,7 +128,7 @@ return [
         ['Share Your Event Details', 'Tell us your date, the Woodbridge address or venue, event type, guest count, colours, and inspiration photos.'],
         ['Confirm the Setup Window', 'We check the venue’s access and removal times, loading area, and any decor rules.'],
         ['We Plan the Design', 'We prepare the balloon colours, size, structure, and layout based on your room and table plan.'],
-        ['We Install Before Guests Arrive', 'Our team arrives at the agreed time and finishes the decor so the space is ready for photos.'],
+        ['We Install Before Guests Arrive', 'Delivery and installation are included in the plan: our team arrives at your Woodbridge, Ontario home or hall at the agreed time and finishes the decor so the space is ready for photos.'],
     ],
     'faq' => [
         ['Do you provide balloon decorations in Woodbridge?', 'Yes. Happy Day Toronto provides custom balloon decorations in Woodbridge for banquet halls, restaurants, church halls, homes, and backyard events, including the historic village, East and West Woodbridge, Sonoma Heights, and Vellore.'],

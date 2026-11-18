@@ -7,7 +7,7 @@ $link = function ($path, $label) {
 
 return [
     'seo' => [
-        'title' => 'Balloon Decorations Kleinburg | Elegant Event Balloon Decor',
+        'title' => 'Balloon Decorations Kleinburg, Vaughan | Weddings & Estates',
         'description' => 'Elegant balloon decorations in Kleinburg for weddings, showers, birthdays and private events at homes, estates and village venues. Request a quote.',
         'focus' => 'balloon decorations Kleinburg',
     ],
@@ -88,7 +88,7 @@ return [
             ],
         ],
         [
-            'title' => 'Balloon Styles That Work Well in Kleinburg',
+            'title' => 'Balloon Arches, Garlands & Floral Balloon Decor in Kleinburg',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'The most requested look in Kleinburg is soft and organic: garlands in several balloon sizes, mixed with greenery, pampas, or seasonal flowers, in palettes like ivory and sage, blush and champagne, or white and gold.',
@@ -128,7 +128,7 @@ return [
         ['Share Your Event Details', 'Tell us your date, the Kleinburg address or venue, event type, colours, and inspiration photos.'],
         ['Choose the Style', 'We help you select balloon finishes, flowers, backdrops, and signage that match your palette.'],
         ['We Plan the Design', 'We prepare the size, structure, placement, and setup timing based on your space.'],
-        ['We Install Before Guests Arrive', 'Our team arrives at the agreed time and finishes the decor so the space is ready for photos.'],
+        ['We Install Before Guests Arrive', 'Delivery and installation are included in the plan: our team arrives at your Kleinburg home, estate or venue at the agreed time and finishes the decor so the space is ready for photos.'],
     ],
     'faq' => [
         ['Do you provide balloon decorations in Kleinburg?', 'Yes. Happy Day Toronto provides custom balloon decorations in Kleinburg for private homes, estate properties, restaurants, and event venues, including the village core, Nashville, and the newer neighbourhoods around Major Mackenzie Drive.'],

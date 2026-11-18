@@ -89,7 +89,7 @@ return [
             ],
         ],
         [
-            'title' => 'Balloon Styles That Work Well in North York',
+            'title' => 'Balloon Arches & Garlands in Willowdale, Bayview Village & Don Mills',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'Because so many North York events happen in condos and compact rooms, we often suggest designs that give a big effect without taking up much floor space: a garland wrapped around a round backdrop, a half arch framing a welcome sign, or a ceiling cluster above the dessert table.',
@@ -129,7 +129,7 @@ return [
         ['Share Your Event Details', 'Tell us your date, the North York address or venue, event type, colours, and any inspiration photos.'],
         ['Confirm Venue Access', 'We check setup times, elevator or loading access, and any building rules for vendors.'],
         ['We Plan the Design', 'We prepare the balloon colours, size, structure, and setup plan based on your space.'],
-        ['We Install Before Guests Arrive', 'Our team arrives at the agreed time and finishes the decor so the space is ready for photos.'],
+        ['We Install Before Guests Arrive', 'Delivery and installation are included in the plan: our team arrives at your North York home, condo party room or venue at the agreed time and finishes the decor so the space is ready for photos.'],
     ],
     'faq' => [
         ['Do you provide balloon decorations in North York?', 'Yes. Happy Day Toronto provides custom balloon decorations throughout North York, including Willowdale, Yonge and Sheppard, Bayview Village, York Mills, Don Mills, Bathurst Manor, Fairview, and Downsview. We decorate homes, condo party rooms, restaurants, banquet halls, offices, and community venues.'],

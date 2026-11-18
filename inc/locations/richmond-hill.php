@@ -8,7 +8,7 @@ $home = '<a href="' . esc_url(home_url('/')) . '">Toronto</a>';
 
 return [
     'seo' => [
-        'title' => 'Balloon Decorations Richmond Hill | Local Balloon Decorator',
+        'title' => 'Balloon Decorations Richmond Hill, ON | Balloon Decorator',
         'description' => 'Richmond Hill balloon decorator for birthdays, showers, weddings, Nowruz and corporate events. Custom arches, garlands, backdrops and ceiling decor.',
         'focus' => 'balloon decorations Richmond Hill',
     ],
@@ -79,7 +79,7 @@ return [
             ],
         ],
         [
-            'title' => 'Homes, Condos, Venues & Offices',
+            'title' => 'Homes, Condos & Venues From Oak Ridges to Lake Wilcox',
             'class' => 'service-themes-section',
             'placeholder' => true,
             'paragraphs' => [
@@ -89,7 +89,7 @@ return [
             ],
         ],
         [
-            'title' => 'Balloon Styles That Work Well in Richmond Hill',
+            'title' => 'Balloon Arches & Garlands for Richmond Hill Homes',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'Many Richmond Hill homes have open-concept layouts, double-height foyers, and curved staircases. These are perfect for balloon garlands that follow the railing, ceiling clusters in the foyer, and large round backdrops in the living room.',
@@ -129,7 +129,7 @@ return [
         ['Share Your Event Details', 'Tell us your date, Richmond Hill address or venue, event type, colours, and inspiration photos.'],
         ['Confirm Access and Timing', 'We check setup times, parking or elevator access, and any venue rules for vendors.'],
         ['We Plan the Design', 'We prepare the balloon colours, size, structure, and setup plan based on your space.'],
-        ['We Install Before Guests Arrive', 'Our team arrives at the agreed time and finishes the decor so the space is ready for photos.'],
+        ['We Install Before Guests Arrive', 'Delivery and installation are included in the plan: our team arrives anywhere in Richmond Hill, including Oak Ridges, at the agreed time and finishes the decor so the space is ready for photos.'],
     ],
     'faq' => [
         ['Does Happy Day Toronto serve Richmond Hill?', 'Yes. Happy Day Toronto provides custom balloon decorations for homes, venues, and businesses across Richmond Hill, with delivery and installation arranged for your event.'],

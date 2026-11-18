@@ -7,7 +7,7 @@ $link = function ($path, $label) {
 
 return [
     'seo' => [
-        'title' => 'Balloon Decorations King City | Estates & Tent Parties',
+        'title' => 'Balloon Decorations King City, ON | Estates & Tents',
         'description' => 'Balloon decorations in King City and King Township for estate homes, tented backyard parties, weddings and private events. Custom arches and backdrops.',
         'focus' => 'balloon decorations King City',
     ],
@@ -77,7 +77,7 @@ return [
             ],
         ],
         [
-            'title' => 'Outdoor & Tented Events in King Township',
+            'title' => 'Outdoor & Tented Events in King City, Nobleton & Schomberg',
             'class' => 'service-themes-section',
             'placeholder' => true,
             'paragraphs' => [
@@ -87,7 +87,7 @@ return [
             ],
         ],
         [
-            'title' => 'Balloon Styles That Work Well in King City',
+            'title' => 'Balloon Arches & Garlands for King City Homes & Tents',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'The natural setting of King Township suits organic, garden-inspired designs. Balloon garlands mixed with greenery, dried grasses, or fresh flowers look beautiful against wood, stone, and open fields.',
@@ -127,7 +127,7 @@ return [
         ['Share Your Event Details', 'Tell us your date, the King City address or venue, event type, colours, and inspiration photos.'],
         ['Walk Us Through the Property', 'Share photos of the setup area, the tent or patio layout, and access from the driveway.'],
         ['We Plan the Design', 'We prepare the balloon colours, size, structure, anchoring, and setup plan for your space.'],
-        ['We Install Before Guests Arrive', 'Our team arrives at the agreed time and finishes the decor so the space is ready for photos.'],
+        ['We Install Before Guests Arrive', 'Delivery and installation are included in the plan: our team arrives anywhere in King Township, including Nobleton and Schomberg, at the agreed time and finishes the decor so the space is ready for photos.'],
     ],
     'faq' => [
         ['Do you provide balloon decorations in King City?', 'Yes. Happy Day Toronto provides custom balloon decorations in King City and across King Township, including Nobleton, Schomberg, and Kettleby. We decorate private homes, estates, tented events, clubs, and event venues.'],

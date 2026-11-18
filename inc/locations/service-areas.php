@@ -14,9 +14,9 @@ $home = '<a href="' . esc_url(home_url('/')) . '">Toronto</a>';
 
 return [
     'seo' => [
-        'title' => 'Service Areas | Happy Day Toronto Balloon Decorations',
+        'title' => 'Balloon Decorations in York Region & Toronto | Areas',
         'description' => 'Areas where Happy Day Toronto provides balloon decorations: Toronto, North York, Vaughan, Richmond Hill, King City, Kleinburg and Woodbridge.',
-        'focus' => 'balloon decoration service areas',
+        'focus' => 'balloon decorations York Region',
     ],
     'title' => 'Balloon Decoration Service Areas',
     'intro' => [
