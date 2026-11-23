@@ -850,6 +850,28 @@ add_action('init','hd_clean_frontend_head');
 add_filter('xmlrpc_methods',function($methods){unset($methods['pingback.ping'],$methods['pingback.extensions.getPingbacks']);return $methods;});
 add_filter('wp_headers',function($headers){unset($headers['X-Pingback']);return $headers;});
 add_action('send_headers',function(){if(function_exists('header_remove')) header_remove('X-Powered-By');});
+
+/* Let the CDN (Supersonic, "Origin Controlled" lifetime) keep guest pages for
+   a few minutes. Anything personal or dynamic stays uncached: logged-in users,
+   carts, checkout, account, previews, search, POST and any query string other
+   than tracking tags. The cart icon refreshes itself in floating-cart.js. */
+function hd_cdn_cacheable_request(){
+  if(is_admin()||is_user_logged_in()||is_preview()||is_search()) return false;
+  if(($_SERVER['REQUEST_METHOD']??'GET')!=='GET') return false;
+  if(function_exists('is_cart')&&(is_cart()||is_checkout()||is_account_page())) return false;
+  foreach(array_keys($_COOKIE) as $cookie){
+    if(strpos($cookie,'wordpress_logged_in_')===0||strpos($cookie,'woocommerce_items_in_cart')===0||strpos($cookie,'wp_woocommerce_session_')===0||strpos($cookie,'comment_author_')===0) return false;
+  }
+  foreach(array_keys($_GET) as $param){
+    if(!preg_match('/^(utm_[a-z]+|gclid|gbraid|wbraid|fbclid|msclkid|_ga|srsltid)$/',$param)) return false;
+  }
+  return true;
+}
+add_action('template_redirect',function(){
+  if(headers_sent()) return;
+  if(hd_cdn_cacheable_request()) header('Cache-Control: public, max-age=300, s-maxage=600');
+  else header('Cache-Control: private, no-cache, max-age=0');
+},99);
 add_filter('login_errors',function(){return 'The login details are incorrect.';});
 add_action('pre_ping',function(&$links){$home=home_url();foreach($links as $key=>$link){if(strpos($link,$home)===0) unset($links[$key]);}});
 

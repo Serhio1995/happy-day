@@ -59,6 +59,18 @@
       .then(data=>{replaceFragments(data.fragments,true);document.body.dispatchEvent(new CustomEvent('wc_fragments_refreshed'));})
       .catch(()=>{window.location.href=remove.href;});
   });
+  /* Pages can come from the CDN cache with an empty cart, so shoppers who have
+     items fetch the real cart once on load (the cookie is set by WooCommerce). */
+  if(/(?:^|;\s*)woocommerce_items_in_cart=1/.test(document.cookie)){
+    const shell=document.querySelector('.hd-floating-cart-shell');
+    const endpoint=shell?.dataset.removeUrl?.replace('remove_from_cart','get_refreshed_fragments');
+    if(endpoint){
+      fetch(endpoint,{method:'POST',credentials:'same-origin'})
+        .then(response=>response.ok?response.json():null)
+        .then(data=>{if(data?.fragments)replaceFragments(data.fragments,false);})
+        .catch(()=>{});
+    }
+  }
   document.addEventListener('keydown',event=>{
     if(event.key!=='Escape')return;
     const shell=document.querySelector('.hd-floating-cart-shell.is-open');
