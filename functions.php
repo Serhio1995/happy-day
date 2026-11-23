@@ -234,9 +234,12 @@ function hd_trim_woocommerce_frontend_assets(){
   if(is_admin()||hd_page_uses_woocommerce_content()) return;
   foreach(['wc-blocks-style','woocommerce-layout','woocommerce-smallscreen','woocommerce-general','woocommerce-inline'] as $handle) wp_dequeue_style($handle);
   wp_deregister_style('wc-blocks-style');
-  foreach(['wc-jquery-blockui','wc-add-to-cart','wc-js-cookie','woocommerce','wc-cart-fragments','sourcebuster-js','wc-order-attribution'] as $handle) wp_dequeue_script($handle);
+  /* Site Kit's WooCommerce event tracker depends on woocommerce.js and pulls
+     it back in (with blockUI and js-cookie), so it goes too on non-shop pages. */
+  foreach(['googlesitekit-events-provider-woocommerce','wc-jquery-blockui','wc-add-to-cart','wc-js-cookie','woocommerce','wc-cart-fragments','sourcebuster-js','wc-order-attribution'] as $handle) wp_dequeue_script($handle);
 }
 add_action('wp_enqueue_scripts','hd_trim_woocommerce_frontend_assets',100);
+add_action('wp_print_footer_scripts','hd_trim_woocommerce_frontend_assets',1);
 add_action('wp_print_styles','hd_trim_woocommerce_frontend_assets',1000);
 add_filter('body_class',function($classes){
   if(hd_page_uses_woocommerce_content()) return $classes;

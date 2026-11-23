@@ -2,17 +2,28 @@
   const section = document.querySelector('.service-gallery-section');
   if (!section) return;
 
-  const buttons = [...section.querySelectorAll('.service-gallery-card')];
+  const grid = section.querySelector('.service-gallery-grid');
   const dialog = section.querySelector('.hd-gallery-lightbox');
-  if (!buttons.length || !dialog) return;
+  const firstButtons = [...section.querySelectorAll('.service-gallery-card')];
+  if (!grid || !firstButtons.length || !dialog) return;
 
-  const moreButton = section.querySelector('.service-gallery-more');
-  moreButton?.addEventListener('click', () => {
-    const hiddenButtons = buttons.filter(button => button.hidden);
-    hiddenButtons.forEach(button => { button.hidden = false; });
-    moreButton.hidden = true;
-    hiddenButtons[0]?.focus();
-  });
+  /* Photos beyond the first cards arrive as JSON (template-parts/service-gallery.php). */
+  let moreItems = [];
+  try {
+    moreItems = JSON.parse(section.querySelector('.service-gallery-more-data')?.textContent || '[]');
+  } catch (error) {
+    moreItems = [];
+  }
+
+  /* One list for the lightbox, so prev/next walks through every photo. */
+  const items = [
+    ...firstButtons.map(button => ({
+      full: button.dataset.full || '',
+      title: button.dataset.title || '',
+      event: button.dataset.event || ''
+    })),
+    ...moreItems
+  ];
 
   const image = dialog.querySelector('figure img');
   const title = dialog.querySelector('figcaption strong');
@@ -20,20 +31,57 @@
   let activeIndex = 0;
 
   const render = index => {
-    activeIndex = (index + buttons.length) % buttons.length;
-    const button = buttons[activeIndex];
-    image.src = button.dataset.full || '';
-    image.alt = button.dataset.title || '';
-    title.textContent = button.dataset.title || '';
-    event.textContent = button.dataset.event || '';
+    activeIndex = (index + items.length) % items.length;
+    const item = items[activeIndex];
+    image.src = item.full || '';
+    image.alt = item.title || '';
+    title.textContent = item.title || '';
+    event.textContent = item.event || '';
   };
 
-  buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      render(index);
-      dialog.showModal();
-      document.body.classList.add('hd-gallery-lightbox-open');
+  const open = index => {
+    render(index);
+    dialog.showModal();
+    document.body.classList.add('hd-gallery-lightbox-open');
+  };
+
+  firstButtons.forEach((button, index) => {
+    button.addEventListener('click', () => open(index));
+  });
+
+  const buildCard = (item, index) => {
+    const button = document.createElement('button');
+    button.className = 'service-gallery-card';
+    button.type = 'button';
+    button.setAttribute('aria-label', 'View ' + (item.title || 'photo'));
+    const img = document.createElement('img');
+    img.src = item.thumb || item.full;
+    img.alt = item.title || '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    if (item.w && item.h) {
+      img.width = item.w;
+      img.height = item.h;
+    }
+    const icon = document.createElement('span');
+    icon.className = 'service-gallery-card-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.innerHTML = '<i class="fa-solid fa-expand"></i>';
+    button.append(img, icon);
+    button.addEventListener('click', () => open(index));
+    return button;
+  };
+
+  const moreButton = section.querySelector('.service-gallery-more');
+  moreButton?.addEventListener('click', () => {
+    const fragment = document.createDocumentFragment();
+    moreItems.forEach((item, offset) => {
+      fragment.append(buildCard(item, firstButtons.length + offset));
     });
+    const firstNew = fragment.firstElementChild;
+    grid.append(fragment);
+    moreButton.hidden = true;
+    firstNew?.focus();
   });
 
   const closeDialog = () => dialog.close();
@@ -45,7 +93,7 @@
   });
   dialog.addEventListener('close', () => {
     document.body.classList.remove('hd-gallery-lightbox-open');
-    image.src = '';
+    image.removeAttribute('src');
   });
   dialog.addEventListener('keydown', domEvent => {
     if (domEvent.key === 'ArrowLeft') render(activeIndex - 1);

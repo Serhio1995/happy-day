@@ -20,16 +20,33 @@ $gallery_items=array_values(array_filter($gallery_items, static fn($item)=>!empt
 if(!$gallery_items) return;
 
 $initial_count=6;
-$remaining_count=max(0,count($gallery_items)-$initial_count);
 ?>
 <section class="service-gallery-section soft"><div class="hd-wrap">
   <div class="section-head"><h2>Real <?php echo esc_html($gallery_label); ?> We’ve Installed</h2><p><?php echo hd_is_location_page() ? 'Ideas from our portfolio, adapted to your venue. These photos show our work across the areas we serve.' : 'A few photos from our gallery, filtered to this style of celebration.'; ?></p></div>
   <div class="service-gallery-grid">
-    <?php foreach($gallery_items as $index=>$item):
+    <?php
+    /* Only the first cards are rendered as markup. The rest go out as a small
+       JSON list and are built by assets/service-gallery.js on "Show more", so
+       the page HTML does not carry 150+ image tags with full srcsets. */
+    $more_items=[];
+    foreach($gallery_items as $index=>$item):
       $full=wp_get_attachment_image_url($item['id'],'full');
       if(!$full) continue;
+      if($index>=$initial_count){
+        $thumb=wp_get_attachment_image_src($item['id'],'medium_large');
+        $more_items[]=[
+          'full'=>$full,
+          'thumb'=>$thumb[0]??$full,
+          'w'=>(int)($thumb[1]??0),
+          'h'=>(int)($thumb[2]??0),
+          /* Plain text: the JS sets it with textContent, so decode entities. */
+          'title'=>html_entity_decode((string)$item['title'],ENT_QUOTES,'UTF-8'),
+          'event'=>html_entity_decode((string)($item['event']??''),ENT_QUOTES,'UTF-8'),
+        ];
+        continue;
+      }
     ?>
-      <button class="service-gallery-card" type="button" <?php echo $index>=$initial_count?'hidden':''; ?>
+      <button class="service-gallery-card" type="button"
         data-full="<?php echo esc_url($full); ?>"
         data-title="<?php echo esc_attr($item['title']); ?>"
         data-event="<?php echo esc_attr($item['event']??''); ?>"
@@ -43,7 +60,10 @@ $remaining_count=max(0,count($gallery_items)-$initial_count);
       </button>
     <?php endforeach; ?>
   </div>
-  <?php if($remaining_count>0): ?>
+  <?php if($more_items): ?>
+    <script type="application/json" class="service-gallery-more-data"><?php echo wp_json_encode($more_items,JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP); ?></script>
+  <?php endif; ?>
+  <?php $remaining_count=count($more_items); if($remaining_count>0): ?>
     <button class="hd-btn service-gallery-more" type="button">Show <?php echo esc_html((string)$remaining_count); ?> more photo<?php echo $remaining_count===1?'':'s'; ?> <i class="fa-solid fa-arrow-down"></i></button>
   <?php endif; ?>
 </div>
@@ -51,7 +71,7 @@ $remaining_count=max(0,count($gallery_items)-$initial_count);
   <div class="hd-gallery-lightbox-inner">
     <button class="hd-gallery-lightbox-close" type="button" aria-label="Close image viewer"><i class="fa-solid fa-xmark"></i></button>
     <button class="hd-gallery-lightbox-nav hd-gallery-lightbox-prev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
-    <figure><img src="" alt=""><figcaption><small></small><strong></strong></figcaption></figure>
+    <figure><img alt=""><figcaption><small></small><strong></strong></figcaption></figure>
     <button class="hd-gallery-lightbox-nav hd-gallery-lightbox-next" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
 </dialog>
