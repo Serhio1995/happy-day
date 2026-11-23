@@ -40,15 +40,28 @@ function hd_preload_icon_fonts(){
 }
 add_action('wp_head','hd_preload_icon_fonts',2);
 
-/* Styles for below-the-fold widgets (quote form, WhatsApp button) don't need
+/* Styles for below-the-fold widgets (quote form, WhatsApp button, chat widget) don't need
    to block the first paint; load them without blocking. Trustindex CSS must
    stay blocking: its scripts lay out the reviews and Instagram feed on init
    and break if the stylesheet arrives later. */
 function hd_async_style_tag($tag,$handle){
   if(is_admin()) return $tag;
-  $async=in_array($handle,['contact-form-7','ht_ctc_main_css'],true);
+  $async=in_array($handle,['contact-form-7','ht_ctc_main_css','hdc-widget'],true);
   if(!$async||strpos($tag,"media='all'")===false) return $tag;
   $deferred=str_replace("media='all'","media='print' onload=\"this.media='all'\"",$tag);
   return $deferred.'<noscript>'.$tag.'</noscript>';
 }
 add_filter('style_loader_tag','hd_async_style_tag',10,2);
+
+/* jQuery is only used by the WhatsApp button script, which already loads in
+   the footer, and no inline script calls it. Moving it out of <head> takes
+   about 30 KB off the render-blocking path. Store pages keep it in <head>
+   for WooCommerce and YITH. */
+function hd_jquery_to_footer(){
+  if(is_admin()||hd_is_store_page()) return;
+  $scripts=wp_scripts();
+  foreach(['jquery','jquery-core','jquery-migrate'] as $handle){
+    if(isset($scripts->registered[$handle])) $scripts->add_data($handle,'group',1);
+  }
+}
+add_action('wp_enqueue_scripts','hd_jquery_to_footer',1);
