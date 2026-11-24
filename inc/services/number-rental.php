@@ -12,7 +12,7 @@ return [
         'offers' => ['numbers', 'letters'],
     ],
     'title' => 'Marquee Number & Letter Rental That Lights Up the Moment',    'intro' => [
-        'Make a milestone impossible to miss with marquee number and letter rental in Toronto and the GTA. Our 4-ft light-up numbers and marquee letters create a bold, photo-ready focal point for birthdays, proposals, weddings, anniversaries, graduations and business events.',
+        'Make a milestone impossible to miss with marquee number rental and marquee letter rental in Toronto and the GTA. Our 4-ft light-up numbers and marquee letters create a bold, photo-ready focal point for birthdays, proposals, weddings, anniversaries, graduations and business events.',
         'Numbers start ' . lcfirst(hd_price('numbers')) . ' and letters are ' . hd_price('letters') . '. We deliver, set up and collect them, and we can style them with balloons, a backdrop or flowers for a complete display.',
     ],
     'hero_button' => 'Reserve My Marquee Display',
@@ -147,7 +147,7 @@ return [
             'title' => 'Marquee Number & Letter Rental in Toronto & the GTA',
             'class' => 'service-gta-section',
             'paragraphs' => [
-                'Happy Day Toronto provides marquee number and letter rental in Toronto, North York, Vaughan, Richmond Hill, King City, Kleinburg, and Woodbridge. We work with homes, restaurants, banquet halls, studios, offices, condo party rooms, and private event venues.',
+                'Happy Day Toronto provides marquee number rental and letter rental in Toronto, North York, Vaughan, Richmond Hill, King City, Kleinburg, and Woodbridge. We work with homes, restaurants, banquet halls, studios, offices, condo party rooms, and private event venues.',
                 'Send us your event date, location, the numbers or word you need, setup time, and styling ideas. We will confirm availability and recommend a number display that fits the celebration and the space.',
             ],
         ],
@@ -174,7 +174,7 @@ return [
     'cta_title' => 'Light Up Your Milestone',
     'event_type' => 'Other',
     'cta_text' => [
-        'Planning a birthday, proposal, wedding, graduation, or business milestone? Reserve marquee number and letter rental in Toronto and the GTA for a bright, memorable display built around the moment you are celebrating.',
+        'Planning a birthday, proposal, wedding, graduation, or business milestone? Reserve marquee number rental or marquee letters in Toronto and the GTA for a bright, memorable display built around the moment you are celebrating.',
         'Tell us the numbers or word you need, your event date and venue, and whether you would like balloons or a backdrop. We will confirm availability and help plan the setup.',
     ],
     'cta_button' => 'Get a Marquee Rental Quote',
