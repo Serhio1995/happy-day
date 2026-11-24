@@ -17,7 +17,8 @@ foreach($service_data['faq']??[] as $faq){
   <?php $service_hero_alt=$service_data['hero_alt']??$service_data['title']; ?>
   <section class="service-hero"><?php
     if(!empty($service_data['hero_asset'])){
-      printf('<img class="service-hero-bg" src="%s" alt="%s" loading="eager" fetchpriority="high" decoding="async">',esc_url(hd_theme_asset_image_url($service_data['hero_asset'])),esc_attr($service_hero_alt));
+      [$hero_w,$hero_h]=hd_theme_asset_image_size($service_data['hero_asset']);
+      printf('<img class="service-hero-bg" src="%s" alt="%s"%s loading="eager" fetchpriority="high" decoding="async">',esc_url(hd_theme_asset_image_url($service_data['hero_asset'])),esc_attr($service_hero_alt),$hero_w?sprintf(' width="%d" height="%d"',$hero_w,$hero_h):'');
     }elseif(!empty($service_data['hero_image'])){
       echo wp_get_attachment_image((int)$service_data['hero_image'],'full',false,['class'=>'service-hero-bg','loading'=>'eager','fetchpriority'=>'high','decoding'=>'async','sizes'=>'100vw','alt'=>$service_hero_alt]);
     }

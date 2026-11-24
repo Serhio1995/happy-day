@@ -297,6 +297,16 @@ add_filter('woocommerce_add_to_cart_fragments','hd_floating_cart_fragment');
 
 /* Prefer the generated WebP sibling when one exists on disk, for any
  * theme-bundled image referenced by its path relative to the theme root. */
+/* Width and height of a theme image as served (the .webp twin when present),
+   so <img> tags can reserve their space. */
+function hd_theme_asset_image_size($relative_path){
+  $relative_path=ltrim((string)$relative_path,'/');
+  $path=get_template_directory().'/'.$relative_path;
+  $webp_path=preg_replace('/\.[^.\/]+$/','.webp',$path);
+  if($webp_path&&is_file($webp_path)) $path=$webp_path;
+  $size=is_file($path)?@getimagesize($path):false;
+  return $size?[(int)$size[0],(int)$size[1]]:[0,0];
+}
 function hd_theme_asset_image_url($relative_path){
   $relative_path=ltrim((string)$relative_path,'/');
   $path=get_template_directory().'/'.$relative_path;
