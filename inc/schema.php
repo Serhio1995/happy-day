@@ -41,7 +41,7 @@ function hd_schema_defaults(){
     'region'      => 'ON',
     'postal'      => '',
     'country'     => 'CA',
-    'area_served' => 'Vaughan, North York, Richmond Hill, Toronto, Greater Toronto Area',
+    'area_served' => 'Toronto, North York, Vaughan, Woodbridge, Kleinburg, King City, Richmond Hill, Greater Toronto Area',
     'price_range' => '$$',
     'geo_lat'     => '',
     'geo_lng'     => '',
@@ -336,14 +336,17 @@ function hd_schema_service_graph($graph,$context){
     }
   }
 
-  $name=$service_data['title']??get_the_title($id);
+  /* A page can name its service plainly in 'schema' => ['name', 'service_type',
+   * 'offers'], instead of the marketing headline used as the H1. */
+  $schema_overrides=(array)($service_data['schema']??[]);
+  $name=$schema_overrides['name']??($service_data['title']??get_the_title($id));
   if($name==='') $name=$service_data['title']??'Balloon decoration';
 
   $service=[
     '@type'=>'Service',
     '@id'=>$service_id,
     'name'=>wp_strip_all_tags((string)$name),
-    'serviceType'=>'Balloon decoration',
+    'serviceType'=>$schema_overrides['service_type']??'Balloon decoration',
     'url'=>$permalink,
     'provider'=>$org_ref?['@id'=>$org_ref]:null,
     'areaServed'=>hd_schema_area_served(),
@@ -357,6 +360,27 @@ function hd_schema_service_graph($graph,$context){
 
   if(!empty($service_data['intro'][0])){
     $service['description']=wp_strip_all_tags((string)$service_data['intro'][0]);
+  }
+
+  /* Starting prices from inc/pricing.php, so schema and page always agree. */
+  if(!empty($schema_overrides['offers'])&&function_exists('hd_prices')){
+    $prices=hd_prices();
+    $offers=[];
+    foreach((array)$schema_overrides['offers'] as $key){
+      if(empty($prices[$key])) continue;
+      $offers[]=[
+        '@type'=>'Offer',
+        'name'=>$prices[$key]['item'],
+        'priceCurrency'=>'CAD',
+        'priceSpecification'=>array_filter([
+          '@type'=>'UnitPriceSpecification',
+          'price'=>hd_price_value($key),
+          'priceCurrency'=>'CAD',
+          'unitText'=>$prices[$key]['unit']??'',
+        ],'strlen'),
+      ];
+    }
+    if($offers) $service['offers']=$offers;
   }
   if(function_exists('hd_current_hero_image_url')){
     $image=hd_current_hero_image_url();
