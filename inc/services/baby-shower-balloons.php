@@ -72,7 +72,7 @@ return [
             'image_alt' => 'Themed balloon decoration for a baby shower',
             'paragraphs' => [
                 'Balloons for baby shower events can be customized to match almost any theme. Some clients want a soft and elegant look, while others prefer a cute themed setup with props, signs, animal figures, or playful colours.',
-                'Popular themes include teddy bear, baby in bloom, moon and stars, Oh Baby, little princess, little gentleman, safari, jungle, boho neutral, pink, blue, sage and beige, or white, gold and cream.',
+                'Popular themes include teddy bear, baby in bloom, moon and stars, Oh Baby, little princess, little gentleman, safari, jungle, boho neutral, pink, blue, sage and beige, or white, gold and cream. A hot air balloon baby shower is another favourite; see our ' . $link('blog/hot-air-balloon-party-decorations', 'hot air balloon party decorations') . ' guide for ideas.',
                 'If you already have inspiration photos, colours, or a theme name, we can help turn it into a balloon setup that fits your venue.',
             ],
         ],

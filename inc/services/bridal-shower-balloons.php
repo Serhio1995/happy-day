@@ -64,12 +64,12 @@ return [
             ],
         ],
         [
-            'title' => 'Bride-to-Be Balloon Decoration',
+            'title' => 'Bride-to-Be & Bachelorette Balloons',
             'class' => 'service-themes-section',
             'image' => 120,
             'paragraphs' => [
                 'Bride-to-be balloon decoration is perfect for creating a fun and beautiful area for photos, gifts, cake, and group moments. This can include a bride-to-be sign, balloon garland, backdrop, balloon bouquets, floral accents, and colour-matched decor.',
-                'We can create soft and elegant bride-to-be balloons for a classy bridal shower or something more playful for a pre-wedding celebration. A party-focused setup can include bachelorette-inspired colours, metallic balloons, heart details, or a bold photo area.',
+                'We can create soft and elegant bride-to-be balloons for a classy bridal shower or something more playful for a pre-wedding celebration. Bride balloons can carry her name, initials or the wedding date, and bachelorette balloons can go bolder with metallic finishes, heart details or a bright photo area for the whole group.',
                 'Every setup is tailored to the event rather than copied from a fixed theme, so the design feels right for the bride, venue, and celebration style.',
             ],
         ],

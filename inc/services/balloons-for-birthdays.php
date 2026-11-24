@@ -17,7 +17,7 @@ return [
 'Every birthday has a different mood. A first birthday may need soft colours, cute details, and a photo-ready cake table. A teen birthday may need bold colours, a trendy backdrop, or a themed balloon wall. An adult birthday may call for a more polished look with metallic balloons, elegant garlands, or a stylish backdrop.',
 'For milestone birthdays, we can include number balloons, custom colours, photo backdrops, balloon garlands, cake table decor, and entrance displays.'
 ],'lead'=>'We create birthday balloon decor for:','list'=>['1st birthdays and kids’ parties','Sweet 16 celebrations','18th birthday parties','30th, 40th, 50th, 60th, 75th, and 80th birthdays','Surprise birthday parties','Home birthday setups','Restaurant and banquet hall birthdays','Outdoor birthday celebrations','Themed birthday parties']],
-['title'=>'What We Can Create for Your Birthday Party','class'=>'service-options-section','paragraphs'=>[
+['title'=>'Birthday Balloon Decorations We Create','class'=>'service-options-section','paragraphs'=>[
 'Our birthday balloons can be simple or detailed depending on your event. Some clients need one beautiful focal point for photos. Others want multiple decor areas throughout the space.',
 'If you are not sure what works best, we can help you choose the right birthday balloon decoration based on your venue, guest count, photos, and budget.'
 ],'lead'=>'Popular options include:','list'=>['Birthday balloon garlands','Balloon arches for entrances or photo areas','Birthday balloon backdrops','Balloon walls and feature displays','Number balloon setups','Birthday cake table balloon decorations','Ceiling balloons for indoor parties','Themed birthday balloon decor','Balloon bouquets and room decoration','Balloon and flower accents']],

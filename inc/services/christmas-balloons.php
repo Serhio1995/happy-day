@@ -25,7 +25,7 @@ return [
             ],
         ],
         [
-            'title' => 'Xmas Balloon Decoration for Holiday Parties',
+            'title' => 'Xmas Balloon Decorations for Holiday Parties',
             'class' => 'ny-bg ny-bg-champagne',
             'list_style' => 'tags',
             'image' => 127,

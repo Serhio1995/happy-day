@@ -65,21 +65,21 @@ return [
             ],
         ],
         [
-            'title' => 'Wedding Backdrop Rental',
+            'title' => 'Wedding Backdrop Rental in Toronto',
             'class' => 'service-themes-section',
             'image' => 148,
             'paragraphs' => [
-                'Wedding backdrop rental is a strong choice for ceremony areas, sweetheart tables, receptions, photo zones, engagement parties, and bridal events. A wedding backdrop can create a clean focal point for photos and help define the most important area of the room.',
+                'Wedding backdrop rental in Toronto is a strong choice for ceremony areas, sweetheart tables, receptions, photo zones, engagement parties, and bridal events. A wedding backdrop can create a clean focal point for photos and help define the most important area of the room.',
                 'We can create wedding backdrop rentals with soft fabric, balloon accents, florals, signage, arches, or elegant colour palettes. Popular wedding colours include white, ivory, champagne, blush, nude, gold, silver, sage, and romantic neutral tones.',
                 'The scale and materials are planned around the venue, table placement, ceremony layout, and the type of photos you want to create.',
             ],
         ],
         [
-            'title' => 'Photo Backdrop Rental',
+            'title' => 'Photo & Photoshoot Backdrop Rental',
             'class' => 'service-room-section',
             'paragraphs' => [
                 'Photo backdrop rental is ideal when the goal is to create a polished space for pictures, content, and guest interaction. A backdrop helps make photos look more intentional, especially at events where people will be taking pictures throughout the celebration.',
-                'Photo backdrop rental can be used for birthdays, weddings, baby showers, bridal showers, corporate events, product displays, brand activations, family portraits, holiday events, social media content, and photoshoots.',
+                'Photo backdrop rental can be used for birthdays, weddings, baby showers, bridal showers, corporate events, product displays, brand activations, family portraits, holiday events, social media content, and photoshoots. For a photoshoot backdrop, we plan the size and colours around the camera angle, so the frame stays clean from edge to edge.',
                 'Send us the location, style, colour direction, and any inspiration photos. We can help recommend a backdrop style that fits the shoot or event.',
             ],
         ],

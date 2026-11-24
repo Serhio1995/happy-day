@@ -27,11 +27,11 @@ return [
             ],
         ],
         [
-            'title' => 'Bar & Bat Mitzvah Decoration for Party Spaces',
+            'title' => 'Bar Mitzvah & Bat Mitzvah Decorations for Party Spaces',
             'class' => 'service-age-section',
             'image' => 143,
             'paragraphs' => [
-                'Bar and Bat Mitzvah decoration can be refined, colourful, modern, playful, or built around a personal theme. Some families prefer a polished reception, while others choose bold colours, sports, music, gaming, travel, metallic details, or an immersive photo area.',
+                'Bar and Bat Mitzvah decoration can be refined, colourful, modern, playful, or built around a personal theme. Bar Mitzvah balloons and Bat Mitzvah balloons can follow the same palette or each have their own. Some families prefer a polished reception, while others choose bold colours, sports, music, gaming, travel, metallic details, or an immersive photo area.',
                 'Each setup is planned around the venue layout, guest flow, table placement, entertainment schedule, approved colours, and the places where family and friends will gather for photos.',
             ],
             'lead' => 'We create Bar and Bat Mitzvah decorations for:',
@@ -67,7 +67,7 @@ return [
             ],
         ],
         [
-            'title' => 'Bar & Bat Mitzvah Table Decor',
+            'title' => 'Bar Mitzvah & Bat Mitzvah Table Decorations',
             'class' => 'service-themes-section',
             'image' => 144,
             'paragraphs' => [
