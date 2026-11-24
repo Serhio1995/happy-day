@@ -73,15 +73,20 @@
   };
 
   const moreButton = section.querySelector('.service-gallery-more');
+  let moreShown = false;
   moreButton?.addEventListener('click', () => {
+    /* Build the extra cards once. The button is removed rather than hidden:
+       .hd-btn sets its own display, which overrides the hidden attribute. */
+    if (moreShown) return;
+    moreShown = true;
     const fragment = document.createDocumentFragment();
     moreItems.forEach((item, offset) => {
       fragment.append(buildCard(item, firstButtons.length + offset));
     });
     const firstNew = fragment.firstElementChild;
     grid.append(fragment);
-    moreButton.hidden = true;
     firstNew?.focus();
+    moreButton.remove();
   });
 
   const closeDialog = () => dialog.close();
