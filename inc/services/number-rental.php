@@ -58,7 +58,7 @@ return [
         ],
         [
             'title' => 'Marquee Letter Rental: LOVE, Marry Me, Names & Initials',
-            'class' => 'service-themes-section',
+            'class' => 'service-options-section',
             'paragraphs' => [
                 'Marquee letters spell out the moment itself. A light-up LOVE behind the sweetheart table, MARRY ME at a ' . $link('services/engagement-balloons', 'proposal') . ', a baby’s name at a shower or a company name at a launch turns a simple word into the main photo spot of the event.',
                 'Letters are ' . hd_price('letters') . ', so a word is easy to price before you book: LOVE is four letters, MARRY ME is seven. Tell us the word or name you want and we confirm the letters available for your date.',
@@ -74,25 +74,6 @@ return [
                 'Initials of the couple',
                 'A company or brand name',
                 'A short custom word',
-            ],
-        ],
-        [
-            'title' => 'Choose the Right Number Display',
-            'class' => 'service-options-section',
-            'paragraphs' => [
-                'The right number combination depends on the milestone, available floor space, guest flow, and the photos you want to create. We can help you decide whether one illuminated number or a multi-number display will fit the room best.',
-                'Availability is confirmed for your event date before booking. Share the exact numbers you need, where the display will be installed, and whether it will be styled alone or with additional decor.',
-            ],
-            'lead' => 'Number rental options may include:',
-            'list' => [
-                'Single illuminated numbers',
-                'Two-digit birthday ages',
-                'Anniversary year displays',
-                'Graduation year combinations',
-                'Business milestone numbers',
-                'Numbers beside a cake table',
-                'Numbers within a photo area',
-                'Numbers with a coordinated backdrop',
             ],
         ],
         [
@@ -114,6 +95,7 @@ return [
             'paragraphs' => [
                 'Our marquee numbers are 4 feet tall and stand on the floor, so they are noticed across a room and in every photo. Their scale works especially well in banquet halls, restaurants, condo party rooms, studios, offices, and larger home celebrations.',
                 'The display needs a stable, level position and suitable clearance around it. Plan for a nearby power outlet, and allow more wall or floor width for a longer word or a four-digit year than for a single age.',
+                'Not sure whether one number, two digits or a full word suits the room? Send the space and the photos you want, and we recommend a display that fits. Availability is confirmed for your date before booking.',
                 'Before confirming the rental, tell us about stairs, elevators, loading access, floor surface, venue restrictions, and the planned display area. These details help us prepare a safe and efficient installation.',
             ],
         ],
